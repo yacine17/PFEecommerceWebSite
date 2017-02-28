@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css import -->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper-container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 login-popup">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-o fa-stack-2x"></i>
+                <i class="fa fa-close fa-stack-1x white"></i>
+            </span>
+            <div class="sign-in">
+                <h2 class="h1 text-center">Se connecter</h2>
+                <form role="form">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Nom d'utilisateur:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name=username">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Mot de passe:</label>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name=motDePasse">
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <a>Vous n'avez pas encore de compte</a>
+                </div>
+            </div>
+            <div class="sign-up">
+                <h2 class="h1 text-center">S'inscrire</h2>
+                <form role="form">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Nom d'utilisateur:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name=username">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Mot de passe:</label>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name=motDePasse">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Confirmer mot de passe:</label>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name=confirmationMotDePasse">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Email:</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name=email">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Numero téléphone:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name=telephone">
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <a>Vous avez déjà un compte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container">
+        <div class="row" style="margin-top: 10px">
+            <a class="navbar-brand hvr-buzz-out" href="#">Lib<span>Shop</span>
+                <div class="slogon">'De la culture à revendre'</div></a>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ournavbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="ournavbar">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Informatique</a></li>
+                        <li><a href="#">Papeterie</a></li>
+                        <li><a href="#">Bureautique</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Promotion</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Passer commande</a></li>
+                <li><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></li>
+                <li><i class="fa fa-heart"><div class="number-elements">1</div></i></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="se-connecter">Se connecter</a></li></ul>
+        </div><!-- /.navbar-collapse -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+    </div><!-- /.container-fluid -->
+</nav>
+<!--End Navbar-->
+<!--Start Carousel-->
+    <div class="container">
+        <div>
+        <div id="myslide" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myslide" data-slide-to="0" class="active"></li>
+                <li data-target="#myslide" data-slide-to="1"></li>
+                <li data-target="#myslide" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="img/image-slide.jpg" alt="Image 1" class="center-block">
+                    <div class="carousel-caption">
+                        Premier slide exemple exemple exemple
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/img2.png" alt="Image 2" class="center-block">
+                    <div class="carousel-caption">
+                        Deuxieme slide exemple exemple exemple
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/img3.png" alt="Image 3" class="center-block">
+                    <div class="carousel-caption">
+                        Troisieme slide exemple exemple exemple
+                    </div>
+                </div>
+                ...
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myslide" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myslide" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        </div>
+        <div class="row text-center categories-home">
+            <a href="">
+                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                    <i class="fa fa-laptop fa-3x"></i>
+                    <h3>Informatique</h3>
+                    <h6>voir categorie</h6>
+                </div>
+            </a>
+            <a href="">
+                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                    <i class="fa fa-laptop fa-3x"></i>
+                    <h3>Informatique</h3>
+                    <h6>voir categorie</h6>
+                </div>
+            </a>
+            <a href="">
+                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                    <i class="fa fa-laptop fa-3x"></i>
+                    <h3>Informatique</h3>
+                    <h6>voir categorie</h6>
+                </div>
+            </a>
+        </div>
+    </div>
+<!--End Carousel-->
+<!--Start Search Bar-->
+    <div class="container">
+        <div class="row search-bar">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." autocomplete="on">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> </button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+    </div>
+<!--End Search Bar-->
+<!--Start Description-->
+    <div class="description">
+        <div class="container text-center lead">
+            <h2 class="h1">Description</h2>
+            <div class="col-md-4">
+                <i class="fa fa-list fa-3x"></i>
+                <h4>Commande</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-check-square-o fa-3x"></i>
+                <h4>Confirmation</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-truck fa-3x"></i>
+                <h4>Livraison</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+            </div>
+        </div>
+    </div>
+<!--End Description-->
+<!--Start Home-->
+    <div class="home">
+        <div class="container">
+            <div class="row text-center">
+                <!--Start Products Home-->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="product">
+                                <h4>Crayon de couleurs BIC</h4>
+                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product">
+                                <h4>Crayon de couleurs BIC</h4>
+                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product">
+                                <h4>Crayon de couleurs BIC</h4>
+                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Products Home-->
+                <div class="col-md-3">
+                    <div>
+                        <h3 class="text-left"><span>A la une</span></h3>
+                        <div>
+                            <img src="img/sac-a-dos-lv.jpg" alt="sac a dos LV">
+                            <p>Lorem ipsum dolor...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--End Home-->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myScript.js"></script>
+</body>
+</html>
