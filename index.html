@@ -1,81 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- css import -->
-    <link href="css/bootstrap.css" rel="stylesheet"/>
-    <link href="css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-
-    <!--[if lt IE 9]>
-    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
-    <![endif]-->
-</head>
 <body>
 <div class="wrapper-container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 login-popup">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 login-popup">
             <span class="fa-stack fa-lg">
                 <i class="fa fa-circle-o fa-stack-2x"></i>
                 <i class="fa fa-close fa-stack-1x white"></i>
             </span>
-            <div class="sign-in">
-                <h2 class="h1 text-center">Se connecter</h2>
-                <form role="form">
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Nom d'utilisateur:</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name=username">
+                <div class="sign-in">
+                    <h2 class="h1 text-center">Se connecter</h2>
+                    <form role="form">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Nom d'utilisateur:</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name=username" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Mot de passe:</label>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name=motDePasse">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Mot de passe:</label>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name=motDePasse" required>
+                            </div>
                         </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-success" value="Se connecter">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <a>Vous n'avez pas encore de compte</a>
                     </div>
-                </form>
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <a>Vous n'avez pas encore de compte</a>
                 </div>
-            </div>
-            <div class="sign-up">
-                <h2 class="h1 text-center">S'inscrire</h2>
-                <form role="form">
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Nom d'utilisateur:</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name=username">
+                <div class="sign-up">
+                    <h2 class="h1 text-center">Créer un compte</h2>
+                    <form role="form">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Nom d'utilisateur:</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name=username" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Mot de passe:</label>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name=motDePasse">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Mot de passe:</label>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name=motDePasse" required>
+                                <i class="show-pass fa fa-eye fa-2x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Confirmer mot de passe:</label>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name=confirmationMotDePasse">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Email:</label>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name=email" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Email:</label>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name=email">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-success" value="S'inscrire">
+                            </div>
                         </div>
+                    </form>
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <a>Vous avez déjà un compte</a>
                     </div>
-                    <div class="col-md-6 col-md-offset-3">
-                        <label>Numero téléphone:</label>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name=telephone">
-                        </div>
-                    </div>
-                </form>
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <a>Vous avez déjà un compte</a>
                 </div>
             </div>
         </div>
@@ -125,8 +114,8 @@
 </nav>
 <!--End Navbar-->
 <!--Start Carousel-->
-    <div class="container">
-        <div>
+<div class="container">
+    <div>
         <div id="myslide" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -168,114 +157,309 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        </div>
-        <div class="row text-center categories-home">
-            <a href="">
-                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <i class="fa fa-laptop fa-3x"></i>
-                    <h3>Informatique</h3>
-                    <h6>voir categorie</h6>
-                </div>
-            </a>
-            <a href="">
-                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <i class="fa fa-laptop fa-3x"></i>
-                    <h3>Informatique</h3>
-                    <h6>voir categorie</h6>
-                </div>
-            </a>
-            <a href="">
-                <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <i class="fa fa-laptop fa-3x"></i>
-                    <h3>Informatique</h3>
-                    <h6>voir categorie</h6>
-                </div>
-            </a>
-        </div>
     </div>
+    <div class="row text-center categories-home">
+        <a href="">
+            <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                <i class="fa fa-laptop fa-3x"></i>
+                <h3>Informatique</h3>
+                <h6>voir categorie</h6>
+            </div>
+        </a>
+        <a href="">
+            <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                <i class="fa fa-laptop fa-3x"></i>
+                <h3>Informatique</h3>
+                <h6>voir categorie</h6>
+            </div>
+        </a>
+        <a href="">
+            <div class="col-lg-4 col-md-6 col-xs-12 categorie">
+                <i class="fa fa-laptop fa-3x"></i>
+                <h3>Informatique</h3>
+                <h6>voir categorie</h6>
+            </div>
+        </a>
+    </div>
+</div>
 <!--End Carousel-->
 <!--Start Search Bar-->
-    <div class="container">
-        <div class="row search-bar">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..." autocomplete="on">
-                    <span class="input-group-btn">
+<div class="container">
+    <div class="row search-bar">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..." autocomplete="on">
+                <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-search"></i> </button>
                     </span>
-                </div><!-- /input-group -->
-            </div>
+            </div><!-- /input-group -->
         </div>
     </div>
+</div>
 <!--End Search Bar-->
-<!--Start Description-->
-    <div class="description">
-        <div class="container text-center lead">
-            <h2 class="h1">Description</h2>
-            <div class="col-md-4">
-                <i class="fa fa-list fa-3x"></i>
-                <h4>Commande</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fa fa-check-square-o fa-3x"></i>
-                <h4>Confirmation</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
-            </div>
-            <div class="col-md-4">
-                <i class="fa fa-truck fa-3x"></i>
-                <h4>Livraison</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
-            </div>
-        </div>
-    </div>
-<!--End Description-->
+
 <!--Start Home-->
-    <div class="home">
-        <div class="container">
-            <div class="row text-center">
-                <!--Start Products Home-->
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="product">
-                                <h4>Crayon de couleurs BIC</h4>
-                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product">
-                                <h4>Crayon de couleurs BIC</h4>
-                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product">
-                                <h4>Crayon de couleurs BIC</h4>
-                                <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+<div class="home">
+    <div class="container">
+        <h1 class="text-center">Nos produits</h1>
+        <a href="">Produits à la une</a>
+        <div class="row">
+            <!--Start Products Home-->
+
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
                         </div>
                     </div>
                 </div>
-                <!--End Products Home-->
-                <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
                     <div>
-                        <h3 class="text-left"><span>A la une</span></h3>
-                        <div>
-                            <img src="img/sac-a-dos-lv.jpg" alt="sac a dos LV">
-                            <p>Lorem ipsum dolor...</p>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=120&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId"
+                                    width="120" height="25" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true">
+                            </iframe>
+                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
+                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Products Home-->
     </div>
+</div>
+<!--Start Description-->
 <!--End Home-->
+<div class="description">
+    <div class="container text-center lead">
+        <h2 class="h1">Services</h2>
+        <div class="col-md-4">
+            <i class="fa fa-list fa-3x"></i>
+            <h4>Commande</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-check-square-o fa-3x"></i>
+            <h4>Confirmation</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-truck fa-3x"></i>
+            <h4>Livraison</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin nulla a efficitur aliquet.</p>
+        </div>
+    </div>
+</div>
+<!--End Description-->
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/myScript.js"></script>
+<!--Import facebook plugin-->
+
 </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- css import -->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
+</head>
 </html>
+<!--
+<div class="col-md-3">
+    <div class="product">
+        <h4>Crayon de couleurs BIC</h4>
+        <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+        <h5 class="text-right">Ref:#24a6b</h5>
+        <h5 class="text-left">CARACTERISTIQUES :</h5>
+        <ul class="text-left">
+            <li>Lorem ipsum dolor sit</li>
+            <li>consectetur adipiscing elit</li>
+            <li>Sed sollicitudin nulla</li>
+        </ul>
+        <h5 class="text-right">Prix: 500Da</h5>
+    </div>
+</div>-->

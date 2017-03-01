@@ -1,6 +1,8 @@
 /*Main rules*/
+h1{
+    margin-bottom: 40px;
+}
 body {
-    height: 5000px;
     margin-top: 50px;
     background: #E3E3E3;
 }
@@ -29,6 +31,12 @@ a:hover{ /*for a without href*/
 }
 .wrapper-container .login-popup .sign-up{
     display: none;
+}
+.wrapper-container .login-popup .sign-up .fa-eye{
+    position: absolute;
+    top: 27px;
+    right: -19px;
+    cursor: pointer;
 }
 .wrapper-container .login-popup .h1{
     font-weight: bold;
@@ -139,15 +147,40 @@ a:hover{ /*for a without href*/
 /*Start Home*/
 .home{
     padding-top: 60px;
+    background-color: #F6F6F6;
+    padding-bottom: 60px;
 }
 .home img{
     width: 100%;
-    padding: 10px 25px;
+    margin-bottom: 10px;
 }
-.home .product{
-    padding: 10px 0;
+.product{
+    padding: 10px;
     background: #FFF;
-    border-radius: 5px;
+    border-radius: 0;
     margin: 0 5px;
+    border: solid 1px #DDD;
+    margin: 20px 0;
+}
+.product .prix{
+    color: #e31711;
+    font-weight: bold;
+    font-size: 19px;
+}
+.product .buttons div, .product .buttons iframe{
+    display: inline;
+}
+.product .buttons .btn{
+    vertical-align: top;
+    height: 21px;
+    padding: 0 12px;
+    width: 51px;
+    color: #FFF;
+}
+.product .buttons .cart-add{
+    background: #F29B34;
+}
+.product .buttons .favorite{
+    background: #E3000E;
 }
 /*End Home*/
