@@ -64,7 +64,7 @@ a:hover{ /*for a without href*/
     border-radius: 0;
 }
 .navbar > .container .navbar-brand{
-    color: #fff;
+        color: #000;
     font-size: 2em;
     margin-bottom: 20px;
     font-family: MingLiU;
@@ -77,7 +77,7 @@ a:hover{ /*for a without href*/
     margin: 10px 0 10px 0;
 }
 .nav .fa{
-    color: #fff;
+    color: #777;
     padding: 9px 0 0 20px;
     font-size: 24px;
 }
@@ -95,20 +95,26 @@ a:hover{ /*for a without href*/
     position: relative;
     top:-27px;
     right: -20px;
+    color: #FFF;
 }
 
 /*End Navbar*/
+/*Start Search bar*/
+.search-bar{
+    margin: 150px 0 30px 0;
+}
+/*End Search Bar*/
 /*Start Slide*/
-#myslide{
-    margin-top: 120px;
+.slide{
+    padding-bottom: 70px;
 }
 #myslide img{
     max-width: 100%;
 }
-.slide{
+.slide .carousel{
     border: solid 20px #fff;
-    margin-top: 120px;
     border-radius: 15px 15px 0 0;
+    margin-top: 60px;
 }
 /*End Slide*/
 /*Start Categories home*/
@@ -132,12 +138,6 @@ a:hover{ /*for a without href*/
     background: #DDD;
 }
 /*End Categories home*/
-/*Start Search bar*/
-.search-bar{
-    padding: 70px 0 90px 0;
-
-}
-/*End Search bar*/
 /*Start Description*/
 .description{
     background: #F9F9F9;
