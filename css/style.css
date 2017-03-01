@@ -161,6 +161,14 @@ a:hover{ /*for a without href*/
     margin: 0 5px;
     border: solid 1px #DDD;
     margin: 20px 0;
+    height: 333px;
+    overflow: hidden;
+}
+.product:hover{
+    box-shadow: 1px 1px #AAA;
+}
+.product p{
+    font-weight: bold;
 }
 .product .prix{
     color: #e31711;
@@ -171,10 +179,7 @@ a:hover{ /*for a without href*/
     display: inline;
 }
 .product .buttons .btn{
-    vertical-align: top;
-    height: 21px;
-    padding: 0 12px;
-    width: 51px;
+    width: 32%;
     color: #FFF;
 }
 .product .buttons .cart-add{
@@ -183,4 +188,24 @@ a:hover{ /*for a without href*/
 .product .buttons .favorite{
     background: #E3000E;
 }
+.product .buttons .compare-add{
+    background-color: #71BA51;
+}
+.product > div{
+    height: 70px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+.product:hover > div{
+     transform: translateY(-100%);
+ }
 /*End Home*/
+
+/*.product .buttons{
+    transform: translateY(-100%);
+}
