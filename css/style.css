@@ -8,7 +8,6 @@ h1{
 body {
     margin-top: 50px;
     background: #E3E3E3;
-    height: 4000px;
 }
 /*Start Wrapper container*/
 a:hover{ /*for a without href*/
@@ -230,7 +229,8 @@ a:hover{ /*for a without href*/
 /*End Services*/
 /*Start footer*/
 .footer .panel-footer{
-    background-color: #CCC;
+    color: #66bfff;
+    background-color: #242729;
     padding: 10px 0 0 0;
 }
 .footer h3{
@@ -238,7 +238,7 @@ a:hover{ /*for a without href*/
 }
 .footer .fa{
     margin: 0 5px;
-    color: #555;
+    color: #BBB;
 }
 .footer a:hover .fa-facebook-square
 {
@@ -262,7 +262,11 @@ a:hover{ /*for a without href*/
 .footer #map{
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 300px;
+    height: 250px;
+}
+.footer .copyright, .footer .fa-copyright{
+    background-color: #111;
+    color: #FFF;
 }
 /*End footer*/
 #goToSearch{
