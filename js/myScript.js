@@ -34,3 +34,20 @@ $('.show-pass').hover(function () {
     },function () {
     $(this).parent().children().first().attr('type', 'password');
 })
+
+$(window).scroll(function () {
+    var search = $("#goToSearch");
+    if ($(this).scrollTop() >= 112)
+    {
+        search.show();
+    }
+    else
+    {
+        search.hide();
+    }
+})
+$("#goToSearch").on('click', function () {
+
+    $("html,body").animate({scrollTop : 60}, 600)
+    $("#searchBar").focus();
+})

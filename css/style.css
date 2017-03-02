@@ -264,3 +264,28 @@ a:hover{ /*for a without href*/
     width: 100%;
 }
 /*End footer*/
+#goToSearch{
+    color: #FFF;
+    background: #db4437;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 58px;
+    position: fixed;
+    top: 85%;
+    right: 3%;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 2px 2px #999;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+    display: none;
+}
+#goToSearch:hover{
+    height: 53px;
+    width: 53px;
+    background: #db4440;
+}
