@@ -8,6 +8,7 @@ h1{
 body {
     margin-top: 50px;
     background: #E3E3E3;
+    height: 4000px;
 }
 /*Start Wrapper container*/
 a:hover{ /*for a without href*/
@@ -260,8 +261,8 @@ a:hover{ /*for a without href*/
 }
 .footer #map{
     margin-top: 20px;
-    height: 400px;
-    width: 100%;
+    margin-bottom: 20px;
+    height: 300px;
 }
 /*End footer*/
 #goToSearch{
@@ -276,7 +277,7 @@ a:hover{ /*for a without href*/
     right: 3%;
     cursor: pointer;
     z-index: 2000;
-    box-shadow: 2px 2px #999;
+    box-shadow: 2px 2px 5px #777;
     -webkit-transition: all 200ms;
     -moz-transition: all 200ms;
     -ms-transition: all 200ms;

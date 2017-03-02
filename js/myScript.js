@@ -37,15 +37,12 @@ $('.show-pass').hover(function () {
 
 $(window).scroll(function () {
     var search = $("#goToSearch");
-    if ($(this).scrollTop() >= 112)
-    {
-        search.show();
-    }
-    else
-    {
-        search.hide();
-    }
+    console.log($(this).scrollTop());
+
+    $(this).scrollTop() >= 112 ? search.show() : search.hide();
+    $(this).scrollTop() >= 40 ? $(".navbar").css('box-shadow', '2px 1px 10px #999') : $(".navbar").css('box-shadow', 'none');
 })
+
 $("#goToSearch").on('click', function () {
 
     $("html,body").animate({scrollTop : 60}, 600)
