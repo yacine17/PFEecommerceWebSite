@@ -228,6 +228,10 @@ a:hover{ /*for a without href*/
 }
 /*End Services*/
 /*Start footer*/
+.footer .panel-footer{
+    background-color: #CCC;
+    padding: 10px 0 0 0;
+}
 .footer h3{
     margin-bottom: 20px;
 }
@@ -253,5 +257,10 @@ a:hover{ /*for a without href*/
     color: #FFF;
     border-radius: 5px;
 
+}
+.footer #map{
+    margin-top: 20px;
+    height: 400px;
+    width: 100%;
 }
 /*End footer*/
