@@ -1,9 +1,15 @@
 /**
  * Created by Yacine on 24/02/2017.
  */
+/**
+ * Fermer la fenetre superposée du login en cliquant sur le X
+ */
 $('.wrapper-container .login-popup .fa-stack').on('click', function () {
     $(".wrapper-container").hide();
 });
+/**
+ * Afficher la fenetre superposée du login en cliqunat sur se connecter
+ */
 $('.se-connecter').on('click', function () {
     $(".wrapper-container").show();
 });
@@ -34,15 +40,18 @@ $('.show-pass').hover(function () {
     },function () {
     $(this).parent().children().first().attr('type', 'password');
 })
-
+/**
+ * Afficher le bouton qui redirige l'utilisateur vers la barre de recherche
+ * et afficher l'ombre du navbar
+ */
 $(window).scroll(function () {
     var search = $("#goToSearch");
-    console.log($(this).scrollTop());
-
     $(this).scrollTop() >= 112 ? search.show() : search.hide();
     $(this).scrollTop() >= 40 ? $(".navbar").css('box-shadow', '2px 1px 10px #999') : $(".navbar").css('box-shadow', 'none');
 })
-
+/**
+ * Rediriger l' utilisateur vers la barre de recherche en cliquant sur le bouton en bas a droite
+ */
 $("#goToSearch").on('click', function () {
 
     $("html,body").animate({scrollTop : 60}, 600)

@@ -269,6 +269,7 @@ a:hover{ /*for a without href*/
     color: #FFF;
 }
 /*End footer*/
+/*Start Search button*/
 #goToSearch{
     color: #FFF;
     background: #db4437;
@@ -293,4 +294,28 @@ a:hover{ /*for a without href*/
     height: 53px;
     width: 53px;
     background: #db4440;
+}
+/*End Search Button*/
+/*Start Filter*/
+.filter, .contenu-panier{
+    margin-top: 150px;
+    padding-bottom: 50px;
+}
+/*End Filter*/
+/*Start Panier*/
+.contenu-panier .tab{
+    overflow-x: scroll;
+    margin-bottom: 40px;
+}
+.table img{
+    height: 150px;
+    width: 150px;
+}
+.table .form-control{
+    width: 70px;
+}
+.table > thead > tr > th, .table > tbody > tr > th,
+.table > tfoot > tr > th, .table > thead > tr > td,
+.table > tbody > tr > td, .table > tfoot > tr > td{
+    vertical-align: middle;
 }
