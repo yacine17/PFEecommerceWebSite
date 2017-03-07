@@ -57,3 +57,18 @@ $("#goToSearch").on('click', function () {
     $("html,body").animate({scrollTop : 60}, 600)
     $("#searchBar").focus();
 })
+/**
+ *
+ */
+$(".article-favori").on('click', function () {
+    if (confirm("Etes vous sur de vouloir supprimer cet article de votre liste des favoris?"))
+    {
+        $(this).css('color', '#FFF');
+        //$(this).parent().parent().fadeOut(600);
+    }
+})
+
+$(".retirer-produit").on('click', function () {
+    if (confirm("Etes vous sur de vouloir supprimer cet article de votre panier?"))
+        $(this).parent().parent().fadeOut();
+})

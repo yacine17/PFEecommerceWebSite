@@ -52,16 +52,16 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-3">
+                            <label>Email:</label>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name=email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
                             <label>Mot de passe:</label>
                             <div class="form-group">
                                 <input type="password" class="form-control" name=motDePasse" required>
                                 <i class="show-pass fa fa-eye fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Email:</label>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name=email" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-3">
@@ -107,10 +107,10 @@
                     </ul>
                 </li>
                 <li><a href="#">Promotion</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="#">Passer commande</a></li>
-                <li><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></li>
-                <li><i class="fa fa-heart"><div class="number-elements">1</div></i></li>
+                <li><a href="panier.html" class="fa-parent"><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></a></li>
+                <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3</div></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="se-connecter">Se connecter</a></li></ul>
@@ -214,7 +214,28 @@
         <a href="">Produits à la une...</a>
         <div class="row">
             <!--Start Products Home-->
-
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                            <div class="buttons">
+                                <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                                <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                                <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                                <div>
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                            width="220" height="65" style="border:none;overflow:hidden"
+                                            scrolling="no" frameborder="0" allowTransparency="true"
+                                            class="text-center"></iframe>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div class="product">
                     <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
@@ -222,9 +243,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -236,9 +265,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -250,23 +287,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="product">
-                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
-                    <div>
-                        <p>Crayon de couleurs BIC</p>
-                        <h5 class="prix text-right">500DA</h5>
-                        <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,9 +311,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -294,9 +333,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -308,9 +355,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -322,9 +377,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,9 +402,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -353,9 +424,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -367,9 +446,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -381,9 +468,17 @@
                         <p>Crayon de couleurs BIC</p>
                         <h5 class="prix text-right">500DA</h5>
                         <div class="buttons">
-                            <button class="btn cart-add"><i class="fa fa-cart-plus"></i></button>
-                            <button class="btn favorite"><i class="fa fa-heart"></i> </button>
-                            <button class="btn compare-add"><i class="fa fa-plus-square"></i> </button>
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>

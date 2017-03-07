@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Panier</title>
+    <title>Contact</title>
     <!-- css import -->
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" rel="stylesheet"/>
@@ -107,9 +107,9 @@
                     </ul>
                 </li>
                 <li><a href="#">Promotion</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="active"><a href="contact.html">Contact <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Passer commande</a></li>
-                <li class="active"><a href="panier.html" class="fa-parent"><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></a></li>
+                <li><a href="panier.html" class="fa-parent"><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></a></li>
                 <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3</div></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -118,70 +118,32 @@
     </div>
 </nav>
 <!--End Navbar-->
-<div class="contenu-panier">
+<div class="contact">
     <div class="container">
-        <h1 class="text-center">VOTRE PANIER</h1>
-        <div class="tab">
-        <table class="table">
-            <tr>
-                <th>#</th>
-                <th colspan="2">PRODUIT</th>
-                <th>Prix unitaire</th>
-                <th>Quantité</th>
-                <th>Prix Total</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td><img src="img/cryaon-de-couleurs-bic.jpg"/></td>
-                <td><h4>Crayon de couleur BIC</h4>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </td>
-                <td>120DA</td>
-                <td><input type="number" min="0" value="3" class="form-control"></td>
-                <td>360DA</td>
-                <td><button class="btn btn-danger retirer-produit"><i class="fa fa-trash"></i> Retirer</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><img src="img/cryaon-de-couleurs-bic.jpg"/></td>
-                <td><h4>Crayon de couleur BIC</h4>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </td>
-                <td>120DA</td>
-                <td><input type="number" min="0" value="2" class="form-control"></td>
-                <td>240DA</td>
-                <td><button class="btn btn-danger retirer-produit"><i class="fa fa-trash"></i> Retirer</button></td>
-            </tr>
-        </table>
-        </div>
+        <h1 class="text-center">NOUS CONTACTER</h1>
         <div class="row">
-            <div class=" col-md-4">
-                <div class="form-group">
-                <label class="input-group" for="ajouterArticle">Ajouter un article au panier</label>
-                    <input type="text" id="ajouterArticle" class="form-control">
+            <form role="form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg " placeholder="Nom">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Prenom">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Email">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-md-offset-4">
-                <p>Total produit : 600DA</p>
-                <p>Total frais de port : 150DA</p>
-                <p class="lead">Total : <strong>750DA</strong></p>
-                    <button class="btn btn-success">Passer la commande</button>
-                    <button class="btn btn-danger retirer-produit">Vider le panier</button>
-            </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea class="form-control input-lg" placeholder="Tapez votre message"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-danger  btn-lg btn-block">Envoyer</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-
-
 <!--Start Footer-->
 <div class="footer">
     <div class="panel-footer">
@@ -215,7 +177,20 @@
                 </div>
             </div>
             <div class="row">
-                <div id="map" class="col-md-6">
+                <div class="col-md-6">
+                    <h3>Ou nous trouver ?</h3>
+                    <div id="map">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Coordonnées</h3>
+                    <ul class="list-unstyled">
+                        <li>Adresse :</li>
+                        <li>Tél :</li>
+                        <li>email :</li>
+                        <li>Skype :</li>
+                        <p>Ouvert du samedi au jeudi de 9h-12h et 13h30-18h</p>
+                    </ul>
                 </div>
             </div>
         </div>

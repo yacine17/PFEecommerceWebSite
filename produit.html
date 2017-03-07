@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produit</title>
+    <!-- css import -->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrapper-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 login-popup">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-o fa-stack-2x"></i>
+                <i class="fa fa-close fa-stack-1x white"></i>
+            </span>
+                <div class="sign-in">
+                    <h2 class="h1 text-center">Se connecter</h2>
+                    <form role="form">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Nom d'utilisateur:</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name=username" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Mot de passe:</label>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name=motDePasse" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-success" value="Se connecter">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <a>Vous n'avez pas encore de compte</a>
+                    </div>
+                </div>
+                <div class="sign-up">
+                    <h2 class="h1 text-center">Créer un compte</h2>
+                    <form role="form">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Nom d'utilisateur:</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name=username" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Email:</label>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name=email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Mot de passe:</label>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name=motDePasse" required>
+                                <i class="show-pass fa fa-eye fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-success" value="S'inscrire">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <a>Vous avez déjà un compte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+        <div class="row">
+            <a class="navbar-brand hvr-buzz-out" href="#">Lib<span>Shop</span>
+                <div class="slogon">'De la culture à revendre'</div></a>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ournavbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="ournavbar">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="index.html">Accueil <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="categorie.html">Papeterie</a></li>
+                        <li><a href="categorie.html">Bureautique</a></li>
+                        <li><a href="categorie.html">Informatique</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Promotion</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Passer commande</a></li>
+                <li><a href="panier.html" class="fa-parent"><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></a></li>
+                <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3</div></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="se-connecter">Se connecter</a></li></ul>
+        </div><!-- /.navbar-collapse -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--End Navbar-->
+<!--Start Search Bar-->
+<div class="container">
+    <div class="row search-bar">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..." autocomplete="on" id="searchBar">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> </button>
+                    </span>
+            </div><!-- /input-group -->
+        </div>
+    </div>
+</div>
+<!--End Search Bar-->
+<div class="detail-produit">
+    <div class="container">
+        <p><strong>catégorie: </strong><a href="">Informatique </a>&gt; <a href="">Laptop </a></p>
+        <div class="row">
+            <div class="col-md-4 image-produit">
+                <div>
+                    <img src="img/sac-a-dos-lv.jpg">
+                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                 w_faces=false&share=true&height=65&appId"
+                            width="220" height="65" style="border:none;overflow:hidden"
+                            scrolling="no" frameborder="0" allowTransparency="true"
+                            class="text-center"></iframe>
+                </div>
+            </div>
+            <div class="col-md-8 cara-produit">
+                <h1>Sac à dos LV</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Prix : 1500DA</h3>
+                        <h3>Caractéristiques</h3>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <button class="btn "><i class="fa fa-cart-plus"></i>Ajouter au panier</button>
+                        </div>
+                        <div>
+                            <button class="btn "><i class="fa fa-heart"></i>Ajouter au panier</button>
+                            <button class="btn "><i class="fa fa-plus-square"></i>Ajouter au comparateur</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Start Home-->
+<div class="home">
+    <div class="container">
+        <h2 class="text-left">Produits similaires</h2>
+        <div class="row">
+            <!--Start Products Home-->
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="product">
+                    <img src="img/cryaon-de-couleurs-bic.jpg" alt="crayon de couleurs BIC">
+                    <div>
+                        <p>Crayon de couleurs BIC</p>
+                        <h5 class="prix text-right">500DA</h5>
+                        <div class="buttons">
+                            <a class="cart-add"><i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
+                            <a class="favorite"><i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
+                            <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
+                            <div>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
+                                    .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
+                                    w_faces=false&share=true&height=65&appId"
+                                        width="220" height="65" style="border:none;overflow:hidden"
+                                        scrolling="no" frameborder="0" allowTransparency="true"
+                                        class="text-center"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Products Home-->
+    </div>
+</div>
+<!--End Home-->
+
+<!--Start Footer-->
+<div class="footer">
+    <div class="panel-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Nous suivre sur les réseaux sociaux</h3>
+                    <a href=""><i class="fa fa-facebook-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-twitter-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-google-plus-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="newsletter">
+                        <h3>Inscription à la newsletter</h3>
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="emailNewsletter" palceholder="Entrez-votre e-mail">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="submit" class="form-control" value="S'abonner">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="map" class="col-md-6">
+                </div>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <i class="fa fa-copyright"></i> All COPYRIGHT RESERVED 2017
+        </div>
+    </div>
+</div>
+<!--End Footer-->
+<div id="goToSearch" class="text-center">
+    <i class="fa fa-search fa-2x"></i>
+</div>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/myScript.js"></script>
+<script>
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+</body>
+</html>
