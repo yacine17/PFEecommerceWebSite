@@ -2,18 +2,19 @@
 .fb-plugin{
     padding-left: 23%;
 }
+h1{
+    color: #42729B;
+}
+.btn-danger{
+    background-color: #E41B17;
+}
 /*Main rules*/
 .navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a > i,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus{
     background-color: #FF8600;
     color: #FFFFFF;
-}
-h1{
-    margin-bottom: 40px;
-}
-.h1{
-    margin-bottom: 60px;
 }
 body {
     margin-top: 50px ;
@@ -46,8 +47,14 @@ a:hover{ /*for a without href*/
     color: #FFF;
     padding-bottom: 20px;
 }
+.wrapper-container .login-popup h2{
+    margin-bottom: 40px;
+}
 .wrapper-container .login-popup .sign-up{
     display: none;
+}
+.wrapper-container .login-popup .btn{
+    background-color: #31A3FF;
 }
 .wrapper-container .login-popup .sign-up .fa-eye{
     position: absolute;
@@ -60,9 +67,9 @@ a:hover{ /*for a without href*/
     margin-top: 0;
 }
 .wrapper-container .login-popup .form-control{
-    background-color: rgba(82, 78, 78, 0.6);
+    /*background-color: rgba(82, 78, 78, 0.6);
     border: none;
-    color: #FFF;
+    color: #FFF;*/
 }
 .wrapper-container .login-popup .fa-stack{
     position: relative;
@@ -157,6 +164,11 @@ a:hover{ /*for a without href*/
 .categories-home .categorie:hover{
     background: #DDD;
 }
+.filter .chemin,
+.home .chemin{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
 /*End Categories home*/
 /*Start Home*/
 .home{
@@ -172,9 +184,8 @@ a:hover{ /*for a without href*/
     padding: 10px 10px 0 10px;
     background: #FFF;
     border-radius: 0;
-    margin: 0 5px;
     border: solid 1px #DDD;
-    margin: 20px 0;
+    margin: 20px 5px;
     /*height: 333px;*/
     overflow: hidden;
 }
@@ -201,7 +212,6 @@ a:hover{ /*for a without href*/
     background-color: rgba(255, 255, 255, 0.8);
     -webkit-transition: all 300ms;
     -moz-transition: all 300ms;
-    -ms-transition: all 300ms;
     -o-transition: all 300ms;
     transition: all 300ms;
 }
@@ -245,22 +255,21 @@ a:hover{ /*for a without href*/
 }
 .footer .fa{
     margin: 0 5px;
-    color: #BBB;
 }
-.footer a:hover .fa-facebook-square
+.footer a .fa-facebook-square
 {
     color: #3b5998;
 }
-.footer a:hover .fa-twitter-square{
+.footer a .fa-twitter-square{
     color: #3B94D9;
 }
-.footer a:hover .fa-google-plus-square{
+.footer a .fa-google-plus-square{
     color: #db4437;
 }
 .footer a .fa-instagram{
     padding: 0 3px;
 }
-.footer a:hover .fa-instagram{
+.footer a .fa-instagram{
     background: linear-gradient(135deg, #EA5C54 0%, #bb6dec 100%);
     color: #FFF;
     border-radius: 5px;
@@ -292,7 +301,6 @@ a:hover{ /*for a without href*/
     box-shadow: 2px 2px 5px #777;
     -webkit-transition: all 200ms;
     -moz-transition: all 200ms;
-    -ms-transition: all 200ms;
     -o-transition: all 200ms;
     transition: all 200ms;
     display: none;
@@ -312,6 +320,11 @@ a:hover{ /*for a without href*/
 .contenu-panier .tab{
     overflow-x: scroll;
     margin-bottom: 40px;
+    background-color: #FFF;
+    border: solid 1px #CCC;
+}
+.contenu-panier .tab:hover{
+    box-shadow: 1px 1px #AAA;
 }
 .table img{
     height: 150px;
@@ -329,6 +342,9 @@ a:hover{ /*for a without href*/
 /*Start Contact*/
 .contact textarea{
     height: 107px;
+}
+.contact h1{
+    margin-bottom: 50px;
 }
 /*End Contact*/
 /*Start detail produit*/
