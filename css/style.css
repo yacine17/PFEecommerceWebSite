@@ -399,3 +399,11 @@ a:hover{ /*for a without href*/
     color: #E41B17 !important;
 }
 /*End detail produit*/
+/*Start passer commande */
+.passer-commande{
+    margin: 20px 0 40px 0;
+}
+.passer-commande textarea{
+    height: 112px;
+}
+/*End passer commande*/
