@@ -139,20 +139,15 @@
             <div class="col-md-4 image-produit">
                 <div>
                     <img src="img/sac-a-dos-lv.jpg">
-                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers
-                                .facebook.com%2Fdocs%2Fplugins%2F&width=220&layout=button&action=like&size=small&sho
-                                 w_faces=false&share=true&height=65&appId"
-                            width="220" height="65" style="border:none;overflow:hidden"
-                            scrolling="no" frameborder="0" allowTransparency="true"
-                            class="text-center"></iframe>
+
                 </div>
             </div>
             <div class="col-md-8 cara-produit">
                 <h1>Sac à dos LV</h1>
                 <div class="row">
-                    <div class="col-md-6">
-                        <h3>Prix : 1500DA</h3>
-                        <h3>Caractéristiques</h3>
+                    <div>
+                        <h3>Prix : <span class="prix">1500 DA</span></h3>
+                        <h3>Caractéristiques:</h3>
                         <ul>
                             <li></li>
                             <li></li>
@@ -160,14 +155,15 @@
                             <li></li>
                             <li></li>
                         </ul>
-                    </div>
-                    <div class="col-md-6">
                         <div>
-                            <button class="btn "><i class="fa fa-cart-plus"></i>Ajouter au panier</button>
-                        </div>
-                        <div>
-                            <button class="btn "><i class="fa fa-heart"></i>Ajouter au panier</button>
-                            <button class="btn "><i class="fa fa-plus-square"></i>Ajouter au comparateur</button>
+                            <span class="add-to-favorite" title="Ajouter au favoris">
+                                <span class="fa-stack fa-lg">
+                                <i class="fa fa-heart fa-stack-2x"></i>
+                                <i class="fa fa-heart-o fa-stack-2x"></i>
+                                </span>
+                            </span>
+                            <button class="btn btn-warning"><i class="fa fa-cart-plus"></i> Ajouter au panier</button>
+                            <button class="btn btn-primary"><i class="fa fa-plus-square"></i> Ajouter au comparateur</button>
                         </div>
                     </div>
                 </div>
@@ -299,7 +295,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <input type="submit" class="form-control" value="S'abonner">
+                                        <input type="submit" class="form-control btn-primary" value="S'abonner">
                                     </div>
                                 </div>
                             </div>

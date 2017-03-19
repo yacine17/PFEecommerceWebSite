@@ -46,7 +46,7 @@ $('.show-pass').hover(function () {
  */
 $(window).scroll(function () {
     var search = $("#goToSearch");
-    $(this).scrollTop() >= 112 ? search.show() : search.hide();
+    $(this).scrollTop() >= 60 ? search.show() : search.hide();
     $(this).scrollTop() >= 40 ? $(".navbar").css('box-shadow', '2px 1px 10px #999') : $(".navbar").css('box-shadow', 'none');
 })
 /**
@@ -54,7 +54,7 @@ $(window).scroll(function () {
  */
 $("#goToSearch").on('click', function () {
 
-    $("html,body").animate({scrollTop : 60}, 600)
+    $("html,body").animate({scrollTop : 0}, 600)
     $("#searchBar").focus();
 })
 /**
@@ -71,4 +71,11 @@ $(".article-favori").on('click', function () {
 $(".retirer-produit").on('click', function () {
     if (confirm("Etes vous sur de vouloir supprimer cet article de votre panier?"))
         $(this).parent().parent().fadeOut();
+})
+
+$(".detail-produit .cara-produit .add-to-favorite").on('click', function () {
+    if ($(this).find(".fa").hasClass("added-to-favorite"))
+        $(this).find(".fa").removeClass("added-to-favorite");
+    else
+        $(this).find(".fa").addClass("added-to-favorite");
 })
