@@ -46,16 +46,17 @@ a:hover{ /*for a without href*/
     width: 100%;
     height: 100%;
     z-index: 1050;
-    padding-top: 100px;
     display: none;
 }
 .wrapper-container .login-popup{
+    margin-top: 100px;
     background: #232f3e;
     min-height: 400px;
     border-radius: 5px;
     box-shadow: 2px 2px 0 0 #000;
     color: #FFF;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 .wrapper-container .login-popup h2{
     margin-bottom: 40px;
@@ -72,19 +73,24 @@ a:hover{ /*for a without href*/
     right: -19px;
     cursor: pointer;
 }
+@media only screen and (max-width: 768px) {
+    .wrapper-container .login-popup{
+        margin-top: 20px;
+    }
+    .wrapper-container .login-popup .fa-eye{
+        right: -11px !important;
+        top: 31px !important;
+        font-size: 21px;
+    }
+}
 .wrapper-container .login-popup .h1{
     font-weight: bold;
     margin-top: 0;
 }
-.wrapper-container .login-popup .form-control{
-    /*background-color: rgba(82, 78, 78, 0.6);
-    border: none;
-    color: #FFF;*/
-}
 .wrapper-container .login-popup .fa-stack{
-    position: relative;
-    top: -4%;
-    right: -99%;
+    position: absolute;
+    top: -3%;
+    right: -3%;
     background: #FFF;
     border-radius: 50%;
     color: #000;
@@ -134,7 +140,6 @@ a:hover{ /*for a without href*/
     right: -20px;
     color: #FFF;
 }
-
 /*End Navbar*/
 /*Start Search bar*/
 .search-bar{
@@ -348,6 +353,10 @@ a:hover{ /*for a without href*/
 }
 .table .form-control{
     width: 70px;
+}
+.table input[type="number"]{
+    display: inline;
+    margin-right: 15px;
 }
 .table > thead > tr > th, .table > tbody > tr > th,
 .table > tfoot > tr > th, .table > thead > tr > td,

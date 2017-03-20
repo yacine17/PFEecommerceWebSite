@@ -48,6 +48,7 @@ $(window).scroll(function () {
     var search = $("#goToSearch");
     $(this).scrollTop() >= 60 ? search.show() : search.hide();
     $(this).scrollTop() >= 40 ? $(".navbar").css('box-shadow', '2px 1px 10px #999') : $(".navbar").css('box-shadow', 'none');
+    $(this).scrollTop() >= 40 ? $(".navbar .container .row").fadeOut() : $(".navbar .container .row").fadeIn();
 })
 /**
  * Rediriger l' utilisateur vers la barre de recherche en cliquant sur le bouton en bas a droite
