@@ -373,11 +373,16 @@ a:hover{ /*for a without href*/
     margin-bottom: 20px;
 }
 .detail-produit .btn{
-    margin-left: 15px;
+    margin-right: 15px;
 }
 .detail-produit .cara-produit{
     padding-left: 30px;
     padding-bottom: 30px;
+}
+.detail-produit .cara-produit .buttons{
+    display: inline;
+    float: right;
+    margin-right: 30px;
 }
 .detail-produit .cara-produit .btn i{
     font-size: 22px;
