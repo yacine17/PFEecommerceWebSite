@@ -21,8 +21,7 @@ class Config
     /**
      * @return Config Instance qui contient tt les configs du site
      */
-    public static function getInstance()
-    {
+    public static function getInstance() {
         if (self::$instanse === null)
         {
             self::$instanse = new Config();
@@ -34,13 +33,11 @@ class Config
      * Config constructor.
      * La classe Config est singleton
      */
-    private function __construct()
-    {
+    private function __construct() {
         $this->settings = require dirname(__DIR__) . '\config\config.php';
     }
 
-    public function get($key)
-    {
+    public function get($key) {
         if (isset($this->settings[$key]))
             return $this->settings[$key];
         else
@@ -50,8 +47,7 @@ class Config
     /**
      * @return Database Instance de la base de donnée
      */
-    public function getDatabase()
-    {
+    public function getDatabase() {
         if ($this->db === null)
         {
             $this->db = new Database($this->settings['DB_NAME'], $this->settings['DB_USER'], $this->settings['DB_PASS'], $this->settings['DB_HOST']);
