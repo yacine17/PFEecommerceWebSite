@@ -27,7 +27,7 @@ h1, .h1{
     color: #FFFFFF;
 }
 body {
-    margin-top: 50px ;
+    padding-top: 160px;
     background: #E3E3E3;
 }
 .article-favori{
@@ -143,11 +143,12 @@ a:hover{ /*for a without href*/
 /*End Navbar*/
 /*Start Search bar*/
 .search-bar{
-    margin: 110px 0 10px 0
+    margin: 20px
 }
 /*End Search Bar*/
 /*Start Slide*/
 .slide{
+    margin-top: 40px;
     padding-bottom: 70px;
 }
 #myslide img{
@@ -156,7 +157,6 @@ a:hover{ /*for a without href*/
 .slide .carousel{
     border: solid 20px #fff;
     border-radius: 15px 15px 0 0;
-    margin-top: 60px;
 }
 /*End Slide*/
 /*Start Categories home*/
@@ -333,7 +333,6 @@ a:hover{ /*for a without href*/
 /*End Search Button*/
 /*Start Filter*/
 .filter, .contenu-panier, .contact{
-    margin-top: 150px;
     padding-bottom: 50px;
 }
 /*End Filter*/
