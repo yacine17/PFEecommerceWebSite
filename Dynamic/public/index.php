@@ -10,14 +10,15 @@ require '..\app\Autoloader.php';
 app\Autoloader::register();
 if (isset($_GET['do'])) {
     $do = $_GET['do'];
-}
-else {
+} else {
     $do = 'home';
 }
 ob_start();
-if ($do == 'home')
-{
-    require '../pages/home.php';
+if ($do == 'home') {
+    require '../pages/accueil.php';
+} elseif ($do == 'cat'){
+    require '../pages/categorie.php';
 }
 $content = ob_get_clean();
 require '../pages/templates/header.php';
+require '../pages/templates/footer.php';

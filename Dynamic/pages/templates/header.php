@@ -9,7 +9,7 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Accueil</title>
+        <title><?= \app\App::getInstance()->title ?></title>
         <!-- css import -->
         <link href="css/bootstrap.css" rel="stylesheet"/>
         <link href="css/font-awesome.min.css" rel="stylesheet"/>
@@ -89,7 +89,7 @@
     <nav class="navbar navbar-default navbar-fixed-top ">
         <div class="container">
             <div class="row">
-                <a class="navbar-brand hvr-buzz-out" href="#">Lib<span>Shop</span>
+                <a class="navbar-brand hvr-buzz-out" href="#">Lib<span>Tech</span>
                     <div class="slogon">'De la culture à revendre'</div></a>
             </div>
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -108,8 +108,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="categorie.html">Papeterie</a></li>
-                            <li><a href="categorie.html">Bureautique</a></li>
+                            <li><a href="index.php?do=cat">Papeterie</a></li>
+                            <li><a href="index.php?do=cat">Bureautique</a></li>
                             <li><a href="categorie.html">Informatique</a></li>
                         </ul>
                     </li>
