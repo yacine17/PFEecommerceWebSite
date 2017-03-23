@@ -21,4 +21,7 @@ if ($do == 'home') {
 }
 $content = ob_get_clean();
 require '../pages/templates/header.php';
+require '../pages/templates/login.php';
+require '../pages/templates/navbar.php';
+echo $content;
 require '../pages/templates/footer.php';
