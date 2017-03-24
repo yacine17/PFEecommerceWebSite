@@ -8,7 +8,7 @@
 
 namespace app;
 
-
+use PDO;
 class Database
 {
     private $db_name;
@@ -64,14 +64,17 @@ class Database
      * @param bool $oneOnly
      * @return array|mixed
      */
-    public function prepare($statement, $param, $class, $oneOnly = false) {
+    public function prepare($statement, $param, $class = null, $oneOnly = false) {
         $req = $this->getPDO()->prepare($statement);
         $req->execute($param);
-        $req->setFetchMode(PDO::FETCH_CLASS, $class);
-        if ($oneOnly)
-            return $req->fetch();
-        else
-            return $req->fetchAll();
+        if (strpos($statement, 'SELECT') === 0)// si la requete commence par SELECT
+        {
+            $req->setFetchMode(PDO::FETCH_CLASS, $class);
+            if ($oneOnly)
+                return $req->fetch();
+            else
+                return $req->fetchAll();
+        }
     }
 
 }
