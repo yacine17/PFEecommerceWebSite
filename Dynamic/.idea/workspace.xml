@@ -12,14 +12,24 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Personne.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/classes/Personne.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="116" />
+            <state relative-caret-position="1091">
+              <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
               <folding>
+                <element signature="e#283#445#0#PHP" expanded="false" />
+                <element signature="e#450#935#0#PHP" expanded="false" />
                 <element signature="e#941#973#0#PHP" expanded="false" />
                 <element signature="e#978#1039#0#PHP" expanded="false" />
                 <element signature="e#1045#1080#0#PHP" expanded="false" />
@@ -49,10 +59,68 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CategorieTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Table/CategorieTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+              <folding>
+                <element signature="e#182#348#0#PHP" expanded="false" />
+                <element signature="e#353#530#0#PHP" expanded="false" />
+                <element signature="e#536#704#0#PHP" expanded="false" />
+                <element signature="e#709#882#0#PHP" expanded="false" />
+                <element signature="e#888#972#0#PHP" expanded="false" />
+                <element signature="e#977#1109#0#PHP" expanded="false" />
+                <element signature="e#1115#1219#0#PHP" expanded="false" />
+                <element signature="e#1224#1622#0#PHP" expanded="false" />
+                <element signature="e#1628#1724#0#PHP" expanded="false" />
+                <element signature="e#1729#2223#0#PHP" expanded="false" />
+                <element signature="e#2229#2327#0#PHP" expanded="false" />
+                <element signature="e#2332#2495#0#PHP" expanded="false" />
+                <marker date="1490396125798" expanded="true" signature="419:464" ph="SELECT * FRO... categorie" />
+                <marker date="1490396125798" expanded="true" signature="778:815" ph="SELECT * FRO... categorie" />
+                <marker date="1490396125798" expanded="true" signature="1037:1060" ph="SELECT * FRO... categorie" />
+                <marker date="1490396125798" expanded="true" signature="1506:1605" ph="INSERT INTO categorie... " />
+                <marker date="1490396125798" expanded="true" signature="2011:2206" ph="UPDATE categ... " />
+                <marker date="1490396125798" expanded="true" signature="2406:2449" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Categorie.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/classes/Categorie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <folding>
+                <element signature="e#234#365#0#PHP" expanded="false" />
+                <element signature="e#370#688#0#PHP" expanded="false" />
+                <element signature="e#694#725#0#PHP" expanded="false" />
+                <element signature="e#730#809#0#PHP" expanded="false" />
+                <element signature="e#815#858#0#PHP" expanded="false" />
+                <element signature="e#863#962#0#PHP" expanded="false" />
+                <element signature="e#968#999#0#PHP" expanded="false" />
+                <element signature="e#1004#1067#0#PHP" expanded="false" />
+                <element signature="e#1073#1108#0#PHP" expanded="false" />
+                <element signature="e#1113#1180#0#PHP" expanded="false" />
+                <element signature="e#1186#1217#0#PHP" expanded="false" />
+                <element signature="e#1222#1311#0#PHP" expanded="false" />
+                <element signature="e#1317#1362#0#PHP" expanded="false" />
+                <element signature="e#1367#1480#0#PHP" expanded="false" />
+                <element signature="e#1486#1518#0#PHP" expanded="false" />
+                <element signature="e#1523#1599#0#PHP" expanded="false" />
+                <element signature="e#1605#1647#0#PHP" expanded="false" />
+                <element signature="e#1652#1744#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Table/Table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="208">
               <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding>
                 <element signature="e#7#89#0#PHP" expanded="true" />
@@ -61,21 +129,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="18" column="2" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+            <state relative-caret-position="442">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonneTable.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PersonneTable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Table/PersonneTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+            <state relative-caret-position="520">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#7#89#0#PHP" expanded="true" />
                 <element signature="e#177#279#0#PHP" expanded="false" />
@@ -105,7 +173,7 @@
       <file leaf-file-name="EmployeTable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Table/EmployeTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
+            <state relative-caret-position="702">
               <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding>
                 <element signature="e#113#137#0#PHP" expanded="true" />
@@ -185,12 +253,14 @@
         <option value="$PROJECT_DIR$/app/Database.php" />
         <option value="$PROJECT_DIR$/app/classes/Compte.php" />
         <option value="$PROJECT_DIR$/app/Table/CompteTable.php" />
-        <option value="$PROJECT_DIR$/app/classes/Personne.php" />
         <option value="$PROJECT_DIR$/app/Table/PersonneTable.php" />
         <option value="$PROJECT_DIR$/app/classes/Employe.php" />
-        <option value="$PROJECT_DIR$/public/test.php" />
         <option value="$PROJECT_DIR$/app/Table/EmployeTable.php" />
         <option value="$PROJECT_DIR$/app/Table/Table.php" />
+        <option value="$PROJECT_DIR$/app/classes/Personne.php" />
+        <option value="$PROJECT_DIR$/app/classes/Categorie.php" />
+        <option value="$PROJECT_DIR$/app/Table/CategorieTable.php" />
+        <option value="$PROJECT_DIR$/public/test.php" />
       </list>
     </option>
   </component>
@@ -222,7 +292,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extensions" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.intellij.database" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -395,15 +482,15 @@
       <workItem from="1490104078630" duration="4287000" />
       <workItem from="1490109341456" duration="7304000" />
       <workItem from="1490303914704" duration="11257000" />
-      <workItem from="1490364124946" duration="13350000" />
+      <workItem from="1490364124946" duration="19455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36198000" />
+    <option name="totallyTimeSpent" value="42303000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="732" extended-state="0" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -452,7 +539,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -499,6 +586,8 @@
         <state relative-caret-position="780">
           <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding>
+            <element signature="e#283#445#0#PHP" expanded="false" />
+            <element signature="e#450#935#0#PHP" expanded="false" />
             <element signature="e#941#973#0#PHP" expanded="false" />
             <element signature="e#978#1039#0#PHP" expanded="false" />
             <element signature="e#1045#1080#0#PHP" expanded="false" />
@@ -786,9 +875,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/classes/Personne.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="116" />
+        <state relative-caret-position="1091">
+          <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
           <folding>
+            <element signature="e#283#445#0#PHP" expanded="false" />
+            <element signature="e#450#935#0#PHP" expanded="false" />
             <element signature="e#941#973#0#PHP" expanded="false" />
             <element signature="e#978#1039#0#PHP" expanded="false" />
             <element signature="e#1045#1080#0#PHP" expanded="false" />
@@ -817,17 +908,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/test.php">
+    <entry file="file://$PROJECT_DIR$/app/classes/Employe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="18" column="2" lean-forward="false" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="754">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="e#230#510#0#PHP" expanded="false" />
+            <element signature="e#515#1020#0#PHP" expanded="false" />
+            <element signature="e#1026#1057#0#PHP" expanded="false" />
+            <element signature="e#1062#1131#0#PHP" expanded="false" />
+            <element signature="e#1137#1175#0#PHP" expanded="false" />
+            <element signature="e#1180#1259#0#PHP" expanded="false" />
+            <element signature="e#1265#1296#0#PHP" expanded="false" />
+            <element signature="e#1301#1382#0#PHP" expanded="false" />
+            <element signature="e#1388#1432#0#PHP" expanded="false" />
+            <element signature="e#1437#1540#0#PHP" expanded="false" />
+            <element signature="e#1546#1577#0#PHP" expanded="false" />
+            <element signature="e#1582#1655#0#PHP" expanded="false" />
+            <element signature="e#1661#1701#0#PHP" expanded="false" />
+            <element signature="e#1706#1793#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Table/Table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="208">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
@@ -835,9 +941,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/classes/Categorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="e#234#365#0#PHP" expanded="false" />
+            <element signature="e#370#688#0#PHP" expanded="false" />
+            <element signature="e#694#725#0#PHP" expanded="false" />
+            <element signature="e#730#809#0#PHP" expanded="false" />
+            <element signature="e#815#858#0#PHP" expanded="false" />
+            <element signature="e#863#962#0#PHP" expanded="false" />
+            <element signature="e#968#999#0#PHP" expanded="false" />
+            <element signature="e#1004#1067#0#PHP" expanded="false" />
+            <element signature="e#1073#1108#0#PHP" expanded="false" />
+            <element signature="e#1113#1180#0#PHP" expanded="false" />
+            <element signature="e#1186#1217#0#PHP" expanded="false" />
+            <element signature="e#1222#1311#0#PHP" expanded="false" />
+            <element signature="e#1317#1362#0#PHP" expanded="false" />
+            <element signature="e#1367#1480#0#PHP" expanded="false" />
+            <element signature="e#1486#1518#0#PHP" expanded="false" />
+            <element signature="e#1523#1599#0#PHP" expanded="false" />
+            <element signature="e#1605#1647#0#PHP" expanded="false" />
+            <element signature="e#1652#1744#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Table/CategorieTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+          <folding>
+            <element signature="e#182#348#0#PHP" expanded="false" />
+            <element signature="e#353#530#0#PHP" expanded="false" />
+            <element signature="e#536#704#0#PHP" expanded="false" />
+            <element signature="e#709#882#0#PHP" expanded="false" />
+            <element signature="e#888#972#0#PHP" expanded="false" />
+            <element signature="e#977#1109#0#PHP" expanded="false" />
+            <element signature="e#1115#1219#0#PHP" expanded="false" />
+            <element signature="e#1224#1622#0#PHP" expanded="false" />
+            <element signature="e#1628#1724#0#PHP" expanded="false" />
+            <element signature="e#1729#2223#0#PHP" expanded="false" />
+            <element signature="e#2229#2327#0#PHP" expanded="false" />
+            <element signature="e#2332#2495#0#PHP" expanded="false" />
+            <marker date="1490396125798" expanded="true" signature="419:464" ph="SELECT * FRO... categorie" />
+            <marker date="1490396125798" expanded="true" signature="778:815" ph="SELECT * FRO... categorie" />
+            <marker date="1490396125798" expanded="true" signature="1037:1060" ph="SELECT * FRO... categorie" />
+            <marker date="1490396125798" expanded="true" signature="1506:1605" ph="INSERT INTO categorie... " />
+            <marker date="1490396125798" expanded="true" signature="2011:2206" ph="UPDATE categ... " />
+            <marker date="1490396125798" expanded="true" signature="2406:2449" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Table/EmployeTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
+        <state relative-caret-position="702">
           <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
           <folding>
             <element signature="e#113#137#0#PHP" expanded="true" />
@@ -865,33 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/classes/Employe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#230#510#0#PHP" expanded="false" />
-            <element signature="e#515#1020#0#PHP" expanded="false" />
-            <element signature="e#1026#1057#0#PHP" expanded="false" />
-            <element signature="e#1062#1131#0#PHP" expanded="false" />
-            <element signature="e#1137#1175#0#PHP" expanded="false" />
-            <element signature="e#1180#1259#0#PHP" expanded="false" />
-            <element signature="e#1265#1296#0#PHP" expanded="false" />
-            <element signature="e#1301#1382#0#PHP" expanded="false" />
-            <element signature="e#1388#1432#0#PHP" expanded="false" />
-            <element signature="e#1437#1540#0#PHP" expanded="false" />
-            <element signature="e#1546#1577#0#PHP" expanded="false" />
-            <element signature="e#1582#1655#0#PHP" expanded="false" />
-            <element signature="e#1661#1701#0#PHP" expanded="false" />
-            <element signature="e#1706#1793#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Table/PersonneTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        <state relative-caret-position="520">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
             <element signature="e#177#279#0#PHP" expanded="false" />
@@ -914,6 +1051,14 @@
             <marker date="1490375037272" expanded="true" signature="2136:2473" ph="UPDATE perso... " />
             <marker date="1490375037272" expanded="true" signature="2706:2739" ph="DELETE FROM " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

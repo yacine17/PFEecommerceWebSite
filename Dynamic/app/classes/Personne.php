@@ -139,6 +139,4 @@ class Personne extends \stdClass
         $this->tel = $tel;
     }
 
-
-
 }
