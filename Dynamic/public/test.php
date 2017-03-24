@@ -12,9 +12,9 @@ app\Autoloader::register();
 
 
 //$compteTable = new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
-/*
-$employeTable = new \app\table\EmployeTable(\app\Config::getInstance()->getDatabase());
-$emp = new \app\classes\Employe('hk', 'op', '15', 'zz', '0213212', 'active', null, 45, 21);
-$employeTable->create($emp);
-$r = $employeTable->getAll();
-var_dump($r);*/
+
+//$employeTable = new \app\table\EmployeTable(\app\Config::getInstance()->getDatabase());
+//$emp = new \app\classes\Employe('yayayayy', 'hahahaha', '13', '0', '55', 'non-active', null, 45, 21);
+//$employeTable->delete($emp);
+//$r = $employeTable->getAll();
+var_dump($r);

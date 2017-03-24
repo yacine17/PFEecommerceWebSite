@@ -59,6 +59,10 @@ class EmployeTable extends PersonneTable
         return $employes;
     }
 
+    /**
+     * Insérer un nouveau employe a la base de donnée
+     * @param Personne $employe
+     */
     public function create(Personne $employe)
     {
         parent::create($employe);
@@ -69,5 +73,33 @@ class EmployeTable extends PersonneTable
             ':remarque' => $employe->getRemarque()
         );
         $this->db->prepare("INSERT INTO employe VALUES (:numemp, :id, :etatactive, :remarque)", $param);
+    }
+
+    /**
+     * Modifier un employe à la base de donnée
+     * @param Personne $personne
+     */
+    public function update(Personne $personne)
+    {
+        $param = array(
+            ':etatactivite'   => $personne->getEtatActivite(),
+            ':remarque'     => $personne->getRemarque(),
+            ':numemp'      => $personne->getNumEmp()
+        );
+        $this->db->prepare("UPDATE employe SET
+                                  etatactivite = :etatactivite,
+                                  remarque = :remarque
+                                  WHERE numemp = :numemp", $param);
+        parent::update($personne);
+    }
+
+    /**
+     * Supprimer un employé de la base de donnée
+     * @param Personne $personne
+     */
+    public function delete(Personne $personne)
+    {
+        $this->db->prepare("DELETE FROM employe WHERE id = ?", array($personne->getId()));
+        parent::delete($personne);
     }
 }
