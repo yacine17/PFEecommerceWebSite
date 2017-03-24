@@ -92,5 +92,4 @@ class PersonneTable extends Table
         $this->db->prepare("DELETE FROM personne WHERE id = ?", array($personne->getId()));
     }
 
-
 }
