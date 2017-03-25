@@ -28,9 +28,14 @@ app\Autoloader::register();
 //$carTable = new \app\table\CaracteristiqueTable(\app\Config::getInstance()->getDatabase());
 //$carTable->create($car3);
 
-$commande1 = new \app\classes\Commande(4, 1, date('Y-m-d'), 'Alger', \app\classes\Commande::EN_COURS_DE_TRAITEMNT);
-$commande2 = new \app\classes\Commande(3, 2, date('Y-m-d'), 'Oran', \app\classes\Commande::APPROUVEE);
+//$commande1 = new \app\classes\Commande(4, 1, date('Y-m-d'), 'Alger', \app\classes\Commande::EN_COURS_DE_TRAITEMNT);
+//$commande2 = new \app\classes\Commande(3, 2, date('Y-m-d'), 'Oran', \app\classes\Commande::APPROUVEE);
 
-$comTable = new \app\table\CommandeTable(\app\Config::getInstance()->getDatabase());
-$r = $comTable->findById($commande2);
-var_dump($r);
+//$comTable = new \app\table\CommandeTable(\app\Config::getInstance()->getDatabase());
+//$r = $comTable->findById($commande2);
+
+//$p = new \app\classes\ProduitCommande(1, 2, 20);
+//$p1 = new \app\classes\ProduitCommande(2, 2, 5);
+
+//$pt = new \app\table\ProduitCommandeTable(\app\Config::getInstance()->getDatabase());
+//$r = $pt->create($p);
