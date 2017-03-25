@@ -19,3 +19,11 @@ app\Autoloader::register();
 
 //$prTable = new \app\table\ProduitTable(\app\Config::getInstance()->getDatabase());
 //$prTable->create($produit1);
+
+$car1 = new \app\classes\Caracteristique(1, 2, 'Ram', '2GB');
+$car2 = new \app\classes\Caracteristique(2, 2, 'Ecran', '5.6 pouces');
+$car3 = new \app\classes\Caracteristique(3, 1, 'Ram', '3GB');
+$car4 = new \app\classes\Caracteristique(4, 1, 'Ecran', '5 pouces');
+
+$carTable = new \app\table\CaracteristiqueTable(\app\Config::getInstance()->getDatabase());
+$carTable->create($car3);
