@@ -99,5 +99,4 @@ class Caracteristique
         $this->caractere = $caractere;
     }
 
-
 }
