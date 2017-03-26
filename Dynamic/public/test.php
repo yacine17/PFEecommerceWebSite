@@ -46,3 +46,7 @@ app\Autoloader::register();
 //$st = new \app\table\StockTable(\app\Config::getInstance()->getDatabase());
 //var_dump($st->create($s1));
 
+//$fa1 = new \app\classes\Facture(1, 1, 1500.00, 20, 1800.00, date('Y-m-d'), \app\classes\Facture::REGLEE, \app\classes\Facture::LIVREE, 3);
+//$fa2 = new \app\classes\Facture(2, 2, 3300.00, 20, 3400.00, date('Y-m-d'), \app\classes\Facture::REGLEE, \app\classes\Facture::NON_LIVREE, 7);
+//$fat = new \app\table\FactureTable(\app\Config::getInstance()->getDatabase());
+//var_dump($fat->create($fa1));
