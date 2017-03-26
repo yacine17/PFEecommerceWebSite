@@ -39,3 +39,10 @@ app\Autoloader::register();
 
 //$pt = new \app\table\ProduitCommandeTable(\app\Config::getInstance()->getDatabase());
 //$r = $pt->create($p);
+
+//$s1 = new \app\classes\Stock(1, 2, \app\classes\Stock::DISPONIBLE, 20);
+//$s2 = new \app\classes\Stock(2, 1, \app\classes\Stock::NON_DISPONIBLE, 0);
+
+//$st = new \app\table\StockTable(\app\Config::getInstance()->getDatabase());
+//var_dump($st->create($s1));
+
