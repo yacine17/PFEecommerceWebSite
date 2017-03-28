@@ -7,7 +7,7 @@
  */
 return array(
     'DB_NAME' => 'bdd_schema',
-    'DB_USER' => 'root',
-    'DB_PASS' => '',
+    'DB_USER' => 'bdduser',
+    'DB_PASS' => 'bdduser',
     'DB_HOST' => 'localhost'
 );
