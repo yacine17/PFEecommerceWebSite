@@ -48,6 +48,12 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-3">
+                            <label>Nom d'utilisateur:</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name=username" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
                             <label>Email:</label>
                             <div class="form-group">
                                 <input type="email" class="form-control" name=email" required>
