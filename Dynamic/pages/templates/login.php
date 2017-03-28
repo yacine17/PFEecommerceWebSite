@@ -9,9 +9,14 @@ if(isset($_POST['username']) && !empty($_POST['username'])) {
     $name=$_POST['username'];
     $email=$_POST['email'];
     $pass=$_POST['motDePasse'];
-    $person1=new \app\classes\Personne($name,null,null,$email,null,"C000000005");
+    $i=95;
+    $id="C".$i;
+    $person1=new \app\classes\Personne(null,null,null,$email,null,$id);
     $persondb=new \app\table\PersonneTable(\app\Config::getInstance()->getDatabase());
     $persondb->create($person1);
+    $cpt=new \app\classes\Compte($name,$pass,$id);
+    $cptTable=new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
+    $cptTable->create($cpt);
 }?>
 <div class="wrapper-container">
     <div class="container">

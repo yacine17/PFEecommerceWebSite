@@ -60,9 +60,37 @@
         <entry file="file://$PROJECT_DIR$/pages/templates/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompteTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Table/CompteTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+              <folding>
+                <element signature="e#176#324#0#PHP" expanded="false" />
+                <element signature="e#329#497#0#PHP" expanded="false" />
+                <element signature="e#503#654#0#PHP" expanded="false" />
+                <element signature="e#659#837#0#PHP" expanded="false" />
+                <element signature="e#843#984#0#PHP" expanded="false" />
+                <element signature="e#989#1121#0#PHP" expanded="false" />
+                <element signature="e#1127#1220#0#PHP" expanded="false" />
+                <element signature="e#1541#1627#0#PHP" expanded="false" />
+                <element signature="e#1632#2066#0#PHP" expanded="false" />
+                <element signature="e#2072#2145#0#PHP" expanded="false" />
+                <element signature="e#2150#2283#0#PHP" expanded="false" />
+                <marker date="1490533372445" expanded="true" signature="398:431" ph="SELECT * FRO... compte" />
+                <marker date="1490533372445" expanded="true" signature="732:769" ph="SELECT * FRO... compte" />
+                <marker date="1490533372445" expanded="true" signature="1052:1072" ph="SELECT * FRO... compte" />
+                <marker date="1490533372445" expanded="true" signature="1466:1518" ph="INSERT INTO compte... " />
+                <marker date="1490533372445" expanded="true" signature="1873:2049" ph="UPDATE compt... " />
+                <marker date="1490533372445" expanded="true" signature="2218:2249" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -281,6 +309,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Table" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dynamic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dynamic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -379,12 +425,12 @@
       <workItem from="1490364124946" duration="20053000" />
       <workItem from="1490460429948" duration="14585000" />
       <workItem from="1490535523125" duration="6145000" />
-      <workItem from="1490709473652" duration="3400000" />
+      <workItem from="1490709473652" duration="5301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67031000" />
+    <option name="totallyTimeSpent" value="68932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1318" height="780" extended-state="0" />
@@ -948,30 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Table/CompteTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding>
-            <element signature="e#176#324#0#PHP" expanded="false" />
-            <element signature="e#329#497#0#PHP" expanded="false" />
-            <element signature="e#503#654#0#PHP" expanded="false" />
-            <element signature="e#659#837#0#PHP" expanded="false" />
-            <element signature="e#843#984#0#PHP" expanded="false" />
-            <element signature="e#989#1121#0#PHP" expanded="false" />
-            <element signature="e#1127#1220#0#PHP" expanded="false" />
-            <element signature="e#1541#1627#0#PHP" expanded="false" />
-            <element signature="e#1632#2066#0#PHP" expanded="false" />
-            <element signature="e#2072#2145#0#PHP" expanded="false" />
-            <element signature="e#2150#2283#0#PHP" expanded="false" />
-            <marker date="1490533372445" expanded="true" signature="398:431" ph="SELECT * FRO... compte" />
-            <marker date="1490533372445" expanded="true" signature="732:769" ph="SELECT * FRO... compte" />
-            <marker date="1490533372445" expanded="true" signature="1052:1072" ph="SELECT * FRO... compte" />
-            <marker date="1490533372445" expanded="true" signature="1466:1518" ph="INSERT INTO compte... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/classes/Compte.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1072,33 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Table/PersonneTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding>
-            <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#177#279#0#PHP" expanded="false" />
-            <element signature="e#284#460#0#PHP" expanded="false" />
-            <element signature="e#466#571#0#PHP" expanded="false" />
-            <element signature="e#576#765#0#PHP" expanded="false" />
-            <element signature="e#771#856#0#PHP" expanded="false" />
-            <element signature="e#861#1017#0#PHP" expanded="false" />
-            <element signature="e#1023#1124#0#PHP" expanded="false" />
-            <element signature="e#1633#1723#0#PHP" expanded="false" />
-            <element signature="e#1728#2522#0#PHP" expanded="false" />
-            <element signature="e#2528#2623#0#PHP" expanded="false" />
-            <element signature="e#2628#2775#0#PHP" expanded="false" />
-            <marker date="1490544379605" expanded="true" signature="355:390" ph="SELECT * FRO... personne" />
-            <marker date="1490544379605" expanded="true" signature="656:692" ph="SELECT * FRO... personne" />
-            <marker date="1490544379605" expanded="true" signature="945:967" ph="SELECT * FRO... personne" />
-            <marker date="1490544379605" expanded="true" signature="1537:1609" ph="INSERT INTO personne... " />
-            <marker date="1490544379605" expanded="true" signature="2136:2473" ph="UPDATE perso... " />
-            <marker date="1490544379605" expanded="true" signature="2706:2739" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1141,10 +1136,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Table/CompteTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding>
+            <element signature="e#176#324#0#PHP" expanded="false" />
+            <element signature="e#329#497#0#PHP" expanded="false" />
+            <element signature="e#503#654#0#PHP" expanded="false" />
+            <element signature="e#659#837#0#PHP" expanded="false" />
+            <element signature="e#843#984#0#PHP" expanded="false" />
+            <element signature="e#989#1121#0#PHP" expanded="false" />
+            <element signature="e#1127#1220#0#PHP" expanded="false" />
+            <element signature="e#1541#1627#0#PHP" expanded="false" />
+            <element signature="e#1632#2066#0#PHP" expanded="false" />
+            <element signature="e#2072#2145#0#PHP" expanded="false" />
+            <element signature="e#2150#2283#0#PHP" expanded="false" />
+            <marker date="1490533372445" expanded="true" signature="398:431" ph="SELECT * FRO... compte" />
+            <marker date="1490533372445" expanded="true" signature="732:769" ph="SELECT * FRO... compte" />
+            <marker date="1490533372445" expanded="true" signature="1052:1072" ph="SELECT * FRO... compte" />
+            <marker date="1490533372445" expanded="true" signature="1466:1518" ph="INSERT INTO compte... " />
+            <marker date="1490533372445" expanded="true" signature="1873:2049" ph="UPDATE compt... " />
+            <marker date="1490533372445" expanded="true" signature="2218:2249" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Table/PersonneTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="e#7#89#0#PHP" expanded="true" />
+            <element signature="e#177#279#0#PHP" expanded="false" />
+            <element signature="e#284#460#0#PHP" expanded="false" />
+            <element signature="e#466#571#0#PHP" expanded="false" />
+            <element signature="e#576#765#0#PHP" expanded="false" />
+            <element signature="e#771#856#0#PHP" expanded="false" />
+            <element signature="e#861#1017#0#PHP" expanded="false" />
+            <element signature="e#1023#1124#0#PHP" expanded="false" />
+            <element signature="e#1633#1723#0#PHP" expanded="false" />
+            <element signature="e#1728#2522#0#PHP" expanded="false" />
+            <element signature="e#2528#2623#0#PHP" expanded="false" />
+            <element signature="e#2628#2775#0#PHP" expanded="false" />
+            <marker date="1490544379605" expanded="true" signature="355:390" ph="SELECT * FRO... personne" />
+            <marker date="1490544379605" expanded="true" signature="656:692" ph="SELECT * FRO... personne" />
+            <marker date="1490544379605" expanded="true" signature="945:967" ph="SELECT * FRO... personne" />
+            <marker date="1490544379605" expanded="true" signature="1537:1609" ph="INSERT INTO personne... " />
+            <marker date="1490544379605" expanded="true" signature="2136:2473" ph="UPDATE perso... " />
+            <marker date="1490544379605" expanded="true" signature="2706:2739" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/templates/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
