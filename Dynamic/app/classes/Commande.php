@@ -17,9 +17,10 @@ class Commande
     private $adresselivraison;
     private $etatvalidation;
 
+    //Pour l'etat de validation
     const EN_COURS_DE_TRAITEMNT  = 1;
     const APPROUVEE = 2;
-    const LIVREE = 3;
+    const REFUSEE = 3;
 
     /**
      * Commande constructor.
