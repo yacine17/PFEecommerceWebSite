@@ -6,18 +6,20 @@
  * Time: 22:19
  */
 if(isset($_POST['username']) && !empty($_POST['username'])) {
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
     $name=$_POST['username'];
     $email=$_POST['email'];
     $pass=$_POST['motDePasse'];
-    $i=95;
-    $id="C".$i;
-    $person1=new \app\classes\Personne(null,null,null,$email,null,$id);
+    $id="C";
+    $person1=new \app\classes\Personne($nom,$prenom,null,$email,null,$id);
     $persondb=new \app\table\PersonneTable(\app\Config::getInstance()->getDatabase());
     $persondb->create($person1);
     $cpt=new \app\classes\Compte($name,$pass,$id);
     $cptTable=new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
     $cptTable->create($cpt);
-}?>
+}
+?>
 <div class="wrapper-container">
     <div class="container">
         <div class="row">
@@ -69,7 +71,7 @@ if(isset($_POST['username']) && !empty($_POST['username'])) {
                         <div class="col-md-6 col-md-offset-3">
                             <label>Nom d'utilisateur:</label>
                             <div class="form-group">
-                                <input type="text" class="form-control" name=username" required>
+                                <input type="text" class="form-control" name="username" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-md-offset-3">

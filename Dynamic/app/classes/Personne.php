@@ -30,7 +30,7 @@ class Personne extends \stdClass
     public function __construct($nom = null, $prenom = null, $adresse = null, $email = null, $tel = null, $id = null)
     {
         if (isset($id))
-            $this->id = $id;
+            $this->id = $id;//.\app\Config::getInstance()->getDatabase()->prepare("SELECT count(id) FROM Personne WHERE id LIKE 'C%'")[0];
         if (isset($nom))
             $this->nom = $nom;
         if (isset($prenom))
