@@ -9,6 +9,9 @@
 namespace app\classes;
 
 
+use app\Config;
+use app\table\PersonneTable;
+
 class Personne extends \stdClass
 {
     protected $id;
@@ -29,8 +32,12 @@ class Personne extends \stdClass
      */
     public function __construct($nom = null, $prenom = null, $adresse = null, $email = null, $tel = null, $id = null)
     {
-        if (isset($id))
-            $this->id = $id;//.\app\Config::getInstance()->getDatabase()->prepare("SELECT count(id) FROM Personne WHERE id LIKE 'C%'")[0];
+        if (!isset($id)){
+            $ptable=new PersonneTable(Config::getInstance()->getDatabase());
+            $cpt=$ptable->nombreClient()[0];
+            $cpt+=1;
+            $this->id = "c".$cpt;
+                }
         if (isset($nom))
             $this->nom = $nom;
         if (isset($prenom))

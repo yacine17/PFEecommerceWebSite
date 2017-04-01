@@ -12,10 +12,10 @@ if(isset($_POST['username']) && !empty($_POST['username'])) {
     $email=$_POST['email'];
     $pass=$_POST['motDePasse'];
     $id="C";
-    $person1=new \app\classes\Personne($nom,$prenom,null,$email,null,$id);
+    $person1=new \app\classes\Personne($nom,$prenom,null,$email);
     $persondb=new \app\table\PersonneTable(\app\Config::getInstance()->getDatabase());
     $persondb->create($person1);
-    $cpt=new \app\classes\Compte($name,$pass,$id);
+    $cpt=new \app\classes\Compte($name,$pass,$person1->getId());
     $cptTable=new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
     $cptTable->create($cpt);
 }

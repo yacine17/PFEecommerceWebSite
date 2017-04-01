@@ -92,4 +92,8 @@ class PersonneTable extends Table
         $this->db->prepare("DELETE FROM personne WHERE id = ?", array($personne->getId()));
     }
 
+    public function nombreClient(){
+        $res=$this->db->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
+        return $res[0]->nbrc;
+    }
 }

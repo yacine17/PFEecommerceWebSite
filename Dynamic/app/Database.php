@@ -8,6 +8,7 @@
 
 namespace app;
 
+use MongoDB\BSON\ObjectID;
 use PDO;
 class Database
 {
@@ -51,9 +52,13 @@ class Database
      * @param $class Class
      * @return array
      */
-    public function query ($statement, $class) {
+    public function query ($statement, $class = null) {
         $req = $this->getPDO()->query($statement);
-        return $req->fetchAll(PDO::FETCH_CLASS, $class);
+        if($class != null){
+        return $req->fetchAll(PDO::FETCH_CLASS, $class);}
+        else{
+            return $req->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 
     /**
