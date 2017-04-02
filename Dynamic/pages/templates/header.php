@@ -6,7 +6,7 @@
  * Time: 15:29
  */?>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title><?= \app\App::getInstance()->title ?></title>
