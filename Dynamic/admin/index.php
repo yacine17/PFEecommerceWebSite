@@ -6,7 +6,7 @@
  * Time: 19:51
  */
 require 'pages/templates/header.php';
-
+require 'pages/templates/navbar.php';
 require 'pages/InsererProduit.php';
 
 
