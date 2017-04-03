@@ -2,21 +2,9 @@
  * Created by Yacine on 24/02/2017.
  */
 /**
- * Fermer la fenetre superposée du login en cliquant sur le X
- */
-$('.wrapper-container .login-popup .fa-stack').on('click', function () {
-    $(".wrapper-container").hide();
-});
-/**
- * Afficher la fenetre superposée du login en cliqunat sur se connecter
- */
-$('.se-connecter').on('click', function () {
-    $(".wrapper-container").show();
-});
-/**
  * Afficher la page Se connecter
  */
-$('.wrapper-container .login-popup .sign-up a').on('click', function () {
+$('.login .sign-up a').on('click', function () {
 
     $('.sign-up').slideUp(400, function () {
         $('.sign-in').slideDown();
@@ -25,7 +13,7 @@ $('.wrapper-container .login-popup .sign-up a').on('click', function () {
 /**
  * Afficher la page Creer
  */
-$('.wrapper-container .login-popup .sign-in a').on('click', function () {
+$('.login .sign-in a').on('click', function () {
 
 
     $('.sign-in').slideUp(400, function () {

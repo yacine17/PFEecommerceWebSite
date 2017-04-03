@@ -35,20 +35,13 @@ body {
     cursor: pointer;
 }
 /*Start Wrapper container*/
+.login .modal .modal-body{
+    overflow: hidden;
+}
 a:hover{ /*for a without href*/
     cursor: pointer;
 }
-.wrapper-container{
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.7);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1050;
-    display: none;
-}
-.wrapper-container .login-popup{
+.login .modal-content{
     margin-top: 50px;
     background: #232f3e;
     min-height: 400px;
@@ -58,45 +51,31 @@ a:hover{ /*for a without href*/
     padding-bottom: 20px;
     padding-top: 20px;
 }
-.wrapper-container .login-popup h2{
+.login h2{
     margin-bottom: 40px;
 }
-.wrapper-container .login-popup .sign-up{
+.login .sign-up{
     display: none;
 }
-.wrapper-container .login-popup .btn{
+.login .btn{
     background-color: #31A3FF;
 }
-.wrapper-container .login-popup .sign-up .fa-eye{
+.login .fa-eye{
     position: absolute;
     top: 27px;
     right: -19px;
     cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
-    .wrapper-container .login-popup{
-        margin-top: 20px;
-    }
-    .wrapper-container .login-popup .fa-eye{
+    .login .fa-eye{
         right: -11px !important;
         top: 31px !important;
         font-size: 21px;
     }
 }
-.wrapper-container .login-popup .h1{
+.login .h1{
     font-weight: bold;
     margin-top: 0;
-}
-.wrapper-container .login-popup .fa-stack{
-    position: absolute;
-    top: -3%;
-    right: -3%;
-    background: #FFF;
-    border-radius: 50%;
-    color: #000;
-}
-.wrapper-container .login-popup .fa-stack:hover{
-    cursor: pointer;
 }
 /*End Wrapper container*/
 /*Start Navbar*/

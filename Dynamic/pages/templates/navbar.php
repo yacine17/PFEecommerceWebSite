@@ -39,7 +39,7 @@
                 <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3</div></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="se-connecter">Se connecter</a></li></ul>
+                <li><a class="se-connecter" data-toggle="modal" data-target="#loginModal">Se connecter</a></li></ul>
         </div><!-- /.navbar-collapse -->
         <!-- Collect the nav links, forms, and other content for toggling -->
     </div><!-- /.container-fluid -->
