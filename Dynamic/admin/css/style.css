@@ -6,3 +6,8 @@
     margin-top: 20px;
 }
 /*End Insérer Produit*/
+/*Start Gestion Produit*/
+.gestionProduit .input-group{
+    margin: 30px 0 30px 0;
+}
+/*End Gestion Produit*/
