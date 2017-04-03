@@ -34,7 +34,7 @@ class Personne extends \stdClass
     {
         if (!isset($id)){
             $ptable=new PersonneTable(Config::getInstance()->getDatabase());
-            $cpt=$ptable->nombreClient()[0];
+            $cpt=$ptable->nombreClient();
             $cpt+=1;
             $this->id = "c".$cpt;
                 }

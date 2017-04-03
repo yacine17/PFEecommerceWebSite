@@ -50,7 +50,8 @@ app\Autoloader::register();
 //$fa2 = new \app\classes\Facture(2, 2, 3300.00, 20, 3400.00, date('Y-m-d'), \app\classes\Facture::REGLEE, \app\classes\Facture::NON_LIVREE, 7);
 //$fat = new \app\table\FactureTable(\app\Config::getInstance()->getDatabase());
 //var_dump($fat->create($fa1));
+/*
+$res=\app\Config::getInstance()->getDatabase()->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
+var_dump($res[0]->nbrc);
+echo $res[0]->nbrc  ;*/
 
-//$res=\app\Config::getInstance()->getDatabase()->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
-//var_dump($res[0]->nbrc);
-//echo $res[0]->nbrc  ;

@@ -93,7 +93,7 @@ class PersonneTable extends Table
     }
 
     public function nombreClient(){
-        $res=$this->db->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
-        return $res[0]->nbrc;
+        $res=$this->db->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'", null, true);
+        return $res->nbrc;
     }
 }
