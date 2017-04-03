@@ -7,7 +7,7 @@
  */
 require 'pages/templates/header.php';
 require 'pages/templates/navbar.php';
-require 'pages/gestionCommande.php';
+require 'pages/gestionFacture.php';
 
 
 require 'pages/templates/footer.php';
