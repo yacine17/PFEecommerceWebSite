@@ -7,7 +7,7 @@
  */
 require 'pages/templates/header.php';
 require 'pages/templates/navbar.php';
-require 'pages/login.php';
+require 'pages/accueil.php';
 
 
 require 'pages/templates/footer.php';

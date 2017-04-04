@@ -11,6 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestion</title>
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>

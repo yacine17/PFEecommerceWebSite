@@ -1,8 +1,45 @@
 .right-float{
     float: right;
 }
+.navbar{
+    margin-bottom: 0;
+}
+body{
+    font-family: 'Maven Pro', sans-serif;
+}
 /*Start login*/
 /*End login*/
+/*Start accueil*/
+.accueil{
+    background: #DDD;
+    padding-top: 20px;
+}
+.accueil .col-md-6,
+.accueil .col-md-4,
+.accueil .col-md-3,
+.accueil .col-md-5{
+    padding: 0px;
+}
+.accueil .row{
+    margin: 0 10px;
+}
+.accueil .informations{
+    background: #FFF;
+    border-radius: 5px;
+    margin: 3px 3px;
+    padding: 1px 15px;
+}
+.accueil .plusVendu table tr:last-child{
+    font-weight: bold;
+}
+.accueil .revenuMensuel{
+    height: 209px;
+    padding: 25px 0;
+}
+.accueil .revenuMensuel h1{
+    font-weight: bolder;
+}
+/*End accueil*/
 /*Start Insérer Produit*/
 .insererProduit .btn{
     margin-top: 20px;
