@@ -20,6 +20,9 @@ class Produit
     private $etatvente;
     private $pourcentagereduction;
 
+    const SANS_PROMOTION = 1;
+    const EN_PROMOTION = 2;
+
     /**
      * Produit constructor.
      * @param $referencep

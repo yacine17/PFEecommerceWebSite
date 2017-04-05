@@ -12,12 +12,11 @@ use app\Config;
 use app\table\CompteTable;
 use app\table\PersonneTable;
 session_start();
-//Tester si l'utilisateur d'une requete HTTP POST
+//Tester si l'utilisateur vient d'une requete HTTP POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_GET['op'] == 'connexion')
     {
-        if (isset($_POST['username']) && isset($_POST['motDePasse'])
-            && !empty($_POST['username']) && !empty($_POST['motDePasse']))
+        if (!empty($_POST['username']) && !empty($_POST['motDePasse']))
         {
             $_SESSION['auth'] = array(
                     'username' => $_POST['username'],

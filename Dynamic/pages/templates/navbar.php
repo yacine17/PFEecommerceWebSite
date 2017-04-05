@@ -23,13 +23,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse " id="ournavbar">
             <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="index.html">Accueil <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="index.php?do=home">Accueil <span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="index.php?do=cat">Papeterie</a></li>
                         <li><a href="index.php?do=cat">Bureautique</a></li>
-                        <li><a href="categorie.html">Informatique</a></li>
+                        <li><a href="index.php?do=cat">Informatique</a></li>
                     </ul>
                 </li>
                 <!--<li><a href="#">Promotion</a></li>-->

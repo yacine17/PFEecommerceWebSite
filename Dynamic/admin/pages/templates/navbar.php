@@ -38,8 +38,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a >Employé</a></li>
-                <li><a href="#">Déconnexion</a> </li>
+                <li><a href="pages/templates/logout.php">Déconnexion</a> </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
