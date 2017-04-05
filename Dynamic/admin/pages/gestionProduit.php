@@ -35,8 +35,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -46,8 +46,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -57,8 +57,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -68,8 +68,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -79,8 +79,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -90,8 +90,8 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
             <tr>
                 <td>15</td>
@@ -101,9 +101,14 @@
                 <td>500.00 DA</td>
                 <td>Sans promotion</td>
                 <td>0%</td>
-                <td><button class="btn btn-success">Modifier</button></td>
-                <td><button class="btn btn-danger">Supprimer</button></td>
+                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
+                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
             </tr>
         </table>
+        <!--Start Ajouter nouveau produit-->
+        <div class="ajouterNouveauProduit bg-primary text-center" title="Ajouter nouveau produit">
+            <i class="fa fa-tag"></i><i class="fa fa-plus"></i>
+        </div>
+        <!--End Ajouter nouveau produit-->
     </div>
 </div>

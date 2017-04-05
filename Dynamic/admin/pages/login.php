@@ -12,13 +12,13 @@
             <div class="form-group">
                 <div class="">
                     <label for="username">Nom d'utilisateur:</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'utilisateur" required autocomplete="off">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nom d'utilisateur" required="required" autocomplete="off">
                 </div>
             </div>
             <div class="form-group" >
                 <div class="">
                     <label for="password">Mot de passe:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required autocomplete="new-password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required="required" autocomplete="new-password">
                 </div>
             </div>
             <input type="submit" class="btn btn-primary btn-block">
