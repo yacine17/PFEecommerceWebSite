@@ -54,4 +54,3 @@ app\Autoloader::register();
 $res=\app\Config::getInstance()->getDatabase()->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
 var_dump($res[0]->nbrc);
 echo $res[0]->nbrc  ;*/
-

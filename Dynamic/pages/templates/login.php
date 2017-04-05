@@ -5,19 +5,65 @@
  * Date: 23/03/2017
  * Time: 22:19
  */
-if(isset($_POST['username']) && !empty($_POST['username'])) {
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $name=$_POST['username'];
-    $email=$_POST['email'];
-    $pass=$_POST['motDePasse'];
-    $id="C";
-    $person1=new \app\classes\Personne($nom,$prenom,null,$email);
-    $persondb=new \app\table\PersonneTable(\app\Config::getInstance()->getDatabase());
-    $persondb->create($person1);
-    $cpt=new \app\classes\Compte($name,$pass,$person1->getId());
-    $cptTable=new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
-    $cptTable->create($cpt);
+use app\classes\Authentification;
+use app\classes\Compte;
+use app\classes\Personne;
+use app\Config;
+use app\table\CompteTable;
+use app\table\PersonneTable;
+session_start();
+//Tester si l'utilisateur d'une requete HTTP POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_GET['op'] == 'connexion')
+    {
+        if (isset($_POST['username']) && isset($_POST['motDePasse'])
+            && !empty($_POST['username']) && !empty($_POST['motDePasse']))
+        {
+            $_SESSION['auth'] = array(
+                    'username' => $_POST['username'],
+                    'motDePasse' => $_POST['motDePasse']
+            );
+            if (Authentification::estConnecte()){
+                //Connecté
+            }
+            else{
+                //Non connecté
+            }
+        }
+        else
+        {
+            //TODO erreur champs non remplis
+        }
+    }
+    elseif ($_GET['op'] == 'inscription')
+    {
+        $nom=$_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $username=$_POST['username'];
+        $email=$_POST['email'];
+        $motDePasse=$_POST['motDePasse'];
+        if (!empty($nom) && !empty($prenom) && !empty($username) && !empty($email) && !empty($motDePasse))
+        {
+            $compteDb = new CompteTable(Config::getInstance()->getDatabase());
+            if (empty($compteDb->findByName($username))) // username n'existe pas a la base de donnée
+            {
+                $hash = password_hash($motDePasse, PASSWORD_DEFAULT);
+                $person = new Personne($nom, $prenom, null, $email);
+                $personDb = new PersonneTable(Config::getInstance()->getDatabase());
+                $personDb->create($person);
+                $compte = new Compte($username, $hash, $person->getId());
+                $compteDb->create($compte);
+            }
+            else
+            {
+                    //TODO afficher page d'erreur 'username' existe
+            }
+        }
+        else
+        {
+            //TODO afficher page d'erreur 'un champs ou plus non remplis
+        }
+    }
 }
 ?>
 <div class="login">
@@ -28,7 +74,7 @@ if(isset($_POST['username']) && !empty($_POST['username'])) {
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <div class="sign-in">
                         <h2 class="h1 text-center">Se connecter</h2>
-                        <form role="form">
+                        <form role="form" method="post" action="?op=connexion">
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom d'utilisateur:</label>
                                 <div class="form-group">
@@ -53,11 +99,11 @@ if(isset($_POST['username']) && !empty($_POST['username'])) {
                     </div>
                     <div class="sign-up">
                         <h2 class="h1 text-center">Créer un compte</h2>
-                        <form role="form" method="post" action="">
+                        <form role="form" method="post" action="?op=inscription">
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nom" required>
+                                    <input type="text" class="form-control" name="nom" >
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
