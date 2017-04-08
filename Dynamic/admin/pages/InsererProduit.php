@@ -5,23 +5,38 @@
  * Date: 4/1/2017
  * Time: 00:15
  */
-//$_POST['refP'];
-//$_POST['libelle'];
-//$_POST['categorie'];
-//$_POST['carnom1'];
-//$_POST['cardesc1'];
-//$_POST['photo'];
-//$_POST['qte'];
-//$_POST['etats'];
-//$_POST['prix'];
-//$_POST['etatv'];
-//$_POST['reduction'];
-//$_POST['emailf'];
-//$_POST['fb'];
-?>
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(isset($_POST['refP']) && !empty($_POST['refP'])){
+        $db=\app\Config::getInstance()->getDatabase();
+        $refp = $_POST['refP'];
+        $libelle = $_POST['libelle'];
+        $categorie = $_POST['categorie'];
+        $_POST['carnom1'];
+        $_POST['cardesc1'];
+        $photo = $_POST['photo'];
+        $qte = $_POST['qte'];
+        $etat = $_POST['etats'];
+        $prix = $_POST['prix'];
+        $etatv = $_POST['etatv'];
+        $reduction = $_POST['reduction'];
+        $emailf = $_POST['emailf'];
+        $fb = $_POST['fb'];
+        $cattable = new \app\table\CategorieTable($db);
+        $cat=$cattable->findById($categorie);
+        $cat->setNbrProduit($cat->getNbrProduit()+$qte);
+        $cattable->update($cat);
+        $produit = new \app\classes\Produit($refp,$categorie, $libelle, $prix, $photo, $etatv, $reduction,$fb);
+        $produitT=new \app\table\ProduitTable($db);
+        $produitT->create($produit);
+        $stockT=new \app\table\StockTable($db);
+        $stock=new \app\classes\Stock($refp,$categorie,$etat,$qte,$emailf);
+        var_dump($stock);
+        $stockT->create($stock);
+    }
+}?>
 <div class="insererProduit text-left">
     <div class="container">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="" method="post">
             <div class="form-group">
                 <label for="refP" class="col-sm-2 control-label">Reference Produit:</label>
                 <div class="col-sm-10">
@@ -39,9 +54,9 @@
                 <div class="col-sm-3">
                     <select name="categorie" id="categorie" class="form-control">
                         <option disabled selected>Categorie</option>
-                        <option value="valeur1">Valeur 1</option>
-                        <option value="valeur2">Valeur 2</option>
-                        <option value="valeur3">Valeur 3</option>
+                        <option value="1">Papeterie</option>
+                        <option value="2">Bureautique</option>
+                        <option value="3">Informatique</option>
                     </select>
                 </div>
             </div>
@@ -88,7 +103,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="prix" class="col-sm-2 control-label">Quantité:</label>
+                <label for="prix" class="col-sm-2 control-label">Prix:</label>
                 <div class="col-sm-3">
                     <div class="input-group">
                         <input type="number" step="50" class="form-control" id="prix" name="prix" placeholder="Prix" required>

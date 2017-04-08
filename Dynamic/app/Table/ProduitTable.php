@@ -56,9 +56,10 @@ class ProduitTable extends Table
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
             ':etatvente' => $produit->getEtatVente(),
-            ':pourcentagereduction' => $produit->getPourcentageReduction()
+            ':pourcentagereduction' => $produit->getPourcentageReduction(),
+            ':lienFB' => $produit->getLienFB()
         );
-        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :idcaracteristique, :libelle, :prix, :cheminphoto, :etatvente, :pourcentagereduction)", $param);
+        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :idcaracteristique, :libelle, :prix, :cheminphoto, :etatvente, :pourcentagereduction, :lienFB)", $param);
     }
 
     /**
@@ -74,7 +75,8 @@ class ProduitTable extends Table
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
             ':etatvente' => $produit->getEtatVente(),
-            ':pourcentagereduction' => $produit->getPourcentageReduction()
+            ':pourcentagereduction' => $produit->getPourcentageReduction(),
+            ':lienFB' => $produit->getLienFB()
         );
         $this->db->prepare("UPDATE produit SET 
                                   idcategorie = :idcategorie,
@@ -83,7 +85,8 @@ class ProduitTable extends Table
                                   prix = :prix,
                                   cheminphoto = :cheminphoto,
                                   etatvente = :etatvente,
-                                  pourcentagereduction = :pourcentagereduction
+                                  pourcentagereduction = :pourcentagereduction,
+                                  lienfb = :lienFB
                                   WHERE referencep = :referencep", $param);
     }
 

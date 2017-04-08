@@ -5,19 +5,22 @@
  * Date: 23/03/2017
  * Time: 22:19
  */
-if(isset($_POST['username']) && !empty($_POST['username'])) {
-    $nom=$_POST['nom'];
-    $prenom=$_POST['prenom'];
-    $name=$_POST['username'];
-    $email=$_POST['email'];
-    $pass=$_POST['motDePasse'];
-    $id="C";
-    $person1=new \app\classes\Personne($nom,$prenom,null,$email);
-    $persondb=new \app\table\PersonneTable(\app\Config::getInstance()->getDatabase());
-    $persondb->create($person1);
-    $cpt=new \app\classes\Compte($name,$pass,$person1->getId());
-    $cptTable=new \app\table\CompteTable(\app\Config::getInstance()->getDatabase());
-    $cptTable->create($cpt);
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (isset($_POST['username']) && !empty($_POST['username'])) {
+        $db=\app\Config::getInstance()->getDatabase();
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $name = $_POST['username'];
+        $email = $_POST['email'];
+        $pass = $_POST['motDePasse'];
+        $id = "C";
+        $person1 = new \app\classes\Personne($nom, $prenom, null, $email);
+        $persondb = new \app\table\PersonneTable($db);
+        $persondb->create($person1);
+        $cpt = new \app\classes\Compte($name, $pass, $person1->getId());
+        $cptTable = new \app\table\CompteTable($db);
+        $cptTable->create($cpt);
+    }
 }
 ?>
 <div class="wrapper-container">
