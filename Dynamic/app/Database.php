@@ -52,12 +52,15 @@ class Database
      * @param $class Class
      * @return array
      */
-    public function query ($statement, $class = null) {
+    public function query ($statement, $class = null, $oneOnly = false) {
         $req = $this->getPDO()->query($statement);
         if($class != null){
         return $req->fetchAll(PDO::FETCH_CLASS, $class);}
         else{
-            return $req->fetchAll(PDO::FETCH_OBJ);
+            if ($oneOnly)
+                return $req->fetch(PDO::FETCH_OBJ);
+            else
+                return $req->fetchAll(PDO::FETCH_OBJ);
         }
     }
 

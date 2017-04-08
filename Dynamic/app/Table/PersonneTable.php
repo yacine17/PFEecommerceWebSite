@@ -92,8 +92,12 @@ class PersonneTable extends Table
         $this->db->prepare("DELETE FROM personne WHERE id = ?", array($personne->getId()));
     }
 
-    public function nombreClient(){
-        $res=$this->db->query("SELECT count(id) as nbrc FROM Personne WHERE id LIKE 'C%'");
-        return $res[0]->nbrc;
+    /**
+     * Récupérer le dernier ID client
+     * @return mixed
+     */
+    public function lastClientId(){
+        $res=$this->db->query("SELECT id FROM Personne WHERE id LIKE 'C%' ORDER BY id DESC LIMIT 1", null, true);
+        return $res->id;
     }
 }

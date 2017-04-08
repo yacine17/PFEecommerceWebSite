@@ -21,6 +21,9 @@ class Produit
     private $pourcentagereduction;
     private $lienFB;
 
+    const SANS_PROMOTION = 1;
+    const EN_PROMOTION = 2;
+
     /**
      * Produit constructor.
      * @param $referencep
