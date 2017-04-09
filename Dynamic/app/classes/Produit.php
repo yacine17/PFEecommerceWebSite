@@ -19,6 +19,7 @@ class Produit
     private $cheminphoto;
     private $etatvente;
     private $pourcentagereduction;
+    private $lienFB;
 
     const SANS_PROMOTION = 1;
     const EN_PROMOTION = 2;
@@ -34,7 +35,7 @@ class Produit
      * @param $pourcentagereduction
      */
     public function __construct($referencep = null, $idcategorie = null, $libelle = null,
-                                $prix = null, $cheminphoto = null, $etatvente = null, $pourcentagereduction = null)
+                                $prix = null, $cheminphoto = null, $etatvente = null, $pourcentagereduction = null,$lienFB=null)
     {
         if (isset($referencep))
             $this->referencep = $referencep;
@@ -52,6 +53,8 @@ class Produit
             $this->etatvente = $etatvente;
         if (isset($pourcentagereduction))
             $this->pourcentagereduction = $pourcentagereduction;
+        if (isset($lienFB))
+            $this->lienFB = $lienFB;
     }
 
     /**
@@ -164,6 +167,22 @@ class Produit
     public function setPourcentageReduction($pourcentagereduction)
     {
         $this->pourcentagereduction = $pourcentagereduction;
+    }
+
+    /**
+     * @return null
+     */
+    public function getLienFB()
+    {
+        return $this->lienFB;
+    }
+
+    /**
+     * @param null $lienFB
+     */
+    public function setLienFB($lienFB)
+    {
+        $this->lienFB = $lienFB;
     }
 
 

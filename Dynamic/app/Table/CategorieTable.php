@@ -52,9 +52,10 @@ class CategorieTable extends Table
         $param = array(
             ':idcategorie' => $categorie->getIdCategorie(),
             ':nom' => $categorie->getNom(),
-            ':catprincipale' => $categorie->getCategoriePrincipale()
+            ':catprincipale' => $categorie->getCategoriePrincipale(),
+            ':nbrproduit' => $categorie->getNbrProduit()
         );
-        $this->db->prepare("INSERT INTO categorie (idcategorie, nom, catprincipale) VALUES (:idcategorie, :nom, :catprincipale)", $param);
+        $this->db->prepare("INSERT INTO categorie (idcategorie, nom, catprincipale, nbrproduit) VALUES (:idcategorie, :nom, :catprincipale, :nbrproduit)", $param);
     }
 
     /**
@@ -65,11 +66,13 @@ class CategorieTable extends Table
         $param = array(
             ':nom' => $categorie->getNom(),
             ':catprincipale' => $categorie->getCategoriePrincipale(),
-            ':idcategorie' => $categorie->getIdCategorie()
+            ':idcategorie' => $categorie->getIdCategorie(),
+            ':nbrproduit' => $categorie->getNbrProduit()
         );
         $this->db->prepare("UPDATE categorie SET
                                  nom = :nom,
-                                 catprincipale = :catprincipale
+                                 catprincipale = :catprincipale,
+                                 nbrproduit= :nbrproduit
                                  WHERE idcategorie = :idcategorie", $param);
     }
 

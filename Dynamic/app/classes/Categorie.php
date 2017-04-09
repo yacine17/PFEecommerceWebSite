@@ -14,7 +14,7 @@ class Categorie
     private $idcategorie;
     private $nom;
     private $catprincipale;
-    private $ndrprduit;
+    private $nbrproduit;
 
     /**
      * Categorie constructor.
@@ -22,7 +22,7 @@ class Categorie
      * @param null $CatPrincipale
      * @param null $idCategorie
      */
-    public function __construct($nom = null, $CatPrincipale = null, $idCategorie = null)
+    public function __construct($nom = null, $CatPrincipale = null, $idCategorie = null,$nbrproduit=null)
     {
         if (isset($nom))
             $this->nom = $nom;
@@ -30,6 +30,8 @@ class Categorie
             $this->catprincipale = $CatPrincipale;
         if (isset($idCategorie))
             $this->idcategorie = $idCategorie;
+        if (isset($nbrproduit))
+            $this->nbrproduit=$nbrproduit;
     }
 
     /**
@@ -85,15 +87,15 @@ class Categorie
      */
     public function getNbrProduit()
     {
-        return $this->ndrprduit;
+        return $this->nbrproduit;
     }
 
     /**
      * @param mixed $ndrprduit
      */
-    public function setNbrProduit($ndrprduit)
+    public function setNbrProduit($nbrproduit)
     {
-        $this->ndrprduit = $ndrprduit;
+        $this->nbrproduit = $nbrproduit;
     }
 
 

@@ -5,19 +5,6 @@
  * Date: 4/1/2017
  * Time: 00:15
  */
-//$_POST['refP'];
-//$_POST['libelle'];
-//$_POST['categorie'];
-//$_POST['carnom1'];
-//$_POST['cardesc1'];
-//$_POST['photo'];
-//$_POST['qte'];
-//$_POST['etats'];
-//$_POST['prix'];
-//$_POST['etatv'];
-//$_POST['reduction'];
-//$_POST['emailf'];
-//$_POST['fb'];
 use app\Config;
 use app\table\ProduitTable;
 $db = Config::getInstance()->getDatabase();
@@ -68,7 +55,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         $stockT = new \app\table\StockTable($db);
         $stock = new \app\classes\Stock($refp, $categorie, $etat, $qte, $emailf);
         $stockT->create($stock);
-        //header('location: produits.php');
+        header('location: produits.php');
     }
 }
 ?>
