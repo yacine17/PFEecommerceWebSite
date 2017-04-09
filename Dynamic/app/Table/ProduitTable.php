@@ -51,14 +51,13 @@ class ProduitTable extends Table
         $param = array(
             ':referencep' => $produit->getReferenceProduit(),
             ':idcategorie' => $produit->getIdCategorie(),
-            ':idcaracteristique' => null,
             ':libelle' => $produit->getLibelle(),
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
             ':etatvente' => $produit->getEtatVente(),
-            ':pourcentagereduction' => $produit->getPourcentageReduction()
+            ':pourcentagereduction' => $produit->getPourcentageReduction(),
         );
-        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :idcaracteristique, :libelle, :prix, :cheminphoto, :etatvente, :pourcentagereduction)", $param);
+        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :libelle, :prix, :cheminphoto, :etatvente, :pourcentagereduction)", $param);
     }
 
     /**
@@ -93,7 +92,16 @@ class ProduitTable extends Table
      */
     public function delete(Produit $produit){
         $this->db->prepare("DELETE FROM produit WHERE referencep = ?", array($produit->getReferenceProduit()));
+    }
 
+    /**Modifier un produit s'il existe sinon l'insérer
+     * @param Produit $produit
+     */
+    public function add(Produit $produit){
+        if ($this->findById($produit->getReferenceProduit()))
+            $this->update($produit);
+        else
+            $this->create($produit);
     }
 
 }

@@ -22,18 +22,18 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clientèle <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Commandes client</a></li>
-                        <li><a href="#">Factures</a></li>
+                        <li><a href="commandesClient.php">Commandes client</a></li>
+                        <li><a href="factures.php">Factures</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="newsletters.php">Newsletter</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vitrine & stock <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Gestion Produits</a></li>
+                        <li><a href="produits.php">Gestion Produits</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Etablir commande</a></li>
+                        <li><a href="commandesFournisseur.php">Etablir commande</a></li>
                     </ul>
                 </li>
             </ul>

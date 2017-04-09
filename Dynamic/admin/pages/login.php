@@ -5,9 +5,6 @@
  * Date: 03/04/2017
  * Time: 22:58
  */
-
-
-
 ?>
 <div class="container">
     <div class="login col-md-4 col-md-offset-4">

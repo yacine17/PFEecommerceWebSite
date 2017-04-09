@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')//l'utilisateur vient d'une requete HTT
 require 'pages/templates/header.php';
 if (Authentification::estConnecte() && Authentification::estEmploye())
 {
-
     require 'pages/templates/navbar.php';
     require 'pages/templates/footer.php';
 }

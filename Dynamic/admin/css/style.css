@@ -57,12 +57,13 @@ body{
     position: fixed;
     top: 85%;
     left: 93%;
-    line-height: 50px;
+    line-height: 54px;
     box-shadow: #BBB 3px 3px;
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
     -o-transition: all 500ms;
     transition: all 500ms;
+    font-size: 18px;
 }
 .gestionProduit .ajouterNouveauProduit:hover{
     cursor: pointer;

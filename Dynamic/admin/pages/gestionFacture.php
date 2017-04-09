@@ -10,7 +10,7 @@
         <h1 class="text-center">Gestion des factures</h1>
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher un produit">
+                <input type="text" class="form-control" placeholder="Rechercher une facture">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                 </span>
