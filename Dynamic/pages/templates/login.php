@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         else
         {
-            //TODO erreur champs non remplis
+         //TODO erreur champs non remplis
         }
     }
     elseif ($_GET['op'] == 'inscription')

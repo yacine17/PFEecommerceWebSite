@@ -162,7 +162,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     <div class="input-group">
                         <input type="number" step="1" class="form-control" id="reduction" name="reduction" placeholder="Reduction" required value="<?= $produit->getPourcentageReduction() ?>">
                         <div class="input-group-addon">%</div>
-                    </div>
+</div>
                 </div>
             </div>
             <div class="form-group">
@@ -186,4 +186,3 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         </form>
     </div>
 </div>
-
