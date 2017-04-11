@@ -5,23 +5,6 @@
  * Date: 23/03/2017
  * Time: 22:19
  */
-<<<<<<< HEAD
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (isset($_POST['username']) && !empty($_POST['username'])) {
-        $db=\app\Config::getInstance()->getDatabase();
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $name = $_POST['username'];
-        $email = $_POST['email'];
-        $pass = $_POST['motDePasse'];
-        $id = "C";
-        $person1 = new \app\classes\Personne($nom, $prenom, null, $email);
-        $persondb = new \app\table\PersonneTable($db);
-        $persondb->create($person1);
-        $cpt = new \app\classes\Compte($name, $pass, $person1->getId());
-        $cptTable = new \app\table\CompteTable($db);
-        $cptTable->create($cpt);
-=======
 use app\classes\Authentification;
 use app\classes\Compte;
 use app\classes\Personne;
@@ -79,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         {
             //TODO afficher page d'erreur 'un champs ou plus non remplis
         }
->>>>>>> 184f2d7bb5e4cd39fc9249cbd7ded80ab605d3fd
     }
 }
 ?>

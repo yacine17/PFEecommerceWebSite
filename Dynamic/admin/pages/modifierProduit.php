@@ -5,9 +5,33 @@
  * Date: 4/1/2017
  * Time: 00:15
  */
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST['refP']) && !empty($_POST['refP'])){
-        $db=\app\Config::getInstance()->getDatabase();
+use app\Config;
+use app\table\ProduitTable;
+$db = Config::getInstance()->getDatabase();
+$catDb = new \app\table\CategorieTable($db);
+$cats = $catDb->getAll();
+$produitDb = new ProduitTable($db);
+$produit = new \app\classes\Produit();
+if ((isset($_GET['do'])) && ($_GET['do'] == 'mod') ){
+    //Modifier un produit
+    //Afficher tt les informations de produit
+    if (!empty($_GET['id']) && ctype_digit($_GET['id']))//Id est un entier
+    {
+        $produit = $produitDb->findById($_GET['id']);
+        if (!$produit)
+        {
+            //TODO Produit n'existe pas
+        }
+    }
+}
+elseif ((isset($_GET['do'])) && ($_GET['do'] == 'ajout') )
+{
+    //Ajouter un nouveau produit
+}
+elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
+{
+    if(isset($_POST['refP']) && !empty($_POST['refP'])) {
+        $db = \app\Config::getInstance()->getDatabase();
         $refp = $_POST['refP'];
         $libelle = $_POST['libelle'];
         $categorie = $_POST['categorie'];
@@ -22,41 +46,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $emailf = $_POST['emailf'];
         $fb = $_POST['fb'];
         $cattable = new \app\table\CategorieTable($db);
-        $cat=$cattable->findById($categorie);
-        $cat->setNbrProduit($cat->getNbrProduit()+$qte);
+        $cat = $cattable->findById($categorie);
+        $cat->setNbrProduit($cat->getNbrProduit() + $qte);
         $cattable->update($cat);
-        $produit = new \app\classes\Produit($refp,$categorie, $libelle, $prix, $photo, $etatv, $reduction,$fb);
-        $produitT=new \app\table\ProduitTable($db);
-        $produitT->create($produit);
-        $stockT=new \app\table\StockTable($db);
-        $stock=new \app\classes\Stock($refp,$categorie,$etat,$qte,$emailf);
-        var_dump($stock);
+        $nvproduit = new \app\classes\Produit($refp, $categorie, $libelle, $prix, $photo, $etatv, $reduction, $fb);
+        $produitT = new \app\table\ProduitTable($db);
+        $produitT->create($nvproduit);
+        $stockT = new \app\table\StockTable($db);
+        $stock = new \app\classes\Stock($refp, $categorie, $etat, $qte, $emailf);
         $stockT->create($stock);
+        header('location: produits.php');
     }
-}?>
+}
+?>
 <div class="insererProduit text-left">
     <div class="container">
-        <form class="form-horizontal" action="" method="post">
+        <h1 class="text-center">Produit</h1>
+        <form class="form-horizontal" action="?do=valider" method="post">
             <div class="form-group">
                 <label for="refP" class="col-sm-2 control-label">Reference Produit:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="refP" name="refP" placeholder="Reference Produit" required>
+                    <input type="text" class="form-control" id="refP" name="refP" placeholder="Reference Produit" required value="<?= $produit->getReferenceProduit() ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="libelle" class="col-sm-2 control-label">Libelle Produit:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle Produit" required>
+                    <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle Produit" required value="<?= $produit->getLibelle() ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="categorie" class="col-sm-2 control-label">Categorie:</label>
                 <div class="col-sm-3">
                     <select name="categorie" id="categorie" class="form-control">
-                        <option disabled selected>Categorie</option>
-                        <option value="1">Papeterie</option>
-                        <option value="2">Bureautique</option>
-                        <option value="3">Informatique</option>
+                        <?php
+                            foreach ($cats as $cat){
+                                /** @var $cat \app\classes\Categorie */
+                                $sel = ($cat->getIdCategorie() == $produit->getIdCategorie()) ? 'selected' : '';
+                                echo "<option value='" . $cat->getIdCategorie() . "' $sel>" .  $cat->getNom() . "</option>";
+                            }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -83,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label for="photo" class="col-sm-2 control-label">Chemin photo:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="photo" name="photo" placeholder="Chemin photo" required>
+                    <input type="text" class="form-control" id="photo" name="photo" placeholder="Chemin photo" required value="<?= $produit->getCheminPhoto() ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -98,7 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     <select name="etats" id="etats" class="form-control">
                         <option disabled selected>Etat</option>
                         <option value="1">En stock</option>
-                        <option value="2">En commande</option>
+                        <option value="2">Commandé</option>
+                        <option value="3">Repture</option>
                     </select>
                 </div>
             </div>
@@ -106,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="prix" class="col-sm-2 control-label">Prix:</label>
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <input type="number" step="50" class="form-control" id="prix" name="prix" placeholder="Prix" required>
+                        <input type="number" step="50" class="form-control" id="prix" name="prix" placeholder="Prix" required value="<?= $produit->getPrix() ?>">
                         <div class="input-group-addon">.00 DA</div>
                     </div>
                 </div>
@@ -115,9 +145,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="etatv" class="col-sm-2 control-label">Etat de vente:</label>
                 <div class="col-sm-3">
                     <select name="etatv" id="etatv" class="form-control">
-                        <option disabled selected>Etat de vente</option>
-                        <option value="1">Sans promotion</option>
+<<<<<<< HEAD:Dynamic/admin/pages/InsererProduit.php
+                        <option value="1" selected>Sans promotion</option>
                         <option value="2">En promotion</option>
+=======
+                        <option disabled>Etat de vente</option>
+                        <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
+                            echo " <option value=\"1\" selected>Sans promotion</option>
+                                    <option value=\"2\">En promotion</option>";
+                            else
+                                echo "<option value=\"1\">Sans promotion</option>
+                                        <option value=\"2\" selected>En promotion</option>";
+                        ?>
+
+>>>>>>> 2b1010bfe65693712b00b7ae964881ef1cd68b7e:Dynamic/admin/pages/modifierProduit.php
                     </select>
                 </div>
             </div>
@@ -125,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="reduction" class="col-sm-2 control-label">Réduction:</label>
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <input type="number" step="1" class="form-control" id="reduction" name="reduction" placeholder="Reduction" required>
+                        <input type="number" step="1" class="form-control" id="reduction" name="reduction" placeholder="Reduction" required value="<?= $produit->getPourcentageReduction() ?>">
                         <div class="input-group-addon">%</div>
                     </div>
                 </div>

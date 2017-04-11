@@ -51,12 +51,12 @@ $catDb = new \app\table\CategorieTable($db);
                     <td><?= $etatVente ?></td>
                     <td><?= $reduction ?></td>
                     <td>
-                        <a class="btn btn-success" href="?do=modProduit&id=<?= $produit->getReferenceProduit()?>">
+                        <a class="btn btn-success" href="?do=mod&id=<?= $produit->getReferenceProduit()?>">
                             <i class="fa fa-edit"></i> Modifier
                         </a>
                     </td>
                     <td>
-                        <a class="btn btn-danger confirm" href="?do=modProduit&id=<?= $produit->getReferenceProduit()?>">
+                        <a class="btn btn-danger confirm" href="?id=<?= $produit->getReferenceProduit()?>">
                             <i class="fa fa-close"></i> Supprimer
                         </a>
                     </td>
@@ -64,88 +64,10 @@ $catDb = new \app\table\CategorieTable($db);
                 <?php
             }
             ?>
-            <!--
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td><img src="pages/im.png" width="50" height="30"></td>
-                <td>Prdouit 1</td>
-                <td>Informatique</td>
-                <td>500.00 DA</td>
-                <td>Sans promotion</td>
-                <td>0%</td>
-                <td><button class="btn btn-success"><i class="fa fa-edit"></i> Modifier</button></td>
-                <td><button class="btn btn-danger confirm"><i class="fa fa-close"></i> Supprimer</button></td>
-            </tr>-->
         </table>
         <!--Start Ajouter nouveau produit-->
-        <div class="ajouterNouveauProduit bg-primary text-center" title="Ajouter nouveau produit">
-            <i class="fa fa-tag"></i><i class="fa fa-plus"></i>
+        <div class="ajouterNouveauProduit bg-primary text-center" title="Ajouter nouveau produit" onclick="window.location='?do=ajout'">
+            <i class="fa fa-tag"></i><sup><i class="fa fa-plus"></i></sup>
         </div>
         <!--End Ajouter nouveau produit-->
     </div>

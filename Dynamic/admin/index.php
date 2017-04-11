@@ -6,14 +6,19 @@
  * Time: 19:51
  */
 <<<<<<< HEAD
+//<<<<<<< HEAD
 require '..\app\Autoloader.php';
 app\Autoloader::register();
 require 'pages/templates/header.php';
 require 'pages/templates/navbar.php';
 require 'pages/InsererProduit.php';
-=======
+//=======
 use app\classes\Authentification;
->>>>>>> 184f2d7bb5e4cd39fc9249cbd7ded80ab605d3fd
+//>>>>>>> //184f2d7bb5e4cd39fc9249cbd7ded80ab605d3fd
+=======
+
+use app\classes\Authentification;
+>>>>>>> 2b1010bfe65693712b00b7ae964881ef1cd68b7e
 
 session_start();
 require '..\app\Autoloader.php';
@@ -35,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')//l'utilisateur vient d'une requete HTT
 require 'pages/templates/header.php';
 if (Authentification::estConnecte() && Authentification::estEmploye())
 {
-
     require 'pages/templates/navbar.php';
     require 'pages/templates/footer.php';
 }
