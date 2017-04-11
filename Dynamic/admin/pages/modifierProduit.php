@@ -127,8 +127,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     <select name="etats" id="etats" class="form-control">
                         <option disabled selected>Etat</option>
                         <option value="1">En stock</option>
-                        <option value="2">Commandé</option>
-                        <option value="3">Repture</option>
+                        <option value="2">En commande</option>
                     </select>
                 </div>
             </div>
@@ -145,10 +144,6 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <label for="etatv" class="col-sm-2 control-label">Etat de vente:</label>
                 <div class="col-sm-3">
                     <select name="etatv" id="etatv" class="form-control">
-<<<<<<< HEAD:Dynamic/admin/pages/InsererProduit.php
-                        <option value="1" selected>Sans promotion</option>
-                        <option value="2">En promotion</option>
-=======
                         <option disabled>Etat de vente</option>
                         <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
                             echo " <option value=\"1\" selected>Sans promotion</option>
@@ -158,7 +153,6 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                                         <option value=\"2\" selected>En promotion</option>";
                         ?>
 
->>>>>>> 2b1010bfe65693712b00b7ae964881ef1cd68b7e:Dynamic/admin/pages/modifierProduit.php
                     </select>
                 </div>
             </div>
@@ -168,7 +162,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     <div class="input-group">
                         <input type="number" step="1" class="form-control" id="reduction" name="reduction" placeholder="Reduction" required value="<?= $produit->getPourcentageReduction() ?>">
                         <div class="input-group-addon">%</div>
-                    </div>
+</div>
                 </div>
             </div>
             <div class="form-group">
@@ -192,4 +186,3 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         </form>
     </div>
 </div>
-

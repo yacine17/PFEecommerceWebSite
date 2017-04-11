@@ -5,21 +5,7 @@
  * Date: 02/04/2017
  * Time: 19:51
  */
-<<<<<<< HEAD
-//<<<<<<< HEAD
-require '..\app\Autoloader.php';
-app\Autoloader::register();
-require 'pages/templates/header.php';
-require 'pages/templates/navbar.php';
-require 'pages/InsererProduit.php';
-//=======
 use app\classes\Authentification;
-//>>>>>>> //184f2d7bb5e4cd39fc9249cbd7ded80ab605d3fd
-=======
-
-use app\classes\Authentification;
->>>>>>> 2b1010bfe65693712b00b7ae964881ef1cd68b7e
-
 session_start();
 require '..\app\Autoloader.php';
 app\Autoloader::register();
