@@ -102,19 +102,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nom" >
+                                    <input type="text" class="form-control" name="nom" pattern="[a-zA-Z]{0,20}">
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Prenom:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="prenom" required>
+                                    <input type="text" class="form-control" name="prenom" required pattern="[a-zA-Z]{0,20}">
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom d'utilisateur:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="username" required>
+                                    <input type="text" class="form-control" name="username" required pattern="^[a-zA-Z0-9_-]{4,20}$">
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Mot de passe:</label>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="motDePasse" required>
+                                    <input type="password" class="form-control" name="motDePasse" required pattern=".{8, 32}">
                                     <i class="show-pass fa fa-eye fa-2x"></i>
                                 </div>
                             </div>
