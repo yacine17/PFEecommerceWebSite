@@ -47,7 +47,7 @@ $("#goToSearch").on('click', function () {
     $("#searchBar").focus();
 })
 /**
- *
+ *Confirmer la suppresion d'un produit de la liste des favoris
  */
 $(".article-favori").on('click', function () {
     if (confirm("Etes vous sur de vouloir supprimer cet article de votre liste des favoris?"))
@@ -56,15 +56,37 @@ $(".article-favori").on('click', function () {
         //$(this).parent().parent().fadeOut(600);
     }
 })
-
+/**
+ * Confirmer la suppression d'un article du panier
+ */
 $(".retirer-produit").on('click', function () {
     if (confirm("Etes vous sur de vouloir supprimer cet article de votre panier?"))
         $(this).parent().parent().fadeOut();
 })
 
+/**
+ * Ajouter un produit au favori
+ */
 $(".detail-produit .cara-produit .add-to-favorite").on('click', function () {
     if ($(this).find(".fa").hasClass("added-to-favorite"))
         $(this).find(".fa").removeClass("added-to-favorite");
     else
         $(this).find(".fa").addClass("added-to-favorite");
+})
+
+$(".cart-add").on('click', function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var url = $this.attr('href');
+
+    $.ajax(url)
+        .done(function () {
+            var count = parseInt($(".fa-shopping-cart .number-elements").text());
+            $(".fa-shopping-cart .number-elements").text(++count);
+        })
+        .fail(function () {
+
+        }).always(function () {
+
+        });
 })

@@ -11,7 +11,7 @@ use app\classes\Personne;
 use app\Config;
 use app\table\CompteTable;
 use app\table\PersonneTable;
-session_start();
+@ session_start();
 //Tester si l'utilisateur vient d'une requete HTTP POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_GET['op'] == 'connexion')

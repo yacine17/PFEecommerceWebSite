@@ -8,15 +8,21 @@
 <div class="gestionCommande">
     <div class="container">
         <h1 class="text-center">Gestion des commandes</h1>
+        <form>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Rechercher une commande" id="rechercherCommande">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
         <table class="table">
             <thead>
-                <tr>
-                    <th class="text-center" colspan="5">Commande en attente</th>
-                </tr>
                 <tr>
                     <th>N° commande</th>
                     <th>Client</th>
                     <th>Date</th>
+                    <th>Etat</th>
                     <th>Adresse livraison</th>
                     <th></th>
                 </tr>
@@ -24,8 +30,9 @@
             <tbody>
                 <tr>
                     <td>15472</td>
-                    <td>Hichem</td>
+                    <td>Yacine</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -33,9 +40,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
+                    <td>3543</td>
                     <td>Hichem</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -43,9 +51,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>9874</td>
+                    <td>Farid</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -53,9 +62,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>4213</td>
+                    <td>Amine</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -63,9 +73,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>9874</td>
+                    <td>Younes</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -73,9 +84,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>2354</td>
+                    <td>Adil</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -83,9 +95,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>3652</td>
+                    <td>Mohammed</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer
@@ -93,9 +106,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>15472</td>
-                    <td>Hichem</td>
+                    <td>2144</td>
+                    <td>Youcef</td>
                     <td>03/04/2017</td>
+                    <td>Validé</td>
                     <td>Tlemcen</td>
                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailCommande">
                             Préparer

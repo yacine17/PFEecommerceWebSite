@@ -178,6 +178,8 @@ a:hover{ /*for a without href*/
 .home img{
     width: 100%;
     margin-bottom: 10px;
+    height: 230px;
+    padding-bottom: 10px;
 }
 .product{
     padding: 10px 10px 0 10px;
@@ -185,7 +187,6 @@ a:hover{ /*for a without href*/
     border-radius: 0;
     border: solid 1px #DDD;
     margin: 20px 5px;
-    /*height: 333px;*/
     overflow: hidden;
 }
 .product:hover{

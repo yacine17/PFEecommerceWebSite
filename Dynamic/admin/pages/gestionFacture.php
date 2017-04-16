@@ -10,13 +10,14 @@
         <h1 class="text-center">Gestion des factures</h1>
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher une facture">
+                <input type="text" class="form-control" placeholder="Rechercher une facture" id="rechercherFacture">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                 </span>
             </div>
         </form>
         <table class="table">
+            <thead>
             <tr>
                 <th>N° facture</th>
                 <th>Client</th>
@@ -26,6 +27,8 @@
                 <th>Etat livraison</th>
                 <th></th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>23</td>
                 <td>Younes</td>
@@ -41,8 +44,8 @@
                 </td>
             </tr>
             <tr>
-                <td>23</td>
-                <td>Younes</td>
+                <td>17</td>
+                <td>Yacine</td>
                 <td>15000.00 DA</td>
                 <td>03/04/2017</td>
                 <td>Réglée</td>
@@ -55,8 +58,8 @@
                 </td>
             </tr>
             <tr>
-                <td>23</td>
-                <td>Younes</td>
+                <td>89</td>
+                <td>Hichem</td>
                 <td>15000.00 DA</td>
                 <td>03/04/2017</td>
                 <td>Réglée</td>
@@ -69,8 +72,8 @@
                 </td>
             </tr>
             <tr>
-                <td>23</td>
-                <td>Younes</td>
+                <td>69</td>
+                <td>Anes</td>
                 <td>15000.00 DA</td>
                 <td>03/04/2017</td>
                 <td>Réglée</td>
@@ -83,8 +86,8 @@
                 </td>
             </tr>
             <tr>
-                <td>23</td>
-                <td>Younes</td>
+                <td>29</td>
+                <td>Amine</td>
                 <td>15000.00 DA</td>
                 <td>03/04/2017</td>
                 <td>Réglée</td>
@@ -96,6 +99,7 @@
                     </button>
                 </td>
             </tr>
+            </tbody>
         </table>
         <!--Start modal-->
         <div class="modal fade" id="factureModal" tabindex="-1" role="dialog" aria-labelledby="factureModalLabel">

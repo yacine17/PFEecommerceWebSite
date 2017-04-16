@@ -5,8 +5,9 @@
  * Date: 06/04/2017
  * Time: 15:35
  */
-use app\classes\Authentification;
 session_start();
+use app\classes\Authentification;
+
 require '..\app\Autoloader.php';
 app\Autoloader::register();
 if (Authentification::estConnecte() && Authentification::estEmploye())

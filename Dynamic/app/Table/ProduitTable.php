@@ -28,12 +28,24 @@ class ProduitTable extends Table
         $produit = $this->db->prepare("SELECT * FROM produit WHERE libelle = ?", array($nom), Produit::class, true);
         return $produit;
     }
+
     /**
      * Récupérer tt les produit
-     * @return array(Produit)
+     * @param null $nbr nombre de produit à récupérer
+     * @param null $offset décalage
+     * @return array
      */
-    public function getAll(){
-        $produits = $this->db->query("SELECT * FROM produit", Produit::class);
+    public function getList($nbr = null, $offset = null){
+        $req = "SELECT * FROM produit ORDER BY referencep";
+        if (isset($offset) && (ctype_digit($offset) || is_int($offset)) && (ctype_digit($nbr) || is_int($nbr)))
+        {
+            $req = $req . " LIMIT " . $offset . ", " . $nbr;
+        }
+        elseif(isset($nbr) && (ctype_digit($nbr) || is_int($nbr)))
+        {
+            $req = $req . " LIMIT " . $nbr;
+        }
+        $produits = $this->db->query($req, Produit::class);
         return $produits;
     }
     /**

@@ -18,7 +18,7 @@ app\Autoloader::register();
 //$produit2 = new \app\classes\Produit(2, 1, 'Iphone S6', 120000.00, 'zz', 'aaa');
 
 //$prTable = new \app\table\ProduitTable(\app\Config::getInstance()->getDatabase());
-//$prTable->create($produit1);
+//var_dump($prTable->getList(3, 5));
 
 //$car1 = new \app\classes\Caracteristique(1, 2, 'Ram', '2GB');
 //$car2 = new \app\classes\Caracteristique(2, 2, 'Ecran', '5.6 pouces');

@@ -15,7 +15,7 @@ $produit = new \app\classes\Produit();
 if ((isset($_GET['do'])) && ($_GET['do'] == 'mod') ){
     //Modifier un produit
     //Afficher tt les informations de produit
-    if (!empty($_GET['id']) && ctype_digit($_GET['id']))//Id est un entier
+    if (!empty($_GET['id']))
     {
         $produit = $produitDb->findById($_GET['id']);
         if (!$produit)

@@ -35,11 +35,41 @@
                 <!--<li><a href="#">Promotion</a></li>-->
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="passer%20commande.html">Passer commande</a></li>
-                <li><a href="panier.html" class="fa-parent"><i class="fa fa-shopping-cart"><div class="number-elements">2</div></i></a></li>
-                <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3</div></i></a></li>
+                <li><a href="panier.php" class="fa-parent">
+                        <i class="fa fa-shopping-cart">
+                            <?php if (isset($_SESSION['panier']) && (count($_SESSION['panier']) > 0))
+                            {
+                                echo "<div class='number-elements'>";
+                                echo count($_SESSION['panier']);
+                                echo "</div>";
+                            }?>
+                        </i>
+                    </a>
+                </li>
+                <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3
+                            </div></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="se-connecter" data-toggle="modal" data-target="#loginModal">Se connecter</a></li></ul>
+                <?php
+                    if (\app\classes\Authentification::estConnecte())
+                    {
+                       echo "<li class='dropdown'>
+                                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' 
+                                aria-haspopup='true' aria-expanded='false'>" . $_SESSION['auth']['username'] . "<span class='caret'></span></a>
+                                <ul class='dropdown-menu'>
+                                    <li><a href=''>Modifier profil</a></li>
+                                    <li><a href=''>Mes commandes</a></li>
+                                    <li><a href='../pages/templates/logout.php'>Deconnexion</a></li>
+                                </ul>   
+                            </li>";
+                    }
+                    else
+                    {
+                        echo "<li><a class=\"se-connecter\" data-toggle=\"modal\" data-target=\"#loginModal\">Se connecter</a></li>";
+                    }
+                ?>
+
+            </ul>
         </div><!-- /.navbar-collapse -->
         <!-- Collect the nav links, forms, and other content for toggling -->
     </div><!-- /.container-fluid -->

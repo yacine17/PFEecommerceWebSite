@@ -7,3 +7,4 @@
  */
 require 'templates/searchBar.php';
 require 'templates/carousel.php';
+require 'templates/homeProduct.php';
