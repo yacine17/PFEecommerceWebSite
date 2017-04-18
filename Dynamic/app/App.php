@@ -12,6 +12,7 @@ namespace app;
 class App
 {
     public $title = 'LibTech';
+    public $active = 'accueil';
     private static $instance;
 
     /**

@@ -39,12 +39,11 @@ class StockTable extends Table
     public function create(Stock $stock){
         $param = array(
             ':refproduit' => $stock->getReferenceProduit(),
-            ':idcategorie' => $stock->getIdCategorie(),
             ':etat' => $stock->getIdCategorie(),
             ':qtedispo' => $stock->getQuantiteDisponible(),
             ':emailfournisseur' => $stock->getEmailFournisseur()
         );
-        $this->db->prepare("INSERT INTO stock VALUES (:refproduit, :idcategorie, :etat, :qtedispo, :emailfournisseur)", $param);
+        $this->db->prepare("INSERT INTO stock VALUES (:refproduit, :etat, :qtedispo, :emailfournisseur)", $param);
     }
 
     /**
@@ -54,7 +53,6 @@ class StockTable extends Table
     public function update(Stock $stock){
         $param = array(
             ':refproduit' => $stock->getReferenceProduit(),
-            ':idcategorie' => $stock->getIdCategorie(),
             ':etat' => $stock->getIdCategorie(),
             ':qtedispo' => $stock->getQuantiteDisponible(),
             ':emailfournisseur' => $stock->getEmailFournisseur()
@@ -65,9 +63,7 @@ class StockTable extends Table
                                 qtedispo = :qtedispo,
                                 emailfournisseur = :emailfournisseur
                                 WHERE 
-                                refproduit = :refproduit
-                                AND 
-                                idcategorie = :idcategorie", $param);
+                                refproduit = :refproduit", $param);
     }
 
     /**
@@ -76,12 +72,9 @@ class StockTable extends Table
      */
     public function delete(Stock $stock){
         $param = array(
-            ':refproduit' => $stock->getReferenceProduit(),
-            ':idcategorie' => $stock->getIdCategorie()
+            ':refproduit' => $stock->getReferenceProduit()
         );
         $this->db->prepare("DELETE FROM stock
-                                  WHERE refproduit = :refproduit
-                                  AND 
-                                  idcategorie = :idcategorie", $param);
+                                  WHERE refproduit = :refproduit", $param);
     }
 }

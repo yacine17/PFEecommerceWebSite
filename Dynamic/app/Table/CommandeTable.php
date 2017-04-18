@@ -20,7 +20,7 @@ class CommandeTable extends Table
      * @return Commande
      */
     public function findById($id){
-        $commande = $this->db->prepare("SELECT * FROM commende WHERE numcommande = ?", array($id), Commande::class, true);
+        $commande = $this->db->prepare("SELECT * FROM commande WHERE numcommande = ?", array($id), Commande::class, true);
         return$commande;
     }
 
@@ -29,7 +29,7 @@ class CommandeTable extends Table
      * @return array
      */
     public function getAll(){
-        $commandes = $this->db->query("SELECT * FROM commende", Commande::class);
+        $commandes = $this->db->query("SELECT * FROM commande", Commande::class);
         return $commandes;
     }
 
@@ -45,7 +45,7 @@ class CommandeTable extends Table
             ':adresselivraison' => $commande->getAdresseLivraison(),
             ':etatvalidation' => $commande->getEtatValidation()
         );
-        $this->db->prepare("INSERT INTO commende VALUES (:numcommande, :id, :date, :adresselivraison, :etatvalidation)", $param);
+        $this->db->prepare("INSERT INTO commande VALUES (:numcommande, :id, :date, :adresselivraison, :etatvalidation)", $param);
     }
 
     /**
@@ -60,7 +60,7 @@ class CommandeTable extends Table
             ':adresselivraison' => $commande->getAdresseLivraison(),
             ':etatvalidation' => $commande->getEtatValidation()
         );
-        $this->db->prepare("UPDATE commende 
+        $this->db->prepare("UPDATE commande 
                                 SET 
                                 date = :date,
                                 adresselivraison = :adresselivraison,
@@ -79,6 +79,6 @@ class CommandeTable extends Table
             ':numcommande' => $commande->getNumCommande(),
             ':id' => $commande->getId()
         );
-        $this->db->prepare("DELETE FROM commende WHERE numcommande = :numcommande AND id = :id", $param);
+        $this->db->prepare("DELETE FROM commande WHERE numcommande = :numcommande AND id = :id", $param);
     }
 }

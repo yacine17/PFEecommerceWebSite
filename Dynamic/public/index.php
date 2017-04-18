@@ -8,21 +8,15 @@
 //Charger la classe Autoloader qui s'occupe de chager les autres classes
 require '..\app\Autoloader.php';
 app\Autoloader::register();
-if (isset($_GET['do'])) {
-    $do = $_GET['do'];
-} else {
-    $do = 'home';
-}
+
 ob_start();
-if ($do == 'home') {
+
+    \app\App::getInstance()->active = 'accueil';
     require '../pages/accueil.php';
-} elseif ($do == 'cat'){
-    require '../pages/categorie.php';
-}
+
 $content = ob_get_clean();
 require '../pages/templates/header.php';
 require '../pages/templates/login.php';
 require '../pages/templates/navbar.php';
 echo $content;
-
 require '../pages/templates/footer.php';

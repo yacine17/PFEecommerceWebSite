@@ -45,24 +45,7 @@ $("#goToSearch").on('click', function () {
 
     $("html,body").animate({scrollTop : 0}, 600)
     $("#searchBar").focus();
-})
-/**
- *Confirmer la suppresion d'un produit de la liste des favoris
- */
-$(".article-favori").on('click', function () {
-    if (confirm("Etes vous sur de vouloir supprimer cet article de votre liste des favoris?"))
-    {
-        $(this).css('color', '#FFF');
-        //$(this).parent().parent().fadeOut(600);
-    }
-})
-/**
- * Confirmer la suppression d'un article du panier
- */
-$(".retirer-produit").on('click', function () {
-    if (confirm("Etes vous sur de vouloir supprimer cet article de votre panier?"))
-        $(this).parent().parent().fadeOut();
-})
+});
 
 /**
  * Ajouter un produit au favori
@@ -72,21 +55,108 @@ $(".detail-produit .cara-produit .add-to-favorite").on('click', function () {
         $(this).find(".fa").removeClass("added-to-favorite");
     else
         $(this).find(".fa").addClass("added-to-favorite");
-})
+});
 
+/**
+ * Ajouter un produit au panier
+ */
 $(".cart-add").on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
     var url = $this.attr('href');
-
     $.ajax(url)
         .done(function () {
             var count = parseInt($(".fa-shopping-cart .number-elements").text());
             $(".fa-shopping-cart .number-elements").text(++count);
+
         })
         .fail(function () {
 
         }).always(function () {
 
         });
-})
+});
+
+/**
+ * Ajouter un produit au favoris
+ */
+$(".favori-add").on('click', function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    var url = $this.attr('href');
+    $.ajax(url)
+        .done(function () {
+            var count = parseInt($(".fa-heart .number-elements").text());
+            $(".fa-heart .number-elements").text(++count);
+        }).fail(function () {
+
+        }).always(function () {
+
+    });
+});
+
+/**
+ * Enlver un produit de la liste des favoris
+ */
+$(".supprimerFavori").on('click', function (e) {
+    e.preventDefault();
+    if (confirm("Etes vous sur de vouloir supprimer cet article de votre lite des favoris?"))
+    var $this = $(this);
+    var url = $this.attr('href');
+    $.ajax(url)
+        .done(function () {
+            $this.parent().parent().fadeOut();
+            var count = parseInt($(".fa-heart .number-elements").text());
+            $(".fa-heart .number-elements").text(--count);
+        }).fail(function () {
+        $this.find(".fa").addClass("added-to-favorite");
+        }).always(function () {
+
+    });
+});
+
+/**
+ * Supprimer un article du panier
+ */
+$(".retirer-produit").on('click', function (e) {
+    e.preventDefault();
+    if (confirm("Etes vous sur de vouloir supprimer cet article de votre panier?"))
+    {
+        var $this = $(this);
+        var url = $this.attr('href');
+        $.ajax(url)
+            .done(function () {
+                $this.parent().parent().fadeOut();
+                var count = parseInt($(".fa-shopping-cart .number-elements").text());
+                $(".fa-shopping-cart .number-elements").text(--count);
+            }).fail(function () {
+
+        }).always(function () {
+
+        });
+    }
+});
+
+/**
+ * Supprimer tt les produits du panier
+ */
+$(".retirerToutProduit").on('click', function (e) {
+    e.preventDefault();
+    if (confirm("Etes vous sur de vouloir supprimer tout les article de votre panier?"))
+    {
+        var $this = $(this);
+        var url = $this.attr('href');
+        $.ajax(url)
+            .done(function () {
+                $('.table').fadeOut(600, function () {
+                    var panierVide = "<div class='alert alert-danger'>Votre panier est vide</div>";
+                    $('.contenu-panier .container').html(panierVide);
+                });
+                $(".fa-shopping-cart .number-elements").text(0);
+            }).fail(function () {
+
+        }).always(function () {
+
+        });
+    }
+});

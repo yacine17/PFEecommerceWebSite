@@ -30,6 +30,16 @@ class ProduitTable extends Table
     }
 
     /**
+     * Récupérer tt les produits d'une categorie
+     * @param $idCat
+     * @return array|mixed
+     */
+    public function getByCategorie($idCat){
+        $produits = $this->db->prepare("SELECT * FROM produit WHERE idcategorie ?", array($idCat), Produit::class);
+        return $produits;
+    }
+
+    /**
      * Récupérer tt les produit
      * @param null $nbr nombre de produit à récupérer
      * @param null $offset décalage
@@ -57,13 +67,14 @@ class ProduitTable extends Table
             ':referencep' => $produit->getReferenceProduit(),
             ':idcategorie' => $produit->getIdCategorie(),
             ':libelle' => $produit->getLibelle(),
+            ':description' => null,
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
             ':etatvente' => $produit->getEtatVente(),
             ':pourcentagereduction' => $produit->getPourcentageReduction(),
             ':lienFB' => $produit->getLienFB()
         );
-        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :libelle, :prix, :cheminphoto, :etatvente, :pourcentagereduction, :lienFB)", $param);
+        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :libelle, :description, :prix, :cheminphoto, :etatvente, :pourcentagereduction, :lienFB)", $param);
     }
     /**
      * Modifier un produit à la base de donnée

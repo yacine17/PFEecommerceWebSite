@@ -51,11 +51,10 @@ class PersonneTable extends Table
             ':id'        => $personne->getId(),
             ':nom'     => $personne->getNom(),
             ':prenom' => $personne->getPrenom(),
-            ':adresse'  => $personne->getAdresse(),
             ':email'    => $personne->getEmail(),
             ':tel'       => $personne->getTel()
         );
-        $this->db->prepare("INSERT INTO personne VALUES (:id, :nom, :prenom, :adresse, :email, :tel)", $values);
+        $this->db->prepare("INSERT INTO personne VALUES (:id, :nom, :prenom, :email, :tel)", $values);
     }
 
     /**
@@ -67,7 +66,6 @@ class PersonneTable extends Table
         $param = array(
             ':nom'      => $personne->getNom(),
             ':prenom'  => $personne->getPrenom(),
-            ':adresse'  => $personne->getAdresse(),
             ':email'    => $personne->getEmail(),
             ':tel'       => $personne->getTel(),
             ':id'        => $personne->getId()
@@ -76,7 +74,6 @@ class PersonneTable extends Table
                                 SET 
                                 nom = :nom,
                                 prenom = :prenom,
-                                adresse = :adresse,
                                 email = :email, 
                                 tel = :tel
                                 WHERE id = :id",
@@ -98,6 +95,9 @@ class PersonneTable extends Table
      */
     public function lastClientId(){
         $res=$this->db->query("SELECT id FROM Personne WHERE id LIKE 'C%' ORDER BY id DESC LIMIT 1", null, true);
-        return $res->id;
+        if (!empty($res))
+            return $res->id;
+        else
+            return 'c0';
     }
 }

@@ -4,7 +4,8 @@
  * User: Yacine
  * Date: 23/03/2017
  * Time: 22:20
- */?>
+ */
+use app\App; ?>
 <nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container">
         <div class="row">
@@ -23,31 +24,42 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse " id="ournavbar">
             <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="index.php?do=home">Accueil <span class="sr-only">(current)</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                <li <?php if (App::getInstance()->active == 'accueil') echo "class='active'"?>><a href="index.php?do=home">Accueil <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown <?php if (App::getInstance()->active == 'categrie') echo " active" ?>">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="index.php?do=cat">Papeterie</a></li>
-                        <li><a href="index.php?do=cat">Bureautique</a></li>
-                        <li><a href="index.php?do=cat">Informatique</a></li>
+                        <li><a href="categorie.php?idCat=1">Papeterie</a></li>
+                        <li><a href="categorie.php?idCat=2">Bureautique</a></li>
+                        <li><a href="categorie.php?idCat=3">Informatique</a></li>
                     </ul>
                 </li>
                 <!--<li><a href="#">Promotion</a></li>-->
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="passer%20commande.html">Passer commande</a></li>
-                <li><a href="panier.php" class="fa-parent">
+                <li <?php if (App::getInstance()->active == 'contact') echo "class='active'"?>><a href="contact.html">Contact</a></li>
+                <li <?php if (App::getInstance()->active == 'passerCommande') echo "class='active'"?>><a href="passer%20commande.html">Passer commande</a></li>
+                <li <?php if (App::getInstance()->active == 'panier') echo "class='active'" ?>><a href="panier.php" class="fa-parent">
                         <i class="fa fa-shopping-cart">
+                            <div class='number-elements '>
                             <?php if (isset($_SESSION['panier']) && (count($_SESSION['panier']) > 0))
-                            {
-                                echo "<div class='number-elements'>";
-                                echo count($_SESSION['panier']);
-                                echo "</div>";
-                            }?>
+                                        echo count($_SESSION['panier']);
+                                    else
+                                        echo "0";
+                            ?>
+                            </div>
                         </i>
                     </a>
                 </li>
-                <li><a href="favoris.html" class="fa-parent"><i class="fa fa-heart"><div class="number-elements">3
-                            </div></i></a></li>
+                <li <?php if (App::getInstance()->active == 'favoris') echo "class='active'" ?>><a href="favoris.php" class="fa-parent">
+                        <i class="fa fa-heart">
+                            <div class="number-elements">
+                                <?php if (isset($_SESSION['favoris']) && (count($_SESSION['favoris']) > 0))
+                                    echo count($_SESSION['favoris']);
+                                else
+                                    echo "0";
+                                ?>
+                            </div>
+                        </i>
+                    </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php
