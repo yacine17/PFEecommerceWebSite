@@ -10,7 +10,7 @@ use app\classes\Produit;
 use app\table\ProduitTable;
 $db = \app\Config::getInstance()->getDatabase();
 $produitDb = new ProduitTable($db);
-$produits = $produitDb->getAll();
+$produits = $produitDb->getList();();
 $catDb = new \app\table\CategorieTable($db);
 ?>
 <div class="gestionProduit">
