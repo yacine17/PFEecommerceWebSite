@@ -46,7 +46,7 @@ class ProduitTable extends Table
      * @return array|mixed
      */
     public function getByCategorie($idCat){
-        $produits = $this->db->prepare("SELECT * FROM produit WHERE idcategorie ?", array($idCat), Produit::class);
+        $produits = $this->db->prepare("SELECT * FROM produit WHERE idcategorie = ?", array($idCat), Produit::class);
         return $produits;
     }
 
