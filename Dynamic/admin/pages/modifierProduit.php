@@ -37,8 +37,6 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         $libelle = $_POST['libelle'];
         $description = $_POST['description'];
         $categorie = $_POST['categorie'];
-       /* $_POST['carnom1'];
-        $_POST['cardesc1'];*/
         $tmp_name = $_FILES['image']['tmp_name'];
         $nomImage = $_FILES['image']['name'];
         $qte = $_POST['qte'];
@@ -54,8 +52,22 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         $produitT->add($nvproduit);
         $nvproduit = $produitT->findByReference($refp);
         $stockT = new \app\table\StockTable($db);
-        $stock = new \app\classes\Stock($nvproduit->getIdProduit(), $etat, $qte, $emailf);
+        $idProduit = $nvproduit->getIdProduit();
+        $stock = new \app\classes\Stock($idProduit, $etat, $qte, $emailf);
         $stockT->create($stock);
+        $cara = true;
+        $i = 1;
+        $caracteristiqueDb = new \app\table\CaracteristiqueTable($db);
+       while ($cara)
+       {
+           if (isset($_POST['carnom' . $i])) {
+               $caracteristique = new \app\classes\Caracteristique(null, $idProduit, $_POST['carnom' . $i], $_POST['cardesc' . $i]);
+                $caracteristiqueDb->create($caracteristique);
+           }
+           else
+               $cara= false;
+           $i++;
+       }
         header('location: produits.php');
     }
 }
@@ -101,7 +113,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group caracteristique">
                 <label class="col-sm-2 control-label">Caractéristiques:</label>
                 <div class="col-sm-10 col-sm-offset-2">
                     <div class="col-sm-5">
@@ -118,7 +130,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-primary right-float"><i class="fa fa-plus"></i> Ajouter</button>
+                    <button type="button" class="btn btn-primary right-float ajouterCaracteristique"><i class="fa fa-plus"></i> Ajouter</button>
                 </div>
             </div>
             <div class="form-group">

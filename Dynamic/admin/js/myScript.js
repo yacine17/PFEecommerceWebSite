@@ -63,3 +63,18 @@ $("#rechercherCommande").on('input', function () {
     var nom = this.value;
     rechercherCommande(nom);
 });
+$(".ajouterCaracteristique").on('click', function () {
+    ajouterLigneCaracteristique();
+})
+function ajouterLigneCaracteristique() {
+    var childs = $(".caracteristique").children("div");
+    var nbrCara = childs.length;
+    var htmlCara = "<div class='col-sm-10 col-sm-offset-2'><div class='col-sm-5'>" +  "" +
+        "<label for='carnom1' class='col-sm-5 control-label'></label> <div class='col-sm-7'>" +
+        "<input type='text' class='form-control' id='carnom" + nbrCara + "' name='carnom" + nbrCara +
+        "' placeholder='Nom' required> " +
+    "</div></div> <div class='col-sm-7'><label for='cardesc1' class='col-sm-2 control-label'></label>" +
+    "<div class='col-sm-10'><input type='text' class='form-control' id='cardesc" + nbrCara + "' name='cardesc" + nbrCara + "' placeholder='Valeur' required>" +
+    "</div> </div> </div>"
+    childs.last().before(htmlCara);
+}
