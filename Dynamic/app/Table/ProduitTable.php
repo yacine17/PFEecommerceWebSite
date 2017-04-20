@@ -16,7 +16,18 @@ class ProduitTable extends Table
      * @return Produit|false
      */
     public function findById($id){
-        $produit = $this->db->prepare("SELECT * FROM produit WHERE referencep = ?", array($id), Produit::class, true);
+        $produit = $this->db->prepare("SELECT * FROM produit WHERE idProduit = ?", array($id), Produit::class, true);
+        return $produit;
+    }
+
+
+    /**
+     * Récupérer un produit a partir de reference
+     * @param $reference
+     * @return Produit
+     */
+    public function findByReference($reference){
+        $produit = $this->db->prepare("SELECT * FROM produit WHERE referencep = ?", array($reference), Produit::class, true);
         return $produit;
     }
     /**
@@ -67,14 +78,17 @@ class ProduitTable extends Table
             ':referencep' => $produit->getReferenceProduit(),
             ':idcategorie' => $produit->getIdCategorie(),
             ':libelle' => $produit->getLibelle(),
-            ':description' => null,
+            ':description' => $produit->getDescription(),
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
             ':etatvente' => $produit->getEtatVente(),
             ':pourcentagereduction' => $produit->getPourcentageReduction(),
             ':lienFB' => $produit->getLienFB()
         );
-        $this->db->prepare("INSERT INTO produit VALUES (:referencep, :idcategorie, :libelle, :description, :prix, :cheminphoto, :etatvente, :pourcentagereduction, :lienFB)", $param);
+        $this->db->prepare("INSERT INTO produit 
+        (referencep, idcategorie, libelle, description, prix, cheminphoto, etatvente, pourcentagereduction, lienfb)
+        VALUES 
+        (:referencep, :idcategorie, :libelle, :description, :prix, :cheminphoto, :etatvente, :pourcentagereduction, :lienFB)", $param);
     }
     /**
      * Modifier un produit à la base de donnée
@@ -82,9 +96,10 @@ class ProduitTable extends Table
      */
     public function update(Produit $produit){
         $param = array(
+            ':idProduit' => $produit->getIdProduit(),
             ':referencep' => $produit->getReferenceProduit(),
             ':idcategorie' => $produit->getIdCategorie(),
-            ':idcaracteristique' => null,
+            ':idcaracteristique' => $produit->getDescription(),
             ':libelle' => $produit->getLibelle(),
             ':prix' => $produit->getPrix(),
             ':cheminphoto' => $produit->getCheminPhoto(),
@@ -93,28 +108,31 @@ class ProduitTable extends Table
             ':lienFB' => $produit->getLienFB()
         );
         $this->db->prepare("UPDATE produit SET 
+                                  referencep = :referencep,
                                   idcategorie = :idcategorie,
                                   idcaracteristique = :idcaracteristique,
                                   libelle = :libelle,
+                                  description = :description,
                                   prix = :prix,
                                   cheminphoto = :cheminphoto,
                                   etatvente = :etatvente,
                                   pourcentagereduction = :pourcentagereduction,
                                   lienfb = :lienFB
-                                  WHERE referencep = :referencep", $param);
+                                  WHERE 
+                                  idProduit = :idProduit", $param);
     }
     /**
      * Supprimer un produit de la base de donnée
      * @param Produit $produit
      */
     public function delete(Produit $produit){
-        $this->db->prepare("DELETE FROM produit WHERE referencep = ?", array($produit->getReferenceProduit()));
+        $this->db->prepare("DELETE FROM produit WHERE idProduit = ?", array($produit->getIdProduit()));
     }
     /**Modifier un produit s'il existe sinon l'insérer
      * @param Produit $produit
      */
     public function add(Produit $produit){
-        if ($this->findById($produit->getReferenceProduit()))
+        if ($this->findById($produit->getIdProduit()))
             $this->update($produit);
         else
             $this->create($produit);

@@ -32,12 +32,15 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
 {
     if(isset($_POST['refP']) && !empty($_POST['refP'])) {
         $db = \app\Config::getInstance()->getDatabase();
+        $idProduit = $_POST['idProduit'];
         $refp = $_POST['refP'];
         $libelle = $_POST['libelle'];
+        $description = $_POST['description'];
         $categorie = $_POST['categorie'];
-        $_POST['carnom1'];
-        $_POST['cardesc1'];
-        $photo = $_POST['photo'];
+       /* $_POST['carnom1'];
+        $_POST['cardesc1'];*/
+        $tmp_name = $_FILES['image']['tmp_name'];
+        $nomImage = $_FILES['image']['name'];
         $qte = $_POST['qte'];
         $etat = $_POST['etats'];
         $prix = $_POST['prix'];
@@ -45,15 +48,13 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         $reduction = $_POST['reduction'];
         $emailf = $_POST['emailf'];
         $fb = $_POST['fb'];
-        $cattable = new \app\table\CategorieTable($db);
-        $cat = $cattable->findById($categorie);
-        $cat->setNbrProduit($cat->getNbrProduit() + $qte);
-        $cattable->update($cat);
-        $nvproduit = new \app\classes\Produit($refp, $categorie, $libelle, $prix, $photo, $etatv, $reduction, $fb);
+        move_uploaded_file($tmp_name, __DIR__.'/../../images/'. $nomImage);
+        $nvproduit = new \app\classes\Produit($refp, $categorie, $libelle, $description, $prix, $nomImage, $etatv, $reduction, $fb, $idProduit);
         $produitT = new \app\table\ProduitTable($db);
-        $produitT->create($nvproduit);
+        $produitT->add($nvproduit);
+        $nvproduit = $produitT->findByReference($refp);
         $stockT = new \app\table\StockTable($db);
-        $stock = new \app\classes\Stock($refp, $categorie, $etat, $qte, $emailf);
+        $stock = new \app\classes\Stock($nvproduit->getIdProduit(), $etat, $qte, $emailf);
         $stockT->create($stock);
         header('location: produits.php');
     }
@@ -62,23 +63,34 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
 <div class="insererProduit text-left">
     <div class="container">
         <h1 class="text-center">Produit</h1>
-        <form class="form-horizontal" action="?do=valider" method="post">
+        <form class="form-horizontal" action="?do=valider" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="idProduit" value="<?= $produit->getIdProduit()?>">
             <div class="form-group">
                 <label for="refP" class="col-sm-2 control-label">Reference Produit:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="refP" name="refP" placeholder="Reference Produit" required value="<?= $produit->getReferenceProduit() ?>">
+                    <input type="text" class="form-control" id="refP" name="refP" placeholder="Reference Produit"
+                           required value="<?= $produit->getReferenceProduit() ?>" maxlength="20">
                 </div>
             </div>
             <div class="form-group">
                 <label for="libelle" class="col-sm-2 control-label">Libelle Produit:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle Produit" required value="<?= $produit->getLibelle() ?>">
+                    <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle Produit"
+                           required value="<?= $produit->getLibelle() ?>" maxlength="30">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Description Produit:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="description" name="description"
+                              placeholder="Description Produit" required><?= $produit->getDescription() ?></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="categorie" class="col-sm-2 control-label">Categorie:</label>
                 <div class="col-sm-3">
                     <select name="categorie" id="categorie" class="form-control">
+                        <option disabled selected>Categorie</option>
                         <?php
                             foreach ($cats as $cat){
                                 /** @var $cat \app\classes\Categorie */
@@ -110,22 +122,23 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 </div>
             </div>
             <div class="form-group">
-                <label for="photo" class="col-sm-2 control-label">Chemin photo:</label>
+                <label for="image" class="col-sm-2 control-label">Image du produit:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="photo" name="photo" placeholder="Chemin photo" required value="<?= $produit->getCheminPhoto() ?>">
+                    <input type="file" accept=".jpg, .jpeg" class="form-control" id="image" name="image"
+                           placeholder="Chemin photo" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="qte" class="col-sm-2 control-label">Quantité:</label>
                 <div class="col-sm-3">
-                    <input type="number" step="10" class="form-control" id="qte" name="qte" placeholder="Quantité" required>
+                    <input type="number" min="1" class="form-control" id="qte" name="qte" placeholder="Quantité" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="etats" class="col-sm-2 control-label">Etat:</label>
+                <label for="etats" class="col-sm-2 control-label">Etat de stock:</label>
                 <div class="col-sm-3">
-                    <select name="etats" id="etats" class="form-control">
-                        <option disabled selected>Etat</option>
+                    <select name="etats" id="etats" class="form-control" required>
+                        <option disabled selected>Etat de stock</option>
                         <option value="1">En stock</option>
                         <option value="2">En commande</option>
                     </select>
@@ -135,7 +148,8 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <label for="prix" class="col-sm-2 control-label">Prix:</label>
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <input type="number" step="50" class="form-control" id="prix" name="prix" placeholder="Prix" required value="<?= $produit->getPrix() ?>">
+                        <input type="number" min="1" class="form-control" id="prix" name="prix"
+                               placeholder="Prix" required value="<?= $produit->getPrix() ?>">
                         <div class="input-group-addon">.00 DA</div>
                     </div>
                 </div>
@@ -144,15 +158,17 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <label for="etatv" class="col-sm-2 control-label">Etat de vente:</label>
                 <div class="col-sm-3">
                     <select name="etatv" id="etatv" class="form-control">
-                        <option disabled>Etat de vente</option>
-                        <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
-                            echo " <option value=\"1\" selected>Sans promotion</option>
-                                    <option value=\"2\">En promotion</option>";
-                            else
-                                echo "<option value=\"1\">Sans promotion</option>
-                                        <option value=\"2\" selected>En promotion</option>";
-                        ?>
-
+                        <option disabled <?php if ($produit->getEtatVente() == null) echo "selected"?>>
+                        Etat de vente
+                        </option>
+                        <option value="1" <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
+                            echo "selected" ?>>
+                            Sans promotion
+                        </option>
+                        <option value="2" <?php if ($produit->getEtatVente() == \app\classes\Produit::EN_PROMOTION)
+                            echo "selected" ?>>
+                            En promotion
+                        </option>
                     </select>
                 </div>
             </div>
@@ -160,9 +176,10 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <label for="reduction" class="col-sm-2 control-label">Réduction:</label>
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <input type="number" step="1" class="form-control" id="reduction" name="reduction" placeholder="Reduction" required value="<?= $produit->getPourcentageReduction() ?>">
+                        <input type="number" min="0" max="100" step="1" class="form-control" id="reduction" name="reduction"
+                               placeholder="Reduction" required value="<?= $produit->getPourcentageReduction() ?>">
                         <div class="input-group-addon">%</div>
-</div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">

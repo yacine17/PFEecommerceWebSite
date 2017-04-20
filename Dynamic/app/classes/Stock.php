@@ -11,8 +11,7 @@ namespace app\classes;
 
 class Stock
 {
-    private $refproduit;
-    private $idcategorie;
+    private $idProduit;
     private $etat;
     private $qtedispo;
     private $emailfournisseur;
@@ -21,16 +20,15 @@ class Stock
 
     /**
      * Stock constructor.
-     * @param $refproduit
-     * @param $idcategorie
+     * @param $idProduit
      * @param $etat
      * @param $qtedispo
      * @param $emailfournisseur
      */
-    public function __construct($refproduit = null, $idcategorie = null, $etat = null, $qtedispo = null, $emailfournisseur = null)
+    public function __construct($idProduit = null, $etat = null, $qtedispo = null, $emailfournisseur = null)
     {
-        if (isset($refproduit))
-            $this->refproduit = $refproduit;
+        if (isset($idProduit))
+            $this->idProduit = $idProduit;
         if (isset($idcategorie))
             $this->idcategorie = $idcategorie;
         if (isset($etat))
@@ -44,33 +42,17 @@ class Stock
     /**
      * @return string
      */
-    public function getReferenceProduit()
+    public function getIdProduit()
     {
-        return $this->refproduit;
+        return $this->idProduit;
     }
 
     /**
-     * @param null $refproduit
+     * @param null $idProduit
      */
-    public function setReferenceProduit($refproduit)
+    public function setIdProduit($idProduit)
     {
-        $this->refproduit = $refproduit;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIdCategorie()
-    {
-        return $this->idcategorie;
-    }
-
-    /**
-     * @param null $idcategorie
-     */
-    public function setIdCategorie($idcategorie)
-    {
-        $this->idcategorie = $idcategorie;
+        $this->idProduit = $idProduit;
     }
 
     /**

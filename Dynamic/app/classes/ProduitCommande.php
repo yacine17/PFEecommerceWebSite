@@ -11,20 +11,20 @@ namespace app\classes;
 
 class ProduitCommande
 {
-    private $refproduit;
+    private $idProduit;
     private $idcmd;
     private $qte;
 
     /**
      * ProduitCommande constructor.
-     * @param $refproduit
+     * @param $idProduit
      * @param $idcmd
      * @param $qte
      */
-    public function __construct($refproduit = null, $idcmd = null, $qte = null)
+    public function __construct($idProduit = null, $idcmd = null, $qte = null)
     {
-        if (isset($refproduit))
-            $this->refproduit = $refproduit;
+        if (isset($idProduit))
+            $this->idProduit = $idProduit;
         if (isset($idcmd))
             $this->idcmd = $idcmd;
         if (isset($qte))
@@ -34,17 +34,17 @@ class ProduitCommande
     /**
      * @return null
      */
-    public function getReferenceProduit()
+    public function getIdProduit()
     {
-        return $this->refproduit;
+        return $this->idProduit;
     }
 
     /**
-     * @param null $refproduit
+     * @param null $idProduit
      */
-    public function setReferenceProduit($refproduit)
+    public function setIdProduit($idProduit)
     {
-        $this->refproduit = $refproduit;
+        $this->idProduit = $idProduit;
     }
 
     /**

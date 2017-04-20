@@ -12,23 +12,23 @@ namespace app\classes;
 class Caracteristique
 {
     private $idcaracteristique;
-    private $referencep;
+    private $idProduit;
     private $nom;
     private $caractere;
 
     /**
      * Caracteristique constructor.
      * @param $idcaracteristique
-     * @param $referencep
+     * @param $idProduit
      * @param $nom
      * @param $caractere
      */
-    public function __construct($idcaracteristique = null, $referencep = null, $nom = null, $caractere = null)
+    public function __construct($idcaracteristique = null, $idProduit = null, $nom = null, $caractere = null)
     {
         if (isset($idcaracteristique))
             $this->idcaracteristique = $idcaracteristique;
-        if (isset($referencep))
-            $this->referencep = $referencep;
+        if (isset($idProduit))
+            $this->idProduit = $idProduit;
         if (isset($nom))
             $this->nom = $nom;
         if (isset($caractere))
@@ -54,17 +54,17 @@ class Caracteristique
     /**
      * @return null
      */
-    public function getReferenceProduit()
+    public function getIdProduit()
     {
-        return $this->referencep;
+        return $this->idProduit;
     }
 
     /**
-     * @param null $referencep
+     * @param null $idProduit
      */
-    public function setReferenceProduit($referencep)
+    public function setReferenceProduit($idProduit)
     {
-        $this->referencep = $referencep;
+        $this->idProduit = $idProduit;
     }
 
     /**

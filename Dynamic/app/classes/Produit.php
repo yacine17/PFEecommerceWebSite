@@ -11,10 +11,11 @@ namespace app\classes;
 
 class Produit
 {
+    private $idProduit;
     private $referencep;
     private $idcategorie;
-    private $idcaracteristique;
     private $libelle;
+    private $description;
     private $prix;
     private $cheminphoto;
     private $etatvente;
@@ -29,13 +30,16 @@ class Produit
      * @param $referencep
      * @param $idcategorie
      * @param $libelle
+     * @param $description
      * @param $prix
      * @param $cheminphoto
      * @param $etatvente
      * @param $pourcentagereduction
+     * @param $lienFB
+     * @param $idProduit
      */
-    public function __construct($referencep = null, $idcategorie = null, $libelle = null,
-                                $prix = null, $cheminphoto = null, $etatvente = null, $pourcentagereduction = null,$lienFB=null)
+    public function __construct($referencep = null, $idcategorie = null, $libelle = null, $description = null, $prix = null,
+                                $cheminphoto = null, $etatvente = null, $pourcentagereduction = null, $lienFB=null, $idProduit = null)
     {
         if (isset($referencep))
             $this->referencep = $referencep;
@@ -45,6 +49,8 @@ class Produit
             $this->idcaracteristique = $idcaracteristique;
         if (isset($libelle))
             $this->libelle = $libelle;
+        if (isset($description))
+            $this->description = $description;
         if (isset($prix))
             $this->prix = $prix;
         if (isset($cheminphoto))
@@ -55,6 +61,24 @@ class Produit
             $this->pourcentagereduction = $pourcentagereduction;
         if (isset($lienFB))
             $this->lienFB = $lienFB;
+        if (isset($idProduit))
+            $this->idProduit = $idProduit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdProduit()
+    {
+        return $this->idProduit;
+    }
+
+    /**
+     * @param $idProduit
+     */
+    public function setIdProduit($idProduit)
+    {
+        $this->idProduit = $idProduit;
     }
 
     /**
@@ -104,6 +128,22 @@ class Produit
     {
         $this->libelle = $libelle;
     }
+
+    /**
+     * @return null
+     */
+     public function getDescription()
+     {
+         return $this->description;
+     }
+
+    /**
+     * @param $description
+     */
+     public function setDescription($description)
+     {
+         $this->description = $description;
+     }
 
     /**
      * @return mixed

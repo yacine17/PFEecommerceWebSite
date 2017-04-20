@@ -8,52 +8,41 @@
 session_start();
 require '..\app\Autoloader.php';
 app\Autoloader::register();
-if (\app\classes\Authentification::estConnecte())
+if (isset($_GET['do']) && $_GET['do'] == 'supprimerTout')
 {
-    if (isset($_GET['do']) && $_GET['do'] == 'supprimerTout')
-    {
-        unset($_SESSION['panier']);
+    unset($_SESSION['panier']);
+}
+elseif (isset($_GET['do']) && $_GET['do'] == 'supprimer')
+{
+    foreach ($_SESSION['panier'] as $produit) {
+        if ($produit['id'] == $_GET['id'])
+        {
+            $i = array_search($produit, $_SESSION['panier']);
+            unset($_SESSION['panier'][$i]);
+        }
     }
-    elseif (isset($_GET['do']) && $_GET['do'] == 'supprimer')
+}
+else
+{
+    if (isset($_GET['id']))
     {
+        if (!is_array($_SESSION['panier']))
+            $_SESSION['panier'] = array();
+        $exist = false;
         foreach ($_SESSION['panier'] as $produit) {
             if ($produit['id'] == $_GET['id'])
-            {
-                $i = array_search($produit, $_SESSION['panier']);
-                unset($_SESSION['panier'][$i]);
-            }
+                $exist = true;
         }
-    }
-    else
-    {
-        if (isset($_GET['id']))
+        if (!$exist)
         {
-            if (!is_array($_SESSION['panier']))
-                $_SESSION['panier'] = array();
-            $exist = false;
-            foreach ($_SESSION['panier'] as $produit)
-            {
-                if ($produit['id'] == $_GET['id'])
-                    $exist = true;
-            }
-            if (!$exist)
-            {
-                $element = array(
-                    'id' => $_GET['id'],
-                    'qte' => 1
-                );
-                array_push($_SESSION['panier'], $element);
-            }
-            else
-                header('500 Internal Server Error', true, 500);
+            $element = array(
+                'id' => $_GET['id'],
+                'qte' => 1
+            );
+            array_push($_SESSION['panier'], $element);
         }
         else
-        {
-            if (!is_array($_SESSION['panierNonConnecte']))
-                $_SESSION['panierNonConnecte'] = array();
-            array_push($_SESSION['panierNonConnecte'], $_GET['id']);
-        }
+            header('500 Internal Server Error', true, 500);
     }
-
-    //header('location: ../index.php');
 }
+

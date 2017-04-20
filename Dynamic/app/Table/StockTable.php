@@ -15,12 +15,11 @@ class StockTable extends Table
 {
     /**
      * Récupérer un produit stocké par son id
-     * @param $referenceProduit
-     * @param $idCategorie
+     * @param $idProduit
      * @return Stock
      */
-    public function findById($referenceProduit, $idCategorie) {
-        $stock = $this->db->prepare("SELECT * FROM stock WHERE refproduit = ? AND idcategorie = ?", array($referenceProduit, $idCategorie), Stock::class, true);
+    public function findById($idProduit) {
+        $stock = $this->db->prepare("SELECT * FROM stock WHERE idProduit = ?", array($idProduit), Stock::class, true);
         return $stock;
     }
 
@@ -38,12 +37,12 @@ class StockTable extends Table
      */
     public function create(Stock $stock){
         $param = array(
-            ':refproduit' => $stock->getReferenceProduit(),
-            ':etat' => $stock->getIdCategorie(),
+            ':idProduit' => $stock->getIdProduit(),
+            ':etat' => $stock->getEtat(),
             ':qtedispo' => $stock->getQuantiteDisponible(),
             ':emailfournisseur' => $stock->getEmailFournisseur()
         );
-        $this->db->prepare("INSERT INTO stock VALUES (:refproduit, :etat, :qtedispo, :emailfournisseur)", $param);
+        $this->db->prepare("INSERT INTO stock VALUES (:idProduit, :etat, :qtedispo, :emailfournisseur)", $param);
     }
 
     /**
@@ -52,8 +51,8 @@ class StockTable extends Table
      */
     public function update(Stock $stock){
         $param = array(
-            ':refproduit' => $stock->getReferenceProduit(),
-            ':etat' => $stock->getIdCategorie(),
+            ':idProduit' => $stock->getIdProduit(),
+            ':etat' => $stock->getEtat(),
             ':qtedispo' => $stock->getQuantiteDisponible(),
             ':emailfournisseur' => $stock->getEmailFournisseur()
         );
@@ -63,7 +62,7 @@ class StockTable extends Table
                                 qtedispo = :qtedispo,
                                 emailfournisseur = :emailfournisseur
                                 WHERE 
-                                refproduit = :refproduit", $param);
+                                idProduit = :idProduit", $param);
     }
 
     /**
@@ -72,9 +71,9 @@ class StockTable extends Table
      */
     public function delete(Stock $stock){
         $param = array(
-            ':refproduit' => $stock->getReferenceProduit()
+            ':idProduit' => $stock->getIdProduit()
         );
         $this->db->prepare("DELETE FROM stock
-                                  WHERE refproduit = :refproduit", $param);
+                                  WHERE idProduit = :idProduit", $param);
     }
 }

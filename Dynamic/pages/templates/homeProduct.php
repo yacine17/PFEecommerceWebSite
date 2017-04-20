@@ -24,7 +24,7 @@ $produits = $produitDb->getList(12);
                      */
                     ?>
                     <div class="col-sm-6 col-md-3">
-                        <div class="product" <!--onclick="window.location='produit.html?id=<?= $produit->getReferenceProduit() ?>'"-->
+                        <div class="product" <!--onclick="window.location='produit.html?id=<?= $produit->getIdProduit() ?>'"-->
                             <img src="../images/<?= $produit->getCheminPhoto() ?>" alt="<?= $produit->getLibelle() ?>">
                             <div>
                                 <p><?php
@@ -35,9 +35,9 @@ $produits = $produitDb->getList(12);
                                     ?></p>
                                 <h5 class="prix text-right"><?= $produit->getPrix() . " " ?>DA</h5>
                                 <div class="buttons">
-                                    <a class="cart-add" href="../pages/gestionPanier.php?id=<?= $produit->getReferenceProduit() ?>">
+                                    <a class="cart-add" href="../pages/gestionPanier.php?id=<?= $produit->getIdProduit() ?>">
                                         <i class="fa fa-cart-plus"></i> Ajouter au panier</a><br>
-                                    <a class="favori-add" href="../pages/gestionFavoris.php?id=<?= $produit->getReferenceProduit() ?>">
+                                    <a class="favori-add" href="../pages/gestionFavoris.php?id=<?= $produit->getIdProduit() ?>">
                                         <i class="fa fa-heart-o"></i> Ajouter au favoris</a><br>
                                     <a class="compare-add"><i class="fa fa-plus-square"></i> Ajouter au comparteur</a><br>
                                     <div>
@@ -57,4 +57,5 @@ $produits = $produitDb->getList(12);
             ?>
     </div>
 </div>
+
 <!--End Home-->

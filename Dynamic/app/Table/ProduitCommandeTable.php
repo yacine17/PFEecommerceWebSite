@@ -16,16 +16,16 @@ class ProduitCommandeTable extends Table
 
     /**
      * Récupérer produitCommandé par son id
-     * @param $referenceProduit
+     * @param $idProduit
      * @param $idCommande
      * @return ProduitCommande
      */
-    public function findById($referenceProduit, $idCommande){
+    public function findById($idProduit, $idCommande){
         $param = array(
-            ':refproduit' => $referenceProduit,
+            ':idProduit' => $idProduit,
             ':idcmd' => $idCommande
         );
-        $prodCmd = $this->db->prepare("SELECT * FROM produitcommande WHERE refproduit = :refproduit AND idcmd = :idcmd", $param, ProduitCommande::class, true);
+        $prodCmd = $this->db->prepare("SELECT * FROM produitcommande WHERE idProduit = :idProduit AND idcmd = :idcmd", $param, ProduitCommande::class, true);
         return $prodCmd;
     }
 
@@ -43,11 +43,11 @@ class ProduitCommandeTable extends Table
      */
     public function create(ProduitCommande $produitCommande){
         $param = array(
-            ':refproduit' => $produitCommande->getReferenceProduit(),
+            ':idProduit' => $produitCommande->getIdProduit(),
             ':idcmd' => $produitCommande->getIdCommande(),
             ':qte' => $produitCommande->getQuantite()
         );
-        $this->db->prepare("INSERT INTO produitcommande VALUES (:refproduit, :idcmd, :qte)", $param);
+        $this->db->prepare("INSERT INTO produitcommande VALUES (:idProduit, :idcmd, :qte)", $param);
     }
 
     /**
@@ -56,7 +56,7 @@ class ProduitCommandeTable extends Table
      */
     public function update(ProduitCommande $produitCommande){
         $param = array(
-            ':refproduit' => $produitCommande->getReferenceProduit(),
+            ':idProduit' => $produitCommande->getIdProduit(),
             ':idcmd' => $produitCommande->getIdCommande(),
             ':qte' => $produitCommande->getQuantite()
         );
@@ -64,7 +64,7 @@ class ProduitCommandeTable extends Table
                                 SET 
                                 qte = :qte
                                 WHERE 
-                                refproduit = :refproduit AND
+                                idProduit = :idProduit AND
                                 idcmd = :idcmd", $param);
     }
 
@@ -74,9 +74,9 @@ class ProduitCommandeTable extends Table
      */
     public function delete(ProduitCommande $produitCommande){
         $param = array(
-            ':refproduit' => $produitCommande->getReferenceProduit(),
+            ':idProduit' => $produitCommande->getIdProduit(),
             ':idcmd' => $produitCommande->getIdCommande()
         );
-        $this->db->prepare("DELETE FROM produitcommande WHERE refproduit = :refproduit AND idcmd = :idcmd", $param);
+        $this->db->prepare("DELETE FROM produitcommande WHERE idProduit = :idProduit AND idcmd = :idcmd", $param);
     }
 }

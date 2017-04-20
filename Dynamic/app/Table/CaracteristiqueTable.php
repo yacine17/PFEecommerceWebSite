@@ -50,11 +50,11 @@ class CaracteristiqueTable extends Table
     public function create(Caracteristique $caracteristique){
         $param = array(
             ':idcaracteristique' => $caracteristique->getIdCaracteristique(),
-            ':referencep' => $caracteristique->getReferenceProduit(),
+            ':idProduit' => $caracteristique->getIdProduit(),
             ':nom' => $caracteristique->getNom(),
             ':caractere' => $caracteristique->getCaractere()
         );
-        $this->db->prepare("INSERT INTO caracteristique VALUES (:idcaracteristique, :referencep, :nom, :caractere)", $param);
+        $this->db->prepare("INSERT INTO caracteristique VALUES (:idcaracteristique, :idProduit, :nom, :caractere)", $param);
     }
 
     /**
@@ -64,13 +64,13 @@ class CaracteristiqueTable extends Table
     public function update(Caracteristique $caracteristique){
         $param = array(
             ':idcaracteristique' => $caracteristique->getIdCaracteristique(),
-            ':referencep' => $caracteristique->getReferenceProduit(),
+            ':idProduit' => $caracteristique->getIdProduit(),
             ':nom' => $caracteristique->getNom(),
             ':caractere' => $caracteristique->getCaractere()
         );
         $this->db->prepare("UPDATE caracteristique
                                 SET
-                                referencep = :referencep,
+                                idProduit = :idProduit,
                                 nom = :nom,
                                 caractere = :caractere
                                 WHERE idcaracteristique = :idcaracteristique", $param);
