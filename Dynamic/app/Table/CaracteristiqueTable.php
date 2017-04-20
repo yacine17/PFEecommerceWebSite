@@ -10,6 +10,7 @@ namespace app\table;
 
 
 use app\classes\Caracteristique;
+use app\classes\Produit;
 
 class CaracteristiqueTable extends Table
 {
@@ -24,6 +25,16 @@ class CaracteristiqueTable extends Table
         return $car;
     }
 
+    /**
+     * Récupérer tous les caractestique d'un produit
+     * @param $produit
+     * @return array|mixed
+     */
+    public function findByProduit(Produit $produit)
+    {
+        $car = $this->db->prepare("SELECT * FROM caracteristique WHERE idProduit = ?", array($produit->getIdProduit()), Caracteristique::class);
+        return $car;
+    }
     /**
      * Récupérer des caracteristiques a partir d'un nom
      * @param $nom

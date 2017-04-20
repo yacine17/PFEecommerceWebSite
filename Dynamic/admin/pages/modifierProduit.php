@@ -12,12 +12,18 @@ $catDb = new \app\table\CategorieTable($db);
 $cats = $catDb->getAll();
 $produitDb = new ProduitTable($db);
 $produit = new \app\classes\Produit();
+$caracteristiques = new \app\classes\Caracteristique();
+$stock = new \app\classes\Stock();
 if ((isset($_GET['do'])) && ($_GET['do'] == 'mod') ){
     //Modifier un produit
     //Afficher tt les informations de produit
     if (!empty($_GET['id']))
     {
         $produit = $produitDb->findById($_GET['id']);
+        $caracteristiqueDb = new \app\table\CaracteristiqueTable($db);
+        $caracteristiques = $caracteristiqueDb->findByProduit($produit);
+        $stockDb = new \app\table\StockTable($db);
+        $stock = $stockDb->findById($produit->getIdProduit());
         if (!$produit)
         {
             //TODO Produit n'existe pas
@@ -115,6 +121,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
             </div>
             <div class="form-group caracteristique">
                 <label class="col-sm-2 control-label">Caractéristiques:</label>
+                <?php if (empty($caracteristiques)){?>
                 <div class="col-sm-10 col-sm-offset-2">
                     <div class="col-sm-5">
                         <label for="carnom1" class="col-sm-5 control-label">Nom:</label>
@@ -129,6 +136,36 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                         </div>
                     </div>
                 </div>
+                <?php }
+                else
+                {
+                    $i = 1;
+                    foreach ($caracteristiques as $caracteristique){
+                        /**
+                         * @var $caracteristique \app\classes\Caracteristique
+                         */
+                        ?>
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <div class="col-sm-5">
+                                <label for="carnom1" class="col-sm-5 control-label">Nom:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="carnom<?= $i ?>" name="carnom<?= $i ?>"
+                                           placeholder="Nom" required value="<?= $caracteristique->getNom() ?>">
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <label for="cardesc1" class="col-sm-2 control-label">Valeur:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cardesc<?= $i ?>" name="cardesc<?= $i ?>"
+                                           placeholder="Valeur" required value="<?= $caracteristique->getCaractere() ?>">
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+
                 <div>
                     <button type="button" class="btn btn-primary right-float ajouterCaracteristique"><i class="fa fa-plus"></i> Ajouter</button>
                 </div>
@@ -143,16 +180,19 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
             <div class="form-group">
                 <label for="qte" class="col-sm-2 control-label">Quantité:</label>
                 <div class="col-sm-3">
-                    <input type="number" min="1" class="form-control" id="qte" name="qte" placeholder="Quantité" required>
+                    <input type="number" min="1" class="form-control" id="qte" name="qte" placeholder="Quantité" required
+                    value="<?= $stock->getQuantiteDisponible() ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="etats" class="col-sm-2 control-label">Etat de stock:</label>
                 <div class="col-sm-3">
                     <select name="etats" id="etats" class="form-control" required>
-                        <option disabled selected>Etat de stock</option>
-                        <option value="1">En stock</option>
-                        <option value="2">En commande</option>
+                        <option disabled selected >Etat de stock</option>
+                        <option value="1" <?php if ($stock->getEtat() == \app\classes\Stock::DISPONIBLE ) echo "selected" ?>>
+                            En stock</option>
+                        <option value="2" <?php if ($stock->getEtat() == \app\classes\Stock::NON_DISPONIBLE ) echo "selected" ?>>
+                            En commande</option>
                     </select>
                 </div>
             </div>

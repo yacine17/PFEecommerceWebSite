@@ -54,12 +54,12 @@ $catDb = new \app\table\CategorieTable($db);
                         <td><?= $etatVente ?></td>
                         <td><?= $reduction ?></td>
                         <td>
-                            <a class="btn btn-success" href="?do=mod&id=<?= $produit->getReferenceProduit()?>">
+                            <a class="btn btn-success" href="?do=mod&id=<?= $produit->getIdProduit()?>">
                                 <i class="fa fa-edit"></i> Modifier
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-danger confirm" href="?id=<?= $produit->getReferenceProduit()?>">
+                            <a class="btn btn-danger confirm" href="?id=<?= $produit->getIdProduit()?>">
                                 <i class="fa fa-close"></i> Supprimer
                             </a>
                         </td>
