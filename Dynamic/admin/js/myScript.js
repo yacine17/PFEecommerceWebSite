@@ -58,14 +58,18 @@ $("#rechercherProduit").on('input', function () {
 $("#rechercherFacture").on('input',function () {
     var nom = this.value;
     rechercherFacture(nom);
-});
+})
 $("#rechercherCommande").on('input', function () {
     var nom = this.value;
     rechercherCommande(nom);
 });
+/**
+ * Ajouter un ligne de caracterisitque à ajouter produit
+ */
 $(".ajouterCaracteristique").on('click', function () {
     ajouterLigneCaracteristique();
-})
+});
+
 function ajouterLigneCaracteristique() {
     var childs = $(".caracteristique").children("div");
     var nbrCara = childs.length;
@@ -78,3 +82,18 @@ function ajouterLigneCaracteristique() {
     "</div> </div> </div>"
     childs.last().before(htmlCara);
 }
+
+/**
+ * Afficher les produits commandés à la page gestion commandes
+ */
+$('#detailCommande').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id');
+    var url = 'pages/back/produitsCommande.php?id=' + id;
+    var modal = $(this);
+    $.ajax(url)
+        .done(function (data) {
+            console.log(data);
+            modal.html(data);
+        });
+})

@@ -9,6 +9,7 @@
 namespace app\table;
 
 
+use app\classes\Commande;
 use app\classes\ProduitCommande;
 
 class ProduitCommandeTable extends Table
@@ -35,6 +36,11 @@ class ProduitCommandeTable extends Table
      */
     public function getAll(){
         return $this->db->query("SELECT * FROM produitcommande", ProduitCommande::class);
+    }
+
+    public function findByNumCommande($idCommande){
+        $produitsCommandes = $this->db->prepare("SELECT * FROM produitcommande WHERE idcmd = ?", array($idCommande), ProduitCommande::class);
+        return $produitsCommandes;
     }
 
     /**
