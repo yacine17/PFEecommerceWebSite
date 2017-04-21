@@ -4,7 +4,11 @@
  * User: Yacine
  * Date: 03/04/2017
  * Time: 19:00
- */?>
+ */
+$db = \app\Config::getInstance()->getDatabase();
+$commandeDb = new \app\table\CommandeTable($db);
+$commandes = $commandeDb->getAll();
+?>
 <div class="gestionCommande">
     <div class="container">
         <h1 class="text-center">Gestion des commandes</h1>
@@ -28,7 +32,37 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+            <?php
+            foreach ($commandes as $commande)
+            {
+                /**
+                 * @var $commande \app\classes\Commande
+                 */
+                $personneDb = new \app\table\PersonneTable($db);
+                $personne = $personneDb->findByID($commande->getId());
+                $etat = '';
+                if ($commande->getEtatValidation() == \app\classes\Commande::EN_COURS_DE_TRAITEMNT)
+                    $etat = 'En cours de traitement';
+                elseif ($commande->getEtatValidation() == \app\classes\Commande::APPROUVEE)
+                    $etat = 'Approuvée';
+                elseif ($commande->getEtatValidation() == \app\classes\Commande::REFUSEE)
+                    $etat = 'Refusée';
+
+                echo "<tr>
+                            <td>" . $commande->getNumCommande() . "</td>
+                            <td>" . $personne->getNom() . " " . $personne->getPrenom() . "</td>
+                            <td>" . $commande->getDateCommande() . "</td>
+                            <td>" . $etat . "</td>
+                            <td>" . $commande->getAdresseLivraison() . "</td>
+                            <td>
+                                <button type=\"button\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#detailCommande\">Préparer
+                                </button>
+                            </td>
+                        </tr>";
+
+            }
+            ?>
+               <!-- <tr>
                     <td>15472</td>
                     <td>Yacine</td>
                     <td>03/04/2017</td>
@@ -115,7 +149,7 @@
                             Préparer
                         </button>
                     </td>
-                </tr>
+                </tr>-->
             </tbody>
         </table>
         <!--Start Modal-->
