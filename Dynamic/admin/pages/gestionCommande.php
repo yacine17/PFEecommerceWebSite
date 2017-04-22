@@ -8,6 +8,34 @@
 $db = \app\Config::getInstance()->getDatabase();
 $commandeDb = new \app\table\CommandeTable($db);
 $commandes = $commandeDb->getAll();
+if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+    if (isset($_GET['do']) && isset($_GET['id']) && !empty($_GET['do']) && !empty($_GET['id']))
+    {
+        if ($_GET['do'] == 'valider')
+        {
+            $commandeValidee = $commandeDb->findById($_GET['id']);
+            if ($commandeValidee)
+            {
+                $p = new \app\table\ProduitCommandeTable($db);
+                $produitsCommandes = $p->findByNumCommande($_GET['id']);
+                $stockDb = new \app\table\StockTable($db);
+                foreach ($produitsCommandes as $produitsCommande)
+                {
+                    /**
+                     * @var $produitsCommande \app\classes\ProduitCommande
+                     */
+                    $stock = $stockDb->findById($produitsCommande->getIdProduit());
+                    $qte = $stock->getQuantiteDisponible() - $produitsCommande->getQuantite();
+                    $stock->setQuantiteDisponible($qte);
+                    $stockDb->update($stock);
+                }
+                $commandeValidee->setEtatValidation(\app\classes\Commande::APPROUVEE);
+                $commandeDb->update($commandeValidee);
+                header('location: ' . $_SERVER['PHP_SELF']);
+            }
+        }
+    }
+}
 ?>
 <div class="gestionCommande">
     <div class="container">

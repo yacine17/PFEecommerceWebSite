@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Reporter</button>
-                        <button type="button" class="btn btn-primary">Valider</button>
+                        <a  class="btn btn-primary" href="?do=valider&id=<?= $idCommande ?>">Valider</a>
                     </div>
                 </div>
             </div>
