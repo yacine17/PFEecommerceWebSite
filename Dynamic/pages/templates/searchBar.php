@@ -9,12 +9,14 @@
 <div class="container">
     <div class="row search-bar">
         <div class="col-md-8 col-md-offset-2">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for..." autocomplete="on" id="searchBar">
-                <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> </button>
+            <form method="post" action="?do=search" role="form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher..." autocomplete="on" id="searchBar" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> </button>
                     </span>
-            </div><!-- /input-group -->
+                </div><!-- /input-group -->
+            </form>
         </div>
     </div>
 </div>

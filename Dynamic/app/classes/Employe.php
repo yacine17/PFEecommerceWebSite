@@ -8,13 +8,16 @@
 
 namespace app\classes;
 
+use app\Config;
+use app\table\PersonneTable;
 
 class Employe extends Personne
 {
-    protected $numemp;
+    protected $id;
     protected $etatactivite;
-    protected $remarque;
 
+    const ACTIVE = 1;
+    const NON_ACTIVE = 0;
     /**
      * Employe constructor.
      * @param null $nom
@@ -23,36 +26,23 @@ class Employe extends Personne
      * @param null $email
      * @param null $tel
      * @param null $etatactivite
-     * @param null $remarque
      * @param null $id
-     * @param null $numemp
      */
     public function __construct($nom = null, $prenom = null, $adresse = null, $email = null, $tel = null,
-                                $etatactivite = null, $remarque = null, $id = null, $numemp = null)
+                                $etatactivite = null, $id = null)
     {
         parent::__construct($nom, $prenom, $adresse, $email, $tel, $id);
-        if (isset($numemp))
-            $this->numemp = $numemp;
         if (isset($etatactivite))
             $this->etatactivite = $etatactivite;
-        if (isset($remarque))
-            $this->remarque = $remarque;
+        if (isset($id))
+            $this->id = $id;
     }
-
-    /**
-     * @return null
-     */
-    public function getNumEmp()
-    {
-        return $this->numemp;
-    }
-
-    /**
-     * @param null $numemp
-     */
-    public function setNumEmp($numemp)
-    {
-        $this->numemp = $numemp;
+    public function newIdEmploye(){
+    $ptable = new PersonneTable(Config::getInstance()->getDatabase());
+    $dernierId = $ptable->lastEmployeId();
+    $dernierId = substr($dernierId, 1);
+    $nvId = intval($dernierId) + 1;
+    return 'e' . $nvId;
     }
 
     /**
@@ -74,18 +64,16 @@ class Employe extends Personne
     /**
      * @return null
      */
-    public function getRemarque()
+    public function getId()
     {
-        return $this->remarque;
+        return $this->id;
     }
 
     /**
-     * @param null $remarque
+     * @param null $id
      */
-    public function setRemarque($remarque)
+    public function setId($id)
     {
-        $this->remarque = $remarque;
+        $this->id = $id;
     }
-
-
 }

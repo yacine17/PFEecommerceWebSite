@@ -4,6 +4,19 @@
 .navbar{
     margin-bottom: 0;
 }
+.form-control{
+    border-radius: 0;
+}
+.modal-content{
+    border-radius: 0;
+}
+.btn{
+    border-radius: 0;
+    border: none;
+}
+.input-group-btn > .btn{
+    border: 1px solid #CCC;
+}
 body{
     font-family: 'Maven Pro', sans-serif;
 }
@@ -25,7 +38,6 @@ body{
 }
 .accueil .informations{
     background: #FFF;
-    border-radius: 5px;
     margin: 3px 3px;
     padding: 1px 15px;
 }
@@ -47,10 +59,13 @@ body{
 /*End Insérer Produit*/
 /*Start Gestion Produit*/
 .gestionProduit .input-group,
-.gestionFacture .input-group{
+.gestionFacture .input-group,
+.gestionCommande .input-group,
+.gestionCompte .input-group{
     margin: 30px 0 30px 0;
 }
-.gestionProduit .ajouterNouveauProduit{
+.gestionProduit .ajouterNouveauProduit,
+.gestionCompte .ajouterNouveauCompte{
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -63,6 +78,8 @@ body{
     -moz-transition: all 500ms;
     -o-transition: all 500ms;
     transition: all 500ms;
+}
+.gestionProduit .ajouterNouveauProduit{
     font-size: 18px;
 }
 .gestionProduit .ajouterNouveauProduit:hover{
@@ -72,9 +89,105 @@ body{
 .insererProduit .caracteristique .col-sm-5{
     margin: 5px 0;
 }
+.gestionProduit .table tbody tr td:last-child{
+    font-size: 21px;
+    line-height: 21px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gestionProduit .table tbody tr td:last-child .fa-ellipsis-v{
+    position: relative;
+    left: 20px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+}
+.gestionProduit .table tbody tr:hover td:last-child .fa-ellipsis-v{
+    left: 0px;
+}
+.gestionProduit .table tbody tr td:last-child .menu{
+    display: none;
+    position: absolute;
+    background: #EEE;
+    padding: 0 10px;
+    z-index: 200;
+    right: 118px;
+    font-size: 15px;
+    border: 1px solid #CCC;
+}
+.menuEpinle{
+    left: 0px !important;
+}
+.gestionProduit .table tbody tr td:last-child .menu .btn{
+    margin: 5px 0;
+}
 /*End Gestion Produit*/
 /*Start Gestion Facture*/
 .gestionFacture table tr td:first-child{
     font-weight: bold;
 }
 /*End Gestion Facture*/
+.tablesorter th{
+    cursor: pointer;
+    padding-right: 15px !important;
+}
+.requiredInput{
+    float: right;
+    height: 0;
+    font-size: 30px;
+    color: #F00;
+    position: absolute;
+    right: -13px;
+    top: 3px;
+}
+th.headerSortUp {
+    background-image: url(../img/asc.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+
+}
+th.headerSortDown {
+    background-image: url(../img/desc.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.supprimerCaracterestique{
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+.supprimerCaracterestique:hover{
+    color: #E41B17;
+    cursor: pointer;
+}
+.gestionCompte .table tr,
+.gestionCommande .table tr,
+.gestionFacture .table tr,
+.gestionCommandeFournisseur .table tr{
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    cursor: pointer;
+}
+.gestionCompte .table tbody tr:hover,
+.gestionCommande .table tbody tr:hover,
+.gestionFacture .table tbody tr:hover,
+.gestionCommandeFournisseur .table tbody tr:hover{
+    background: #EEE;
+}
+.table thead th:hover{
+    background: #EEE;
+}
+/*Start Gestion des comptes*/
+.gestionCompte .ajouterNouveauCompte{
+    height: 50px;
+    width: 50px;
+    line-height: 43px;
+    border-radius: 50%;
+}
+/*End Gestion des comptes*/

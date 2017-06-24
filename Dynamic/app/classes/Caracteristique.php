@@ -62,7 +62,7 @@ class Caracteristique
     /**
      * @param null $idProduit
      */
-    public function setReferenceProduit($idProduit)
+    public function setIdProduit($idProduit)
     {
         $this->idProduit = $idProduit;
     }

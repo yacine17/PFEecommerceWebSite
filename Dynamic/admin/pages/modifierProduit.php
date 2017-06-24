@@ -12,18 +12,12 @@ $catDb = new \app\table\CategorieTable($db);
 $cats = $catDb->getAll();
 $produitDb = new ProduitTable($db);
 $produit = new \app\classes\Produit();
-$caracteristiques = new \app\classes\Caracteristique();
-$stock = new \app\classes\Stock();
 if ((isset($_GET['do'])) && ($_GET['do'] == 'mod') ){
     //Modifier un produit
     //Afficher tt les informations de produit
     if (!empty($_GET['id']))
     {
         $produit = $produitDb->findById($_GET['id']);
-        $caracteristiqueDb = new \app\table\CaracteristiqueTable($db);
-        $caracteristiques = $caracteristiqueDb->findByProduit($produit);
-        $stockDb = new \app\table\StockTable($db);
-        $stock = $stockDb->findById($produit->getIdProduit());
         if (!$produit)
         {
             //TODO Produit n'existe pas
@@ -37,14 +31,17 @@ elseif ((isset($_GET['do'])) && ($_GET['do'] == 'ajout') )
 elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
 {
     if(isset($_POST['refP']) && !empty($_POST['refP'])) {
+        $extensionsImagesPermis = array('jpeg', 'jpg', 'png');
         $db = \app\Config::getInstance()->getDatabase();
         $idProduit = $_POST['idProduit'];
         $refp = $_POST['refP'];
         $libelle = $_POST['libelle'];
         $description = $_POST['description'];
+        $marque = $_POST['marque'];
         $categorie = $_POST['categorie'];
-        $tmp_name = $_FILES['image']['tmp_name'];
-        $nomImage = $_FILES['image']['name'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $nomImage = $_FILES['image']['name'];
+            move_uploaded_file($tmp_name, __DIR__.'/../../images/'. $nomImage);
         $qte = $_POST['qte'];
         $etat = $_POST['etats'];
         $prix = $_POST['prix'];
@@ -52,28 +49,24 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
         $reduction = $_POST['reduction'];
         $emailf = $_POST['emailf'];
         $fb = $_POST['fb'];
-        move_uploaded_file($tmp_name, __DIR__.'/../../images/'. $nomImage);
-        $nvproduit = new \app\classes\Produit($refp, $categorie, $libelle, $description, $prix, $nomImage, $etatv, $reduction, $fb, $idProduit);
+        $nvproduit = new \app\classes\Produit($refp, $categorie, $libelle, $description, $prix,
+            $nomImage, $etatv, $reduction, $fb, $idProduit, $marque);
         $produitT = new \app\table\ProduitTable($db);
-        $produitT->add($nvproduit);
-        $nvproduit = $produitT->findByReference($refp);
-        $stockT = new \app\table\StockTable($db);
-        $idProduit = $nvproduit->getIdProduit();
-        $stock = new \app\classes\Stock($idProduit, $etat, $qte, $emailf);
-        $stockT->create($stock);
+        $stock = new \app\classes\Stock(null, $etat, $qte, $emailf);
+        $nvproduit->setStock($stock);
         $cara = true;
         $i = 1;
-        $caracteristiqueDb = new \app\table\CaracteristiqueTable($db);
        while ($cara)
        {
            if (isset($_POST['carnom' . $i])) {
                $caracteristique = new \app\classes\Caracteristique(null, $idProduit, $_POST['carnom' . $i], $_POST['cardesc' . $i]);
-                $caracteristiqueDb->create($caracteristique);
+               $nvproduit->ajouterUnCaracteristique($caracteristique);
            }
            else
                $cara= false;
            $i++;
        }
+        $produitT->addV2($nvproduit);
         header('location: produits.php');
     }
 }
@@ -94,7 +87,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <label for="libelle" class="col-sm-2 control-label">Libelle Produit:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Libelle Produit"
-                           required value="<?= $produit->getLibelle() ?>" maxlength="30">
+                           required value="<?= $produit->getLibelle() ?>" maxlength="50">
                 </div>
             </div>
             <div class="form-group">
@@ -102,6 +95,14 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <div class="col-sm-10">
                     <textarea class="form-control" id="description" name="description"
                               placeholder="Description Produit" required><?= $produit->getDescription() ?></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="marque" class="col-sm-2 control-label">Marque Produit:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="marque" name="marque"
+                              placeholder="Marque Produit" required value="<?= $produit->getMarque() ?>"
+                           maxlength="40">
                 </div>
             </div>
             <div class="form-group">
@@ -121,7 +122,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
             </div>
             <div class="form-group caracteristique">
                 <label class="col-sm-2 control-label">Caractéristiques:</label>
-                <?php if (empty($caracteristiques)){?>
+                <?php if (empty($produit->getCaracteristiques())){?>
                 <div class="col-sm-10 col-sm-offset-2">
                     <div class="col-sm-5">
                         <label for="carnom1" class="col-sm-5 control-label">Nom:</label>
@@ -131,8 +132,11 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                     </div>
                     <div class="col-sm-7">
                         <label for="cardesc1" class="col-sm-2 control-label">Valeur:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" id="cardesc1" name="cardesc1" placeholder="Valeur" required>
+                        </div>
+                        <div class="col-sm-1">
+                            <i class="fa fa-close fa-2x supprimerCaracterestique"></i>
                         </div>
                     </div>
                 </div>
@@ -140,7 +144,7 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 else
                 {
                     $i = 1;
-                    foreach ($caracteristiques as $caracteristique){
+                    foreach ($produit->getCaracteristiques() as $caracteristique){
                         /**
                          * @var $caracteristique \app\classes\Caracteristique
                          */
@@ -155,13 +159,17 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                             </div>
                             <div class="col-sm-7">
                                 <label for="cardesc1" class="col-sm-2 control-label">Valeur:</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                     <input type="text" class="form-control" id="cardesc<?= $i ?>" name="cardesc<?= $i ?>"
                                            placeholder="Valeur" required value="<?= $caracteristique->getCaractere() ?>">
+                                </div>
+                                <div class="col-sm-1">
+                                    <i class="fa fa-close fa-2x supprimerCaracterestique"></i>
                                 </div>
                             </div>
                         </div>
                 <?php
+                        $i++;
                     }
                 }
                 ?>
@@ -173,15 +181,15 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
             <div class="form-group">
                 <label for="image" class="col-sm-2 control-label">Image du produit:</label>
                 <div class="col-sm-10">
-                    <input type="file" accept=".jpg, .jpeg" class="form-control" id="image" name="image"
-                           placeholder="Chemin photo" required>
+                    <input type="file" accept=".jpg, .jpeg, .png" class="form-control" id="image" name="image"
+                           placeholder="L'image du produit">
                 </div>
             </div>
             <div class="form-group">
                 <label for="qte" class="col-sm-2 control-label">Quantité:</label>
                 <div class="col-sm-3">
                     <input type="number" min="1" class="form-control" id="qte" name="qte" placeholder="Quantité" required
-                    value="<?= $stock->getQuantiteDisponible() ?>">
+                    value="<?= $produit->getStock()->getQuantiteDisponible() ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -189,9 +197,9 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                 <div class="col-sm-3">
                     <select name="etats" id="etats" class="form-control" required>
                         <option disabled selected >Etat de stock</option>
-                        <option value="1" <?php if ($stock->getEtat() == \app\classes\Stock::DISPONIBLE ) echo "selected" ?>>
+                        <option value="<?= \app\classes\Stock::DISPONIBLE ?>" <?php if ($produit->getStock()->getEtat() == \app\classes\Stock::DISPONIBLE ) echo "selected" ?>>
                             En stock</option>
-                        <option value="2" <?php if ($stock->getEtat() == \app\classes\Stock::NON_DISPONIBLE ) echo "selected" ?>>
+                        <option value="<?= \app\classes\Stock::NON_DISPONIBLE ?>" <?php if ($produit->getStock()->getEtat() == \app\classes\Stock::NON_DISPONIBLE ) echo "selected" ?>>
                             En commande</option>
                     </select>
                 </div>
@@ -213,11 +221,11 @@ elseif((isset($_GET['do'])) && ($_GET['do'] == 'valider'))
                         <option disabled <?php if ($produit->getEtatVente() == null) echo "selected"?>>
                         Etat de vente
                         </option>
-                        <option value="1" <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
+                        <option value="<?= \app\classes\Produit::SANS_PROMOTION ?>" <?php if ($produit->getEtatVente() == \app\classes\Produit::SANS_PROMOTION)
                             echo "selected" ?>>
                             Sans promotion
                         </option>
-                        <option value="2" <?php if ($produit->getEtatVente() == \app\classes\Produit::EN_PROMOTION)
+                        <option value="<?= \app\classes\Produit::EN_PROMOTION ?>" <?php if ($produit->getEtatVente() == \app\classes\Produit::EN_PROMOTION)
                             echo "selected" ?>>
                             En promotion
                         </option>

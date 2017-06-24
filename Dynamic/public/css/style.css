@@ -1,4 +1,10 @@
 /******FB like plugin's*/
+.right-float{
+    float: right;
+}
+a .fa-ellipsis-v{
+    color: #000;
+}
 .fb-plugin{
     padding-left: 23%;
 }
@@ -121,6 +127,15 @@ a:hover{ /*for a without href*/
     right: -20px;
     color: #FFF;
 }
+.navbar-brand > div{
+    display: inline-block;
+}
+img[class="logo"]{
+    width: 58px;
+    vertical-align: top;
+    display: inline;
+    margin-left: 20px;
+}
 /*End Navbar*/
 /*Start Search bar*/
 .search-bar{
@@ -132,12 +147,43 @@ a:hover{ /*for a without href*/
     margin-top: 40px;
     padding-bottom: 70px;
 }
-#myslide img{
+.carousel-inner {
+    height: 450px;
+}
+.carousel-inner .item {
+    overflow: hidden;
     max-width: 100%;
+    max-height: 100%;
+}
+.carousel-inner .item img {
+    width: 100%;
+    min-height: 100%;
+    max-height: none;
 }
 .slide .carousel{
     border: solid 20px #fff;
     border-radius: 15px 15px 0 0;
+}
+.carousel-caption{
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    font-size: 25px;
+    color: #000;
+    font-weight: bold;
+}
+.carousel-indicators li{
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    border-color: #000;
+}
+.carousel-indicators .active
+{
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    background-color: #FF8600;
+    border: solid 2px #000;
 }
 /*End Slide*/
 /*Start Categories home*/
@@ -161,18 +207,21 @@ a:hover{ /*for a without href*/
     background: #DDD;
 }
 .categories-home .categorie img{
-    border-radius: 50%;
+   /* border-radius: 50%;*/
+    width: 150px;
 }
 .filter .chemin,
 .home .chemin{
     margin-bottom: 20px;
     font-size: 18px;
+    color: #42729B;
 }
 /*End Categories home*/
 /*Start Home*/
 .home{
     padding-top: 60px;
     background-color: #F6F6F6;
+    padding-bottom: 70px;
 }
 .home img{
     width: 100%;
@@ -353,16 +402,14 @@ a:hover{ /*for a without href*/
 }
 /*End Contact*/
 /*Start detail produit*/
-.detail-produit{
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
 .detail-produit img{
-    max-width: 100%;
+   width: 270px;
+    height: 230px;
     margin-bottom: 20px;
 }
 .detail-produit .btn{
     margin-right: 15px;
+    margin-top: 7px;
 }
 .detail-produit .cara-produit{
     padding-left: 30px;
@@ -381,11 +428,6 @@ a:hover{ /*for a without href*/
     color: #E41B17;
     font-weight: bold;
 }
-.detail-produit .image-produit,
-.detail-produit .cara-produit{
-    background: #FFF;
-    border: solid 2px #DDD;
-}
 .detail-produit .cara-produit .add-to-favorite .fa-heart{
     color: transparent;
 }
@@ -401,3 +443,48 @@ a:hover{ /*for a without href*/
     height: 112px;
 }
 /*End passer commande*/
+/*Start mes commandes*/
+.mesCommandes table tr td{
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+}
+.mesCommandes table tr:hover td{
+    font-weight: bold;
+    background-color: #FFF;
+    cursor: pointer;
+    height: 110%;
+}
+#detailCommandeModal .table img {
+    height: 80px;
+    width: 80px;
+}
+#detailCommandeModal .enteteModalCommande{
+    padding: 0 20px;
+}
+/*End mes commandes*/
+.contenu-panier .form-group
+{
+    margin-bottom: 0;
+}
+.contenu-panier .form-group input{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px #DDD solid;
+}
+.contenu-panier .resultatRecherche{
+    background: #FFF;
+    padding: 0;
+}
+.contenu-panier .resultatRecherche li{
+    padding: 7px 10px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    cursor: pointer;
+}
+.contenu-panier .resultatRecherche li:hover{
+    background: #CCC;
+}

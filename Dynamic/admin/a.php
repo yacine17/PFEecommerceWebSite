@@ -13,8 +13,10 @@ if (Authentification::estConnecte() && Authentification::estEmploye())
 {
     require 'pages/templates/header.php';
     require 'pages/templates/navbar.php';
-    require 'pages/accueil.php';
+    $facDb = new \app\table\FactureTable(\app\Config::getInstance()->getDatabase());
+    $fac = $facDb->bestEmployes();
 
+    var_dump($fac);
     require 'pages/templates/footer.php';
 }
 else

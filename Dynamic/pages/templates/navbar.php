@@ -9,8 +9,8 @@ use app\App; ?>
 <nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container">
         <div class="row">
-            <a class="navbar-brand hvr-buzz-out" href="#">Lib<span>Tech</span>
-                <div class="slogon">'De la culture à revendre'</div></a>
+            <a class="navbar-brand hvr-buzz-out" href="#"><img src="img/logo libtech.png" class="logo"> <div>Lib<span>Tech</span>
+                    <div class="slogon">'De la culture à revendre'</div></div></a>
         </div>
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -25,7 +25,7 @@ use app\App; ?>
         <div class="collapse navbar-collapse " id="ournavbar">
             <ul class="nav navbar-nav navbar-left">
                 <li <?php if (App::getInstance()->active == 'accueil') echo "class='active'"?>><a href="index.php?do=home">Accueil <span class="sr-only">(current)</span></a></li>
-                <li class="dropdown <?php if (App::getInstance()->active == 'categrie') echo " active" ?>">
+                <li class="dropdown <?php if (App::getInstance()->active == 'categorie') echo " active" ?>">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -35,9 +35,11 @@ use app\App; ?>
                     </ul>
                 </li>
                 <!--<li><a href="#">Promotion</a></li>-->
-                <li <?php if (App::getInstance()->active == 'contact') echo "class='active'"?>><a href="contact.html">Contact</a></li>
-                <li <?php if (App::getInstance()->active == 'passerCommande') echo "class='active'"?>><a href="passer%20commande.html">Passer commande</a></li>
-                <li <?php if (App::getInstance()->active == 'panier') echo "class='active'" ?>><a href="panier.php" class="fa-parent">
+                <li <?php if (App::getInstance()->active == 'contact') echo "class='active'"?>>
+                    <a href="contact.php">Contact</a>
+                </li>
+                <li <?php if (App::getInstance()->active == 'panier') echo "class='active'" ?>>
+                    <a href="panier.php" class="fa-parent">
                         <i class="fa fa-shopping-cart">
                             <div class='number-elements '>
                             <?php if (isset($_SESSION['panier']) && (count($_SESSION['panier']) > 0))
@@ -69,8 +71,8 @@ use app\App; ?>
                                 <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' 
                                 aria-haspopup='true' aria-expanded='false'>" . $_SESSION['auth']['username'] . "<span class='caret'></span></a>
                                 <ul class='dropdown-menu'>
-                                    <li><a href=''>Modifier profil</a></li>
-                                    <li><a href=''>Mes commandes</a></li>
+                                    <li><a data-toggle='modal' data-target='#modifierProfilModal'>Modifier profil</a></li>
+                                    <li><a href='mesCommandes.php'>Mes commandes</a></li>
                                     <li><a href='../pages/templates/logout.php'>Deconnexion</a></li>
                                 </ul>   
                             </li>";

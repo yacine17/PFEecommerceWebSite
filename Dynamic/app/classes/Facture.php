@@ -19,7 +19,9 @@ class Facture
     private $date;
     private $etatpaiement;
     private $etatlivraison;
-    private $numemploye;
+    private $idemploye;
+    private $commande;
+    private $employe;
 
     //Pour l'état de paiment
     const REGLEE = 1;
@@ -37,12 +39,12 @@ class Facture
      * @param $taxe
      * @param $prixttc
      * @param $date
-     * @param $etatpaiment
+     * @param $etatpaiement
      * @param $etatlivraison
-     * @param $numemploye
+     * @param $idemploye
      */
     public function __construct($numfacture = null, $numcommande = null, $valeurcommande = null, $taxe = null
-        , $prixttc = null, $date = null, $etatpaiement = null, $etatlivraison = null, $numemploye = null)
+        , $prixttc = null, $date = null, $etatpaiement = null, $etatlivraison = null, $idemploye = null)
     {
         if (isset($numfacture))
             $this->numfacture = $numfacture;
@@ -60,8 +62,8 @@ class Facture
             $this->etatpaiement = $etatpaiement;
         if (isset($etatlivraison))
             $this->etatlivraison = $etatlivraison;
-        if (isset($numemploye))
-            $this->numemploye = $numemploye;
+        if (isset($idemploye))
+            $this->idemploye = $idemploye;
     }
 
     /**
@@ -193,19 +195,65 @@ class Facture
     }
 
     /**
-     * @return null
+     * @return Commande
      */
-    public function getNumeroEmploye()
+    public function getCommande()
     {
-        return $this->numemploye;
+        return $this->commande;
     }
 
     /**
-     * @param null $numemploye
+     * @param Commande $commande
      */
-    public function setNumeroEmploye($numemploye)
+    public function setCommande(Commande $commande)
     {
-        $this->numemploye = $numemploye;
+        $this->commande = $commande;
+    }
+
+    /**
+     * @return Employe
+     */
+    public function getEmploye()
+    {
+        return $this->employe;
+    }
+
+    /**
+     * @param Employe $employe
+     */
+    public function setEmploye(Employe $employe)
+    {
+        $this->employe = $employe;
+    }
+
+    public function calculerPrixTTC()
+    {
+        $prixTTC = 0;
+        foreach ($this->getCommande()->getProduitCommandes() as $produitCommande)
+        {
+            /**
+             * @var $produitCommande ProduitCommande
+             */
+            $prixTTC = $produitCommande->getProduit()->getPrix() * $produitCommande->getQuantite();
+        }
+        $this->setPrixTtc($prixTTC);
+        return $this->getPrixTtc();
+    }
+
+    /**
+     * @return null
+     */
+    public function getIdemploye()
+    {
+        return $this->idemploye;
+    }
+
+    /**
+     * @param null $idemploye
+     */
+    public function setIdemploye($idemploye)
+    {
+        $this->idemploye = $idemploye;
     }
 
 

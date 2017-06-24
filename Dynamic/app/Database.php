@@ -85,4 +85,7 @@ class Database
         }
     }
 
+    public function lastInsertedId($name = null){
+        return $this->getPDO()->lastInsertId($name);
+    }
 }

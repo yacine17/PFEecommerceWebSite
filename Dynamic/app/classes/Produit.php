@@ -16,11 +16,16 @@ class Produit
     private $idcategorie;
     private $libelle;
     private $description;
+    private $marque;
     private $prix;
     private $cheminphoto;
     private $etatvente;
     private $pourcentagereduction;
     private $lienFB;
+    private $nombreDeVus;
+    private $nombreDeVente;
+    private $stock;
+    private $caracteristiques;
 
     const SANS_PROMOTION = 1;
     const EN_PROMOTION = 2;
@@ -37,9 +42,11 @@ class Produit
      * @param $pourcentagereduction
      * @param $lienFB
      * @param $idProduit
+     * @param $marque;
      */
-    public function __construct($referencep = null, $idcategorie = null, $libelle = null, $description = null, $prix = null,
-                                $cheminphoto = null, $etatvente = null, $pourcentagereduction = null, $lienFB=null, $idProduit = null)
+    public function __construct($referencep = null, $idcategorie = null, $libelle = null, $description = null,
+                                $prix = null, $cheminphoto = null, $etatvente = null,
+                                $pourcentagereduction = null, $lienFB=null, $idProduit = null, $marque = null)
     {
         if (isset($referencep))
             $this->referencep = $referencep;
@@ -63,6 +70,10 @@ class Produit
             $this->lienFB = $lienFB;
         if (isset($idProduit))
             $this->idProduit = $idProduit;
+        if (isset($marque))
+            $this->marque = $marque;
+        $this->stock = new Stock();
+        $this->caracteristiques = array();
     }
 
     /**
@@ -224,6 +235,115 @@ class Produit
     {
         $this->lienFB = $lienFB;
     }
+
+    /**
+     * @param $marque
+     */
+    public function setMaruqe($marque)
+    {
+        $this->marque = $marque;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMarque()
+    {
+        return $this->marque;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNombreDeVus()
+    {
+        if ($this->nombreDeVus == null)
+            return 0;
+
+        return intval($this->nombreDeVus);
+    }
+
+    /**
+     * @param mixed $nombreDeVus
+     */
+    public function setNombreDeVus($nombreDeVus)
+    {
+        $this->nombreDeVus = $nombreDeVus;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNombreDeVente()
+    {
+        if ($this->nombreDeVente == null)
+            return 0;
+
+        return intval($this->nombreDeVente);
+    }
+
+    /**
+     * @param mixed $nombreDeVente
+     */
+    public function setNombreDeVente($nombreDeVente)
+    {
+        $this->nombreDeVente = $nombreDeVente;
+    }
+
+    /**
+     * @return Stock
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param mixed $stock
+     */
+    public function setStock(Stock $stock)
+    {
+        $this->stock = $stock;
+        $this->stock->setIdProduit($this->idProduit);
+    }
+
+    /**
+     * @return Caracteristique[]
+     */
+    public function getCaracteristiques()
+    {
+        return $this->caracteristiques;
+    }
+
+    /**
+     * @param Caracteristique[] $caracteristiques
+     */
+    public function setCaracteristiques($caracteristiques)
+    {
+        $this->caracteristiques = $caracteristiques;
+    }
+
+    /**
+     * @param Caracteristique $caracteristique
+     */
+    public function ajouterUnCaracteristique(Caracteristique $caracteristique)
+    {
+        $exist = false;
+        if (!empty($this->getCaracteristiques()))
+        {
+            for ($i = 0; $i < count($this->getCaracteristiques()); $i++)
+            {
+                if (strtolower($this->getCaracteristiques()[$i]->getNom()) == strtolower($caracteristique->getNom()))
+                {
+                    $exist = true;
+                    $this->caracteristiques[$i] = $caracteristique;
+                }
+            }
+        }
+        if (!$exist)
+            array_push($this->caracteristiques, $caracteristique);
+    }
+
 
 
 

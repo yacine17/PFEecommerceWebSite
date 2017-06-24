@@ -105,9 +105,14 @@ $(".supprimerFavori").on('click', function (e) {
     var url = $this.attr('href');
     $.ajax(url)
         .done(function () {
-            $this.parent().parent().fadeOut();
+            $this.parent().parent().fadeOut().remove();
             var count = parseInt($(".fa-heart .number-elements").text());
             $(".fa-heart .number-elements").text(--count);
+            if ($("table tr").length == 1)
+            {
+                var panierVide = "<div class='alert alert-danger'>Votre liste des favoris est vide</div>";
+                $(".tab").replaceWith(panierVide);
+            }
         }).fail(function () {
         $this.find(".fa").addClass("added-to-favorite");
         }).always(function () {
@@ -126,9 +131,14 @@ $(".retirer-produit").on('click', function (e) {
         var url = $this.attr('href');
         $.ajax(url)
             .done(function () {
-                $this.parent().parent().fadeOut();
+                $this.parent().parent().fadeOut().remove();
                 var count = parseInt($(".fa-shopping-cart .number-elements").text());
                 $(".fa-shopping-cart .number-elements").text(--count);
+                if ($("table tr").length == 1)
+                {
+                    var panierVide = "<div class='alert alert-danger'>Votre panier est vide</div>";
+                    $(".detailPanier").replaceWith(panierVide);
+                }
             }).fail(function () {
 
         }).always(function () {
@@ -160,3 +170,120 @@ $(".retirerToutProduit").on('click', function (e) {
         });
     }
 });
+
+$(document).on('input', ".quantiteProduit", function () {
+    var thisInput = $(this);
+    var qte = thisInput.val();
+    if (qte >= 1)
+    {
+        var ligneCourante = thisInput.parent().parent();
+        var prixUnitaire = ligneCourante.find(".prixUnitaire");
+        var montant = ligneCourante.find(".montant");
+        montant.text(parseInt(prixUnitaire.text()) * parseInt(qte));
+        var montants = $(".montant");
+        var prixTotalHT = 0;
+        montants.each(function () {
+            prixTotalHT += parseInt($(this).text());
+        });
+        $(".prixTotalHorsTaxe").text(prixTotalHT);
+        $(".prixTTC").text(prixTotalHT);
+        var id = ligneCourante.data("idproduit");
+        var url = "../pages/gestionPanier.php?do=changerQuantite&id=" + id + "&qte=" + qte;
+        $.ajax(url)
+            .done(function (data) {
+            })
+    }
+});
+
+$('#detailProduitModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id');
+    var url = '../pages/templates/detailProduit.php?id=' + id;
+    var modal = $(this);
+    $.ajax(url)
+        .done(function (data) {
+            modal.html(data);
+        });
+});
+$('#detailCommandeModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id');
+    var url = '../pages/templates/detailCommande.php?id=' + id;
+    var modal = $(this);
+    $.ajax(url)
+        .done(function (data) {
+            modal.html(data);
+        });
+});
+
+$("#ajouterArticle").keyup(function () {
+    var nomArticle = $(this).val();
+    $.post('../pages/recherchePanier.php', {search: nomArticle}, function (data) {
+        var listeDeRecherche = $(".resultatRecherche ul");
+        $(".resultatRecherche ul li").remove();
+            if (data)
+                $(".resultatRecherche").show();
+        listeDeRecherche.html(data);
+        if (!data)
+            $(".resultatRecherche").hide();
+    });
+});
+
+$(document).on('click', ".contenu-panier .resultatRecherche .ajouterPanier", function () {
+    var id = $(this).data('id');
+    var url = '../pages/gestionPanier.php?id=' + id + '&r=returnProduit';
+    console.log(url);
+    $.ajax(url)
+        .done(function (produit) {
+            var count = parseInt($(".fa-shopping-cart .number-elements").text());
+            $(".fa-shopping-cart .number-elements").text(++count);
+            $(".contenu-panier table tbody").append(produit);
+            $(".contenu-panier table tbody tr:last-child").fadeIn(1000);
+        });
+});
+
+$("#seConnecter").submit(function (e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    var url = $(this).attr('action');
+    var submitButton = $(this).find("button[type='submit']");
+    submitButton.html("Se connecter " + "<i class='fa fa-spinner fa-pulse fa-fw'></i>");
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    }).done(function () {
+        location.reload();
+    }).fail(function () {
+        var alertErreur = "<div class='alert alert-danger col-md-6 col-md-offset-3'>" +
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>" +
+            "<span aria-hidden='true'>&times;</span></button>" +
+            "Nom d'utilisateur ou mot de passe erroné</div>";
+        $("#loginModal form").before(alertErreur);
+    }).always(function () {
+        submitButton.html("Se connecter");
+    })
+})
+$("#sInscrire").submit(function (e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    var url = $(this).attr('action');
+    var submitButton = $(this).find("button[type='submit']");
+    submitButton.html("S'inscrire " + "<i class='fa fa-spinner fa-pulse fa-fw'></i>");
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    }).done(function () {
+        location.reload();
+    }).fail(function (jqXHR, msg) {
+        console.log(jqXHR);
+        var alertErreur = "<div class='alert alert-danger col-md-6 col-md-offset-3'>" +
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>" +
+            "<span aria-hidden='true'>&times;</span></button>" +
+            msg + "</div>";
+        $("#loginModal form").before(alertErreur);
+    }).always(function () {
+        submitButton.html("S'inscrire");
+    })
+})

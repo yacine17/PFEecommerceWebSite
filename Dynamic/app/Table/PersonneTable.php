@@ -47,6 +47,8 @@ class PersonneTable extends Table
      */
     public  function create(Personne $personne)
     {
+        if (empty($personne->getId()))
+            $personne->setId($personne->newIdClient());
         $values = array(
             ':id'        => $personne->getId(),
             ':nom'     => $personne->getNom(),
@@ -99,5 +101,12 @@ class PersonneTable extends Table
             return $res->id;
         else
             return 'c0';
+    }
+    public function lastEmployeId(){
+        $res=$this->db->query("SELECT id FROM Personne WHERE id LIKE 'E%' ORDER BY id DESC LIMIT 1", null, true);
+        if (!empty($res))
+            return $res->id;
+        else
+            return 'e0';
     }
 }

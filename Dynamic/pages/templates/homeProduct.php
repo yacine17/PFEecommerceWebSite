@@ -14,7 +14,7 @@ $produits = $produitDb->getList(12);
 <div class="home">
     <div class="container">
         <h1 class="text-center">NOS PRODUITS</h1>
-        <a href=""><p class="chemin">Produits à la une...</p></a>
+        <p class="chemin">Produits à la une...</p>
         <div class="row">
             <?php
                 foreach ($produits as $produit)
@@ -24,14 +24,17 @@ $produits = $produitDb->getList(12);
                      */
                     ?>
                     <div class="col-sm-6 col-md-3">
-                        <div class="product" <!--onclick="window.location='produit.html?id=<?= $produit->getIdProduit() ?>'"-->
-                            <img src="../images/<?= $produit->getCheminPhoto() ?>" alt="<?= $produit->getLibelle() ?>">
+                        <div class="product">
+                            <a data-toggle="modal" data-target="#detailProduitModal" data-id="<?= $produit->getIdProduit() ?>">
+                                <img src="../images/<?= $produit->getCheminPhoto() ?>" alt="<?= $produit->getLibelle() ?>"
+                                class="cloudzoom" data-cloudzoom="zoomImage: '../images/<?= $produit->getCheminPhoto() ?>'">
+                            </a>
                             <div>
                                 <p><?php
-                                    if (strlen($produit->getLibelle()) < 23)
+                                    if (strlen($produit->getLibelle()) < 20)
                                         echo $produit->getLibelle();
                                     else
-                                        echo substr($produit->getLibelle(), 0, 23)  . "..."
+                                        echo substr($produit->getLibelle(), 0, 20)  . "..."
                                     ?></p>
                                 <h5 class="prix text-right"><?= $produit->getPrix() . " " ?>DA</h5>
                                 <div class="buttons">
@@ -55,7 +58,12 @@ $produits = $produitDb->getList(12);
                     <?php
                 }
             ?>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="detailProduitModal" tabindex="-1" role="dialog" aria-labelledby="detailProduitModalLabel">
+        </div>
     </div>
 </div>
-
 <!--End Home-->
+<?php
+require '../pages/templates/detailProduit.php';

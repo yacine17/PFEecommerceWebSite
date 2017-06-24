@@ -14,7 +14,7 @@ use app\table\PersonneTable;
 @ session_start();
 //Tester si l'utilisateur vient d'une requete HTTP POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if ($_GET['op'] == 'connexion')
+    if (isset($_GET['op']) && $_GET['op'] == 'connexion')
     {
         if (!empty($_POST['username']) && !empty($_POST['motDePasse']))
         {
@@ -22,11 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     'username' => $_POST['username'],
                     'motDePasse' => $_POST['motDePasse']
             );
+
             if (Authentification::estConnecte()){
                 //Connecté
+               header('location: '. $_SERVER['HTTP_REFERER']);
             }
             else{
-                //Non connecté
+                session_reset();
+                header('500 Internal Server Error', true, 500);
             }
         }
         else
@@ -34,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
          //TODO erreur champs non remplis
         }
     }
-    elseif ($_GET['op'] == 'inscription')
+    elseif (isset($_GET['op']) && $_GET['op'] == 'inscription')
     {
         $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];
@@ -55,12 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             else
             {
-                    //TODO afficher page d'erreur 'username' existe
+                header('500 Internal Server Error', true, 500);
+                echo "Nom d'utilisateur existe déja";
             }
         }
         else
         {
-            //TODO afficher page d'erreur 'un champs ou plus non remplis
+            header('500 Internal Server Error', true, 500);
         }
     }
 }
@@ -73,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <div class="sign-in">
                         <h2 class="h1 text-center">Se connecter</h2>
-                        <form role="form" method="post" action="?op=connexion">
+                        <form role="form" method="post" action="?op=connexion" id="seConnecter">
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom d'utilisateur:</label>
                                 <div class="form-group">
@@ -88,27 +92,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-block" value="Se connecter">
+                                    <button type="submit" class="btn btn-block">
+                                        Se connecter
+                                    </button>
                                 </div>
                             </div>
                         </form>
                         <div class="col-md-6 col-md-offset-3 text-center">
-                            <a>Vous n'avez pas encore de compte</a>
+                            <a>Vous n'avez pas encore un compte</a>
                         </div>
                     </div>
                     <div class="sign-up">
                         <h2 class="h1 text-center">Créer un compte</h2>
-                        <form role="form" method="post" action="?op=inscription">
+                        <form role="form" method="post" action="?op=inscription" id="sInscrire">
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Nom:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nom" pattern="[a-zA-Z]{0,20}">
+                                    <input type="text" class="form-control" name="nom" maxlength="20" ">
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <label>Prenom:</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="prenom" required pattern="[a-zA-Z]{0,20}">
+                                    <input type="text" class="form-control" name="prenom" required maxlength="20">
                                 </div>
                             </div>
                             <div class="col-md-6 col-md-offset-3">
@@ -132,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             </div>
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-block" value="S'inscrire">
+                                    <button type="submit" class="btn btn-block">S'inscrire</button>
                                 </div>
                             </div>
                         </form>

@@ -11,6 +11,7 @@ require '..\app\Autoloader.php';
 app\Autoloader::register();
 if (Authentification::estConnecte() && Authentification::estEmploye())
 {
+    \app\App::getInstance()->title = 'Gestion des factures';
     require 'pages/templates/header.php';
     require 'pages/templates/navbar.php';
 

@@ -6,10 +6,10 @@
  * Time: 22:24
  */?>
 <!--Start Carousel-->
-<div class="slide">
+<div class="slide hidden-xs">
     <div class="container">
         <div>
-            <div id="myslide" class="carousel" data-ride="carousel">
+            <div id="myslide" class="carousel " data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#myslide" data-slide-to="0" class="active"></li>
@@ -20,21 +20,21 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="img/image-slide.jpg" alt="Image 1" class="center-block">
+                        <img src="img/img1.jpg" alt="Image 1" class="center-block">
                         <div class="carousel-caption">
-                            Premier slide exemple exemple exemple
+                            Papeterie, Bureautique et Informatique : les meilleurs prix sont chez LibTech.
                         </div>
                     </div>
                     <div class="item">
-                        <img src="img/img2.png" alt="Image 2" class="center-block">
+                        <img src="img/img2.jpg" alt="Image 2" class="center-block">
                         <div class="carousel-caption">
-                            Deuxieme slide exemple exemple exemple
+                            Le nouveau téléphone mobile de Samsung débarque enfin en Algérie exclusivement chez LibTech.
                         </div>
                     </div>
                     <div class="item">
-                        <img src="img/img3.png" alt="Image 3" class="center-block">
+                        <img src="img/img3.jpg" alt="Image 3" class="center-block">
                         <div class="carousel-caption">
-                            Troisieme slide exemple exemple exemple
+                            LibTech le représentant officiel de la marque Mapped en Algérie.
                         </div>
                     </div>
                     ...
@@ -52,23 +52,23 @@
             </div>
         </div>
         <div class="row text-center categories-home">
-            <a href="categorie.html">
+            <a href="categorie.php?idCat=1">
                 <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <img src="img/papetrie.jpg">
+                    <img src="img/papeterie1.jpg">
                     <h3>Papeterie</h3>
                     <h6>voir categorie</h6>
                 </div>
             </a>
-            <a href="categorie.html">
+            <a href="categorie.php?idCat=2">
                 <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <img src="img/bureautique.jpg">
+                    <img src="img/bureautique1.jpg">
                     <h3>Bureautique</h3>
                     <h6>voir categorie</h6>
                 </div>
             </a>
-            <a href="categorie.html">
+            <a href="categorie.php?idCat=3">
                 <div class="col-lg-4 col-md-6 col-xs-12 categorie">
-                    <img src="img/informatique.jpg">
+                    <img src="img/informatique1.jpg">
                     <h3>Informatique</h3>
                     <h6>voir categorie</h6>
                 </div>

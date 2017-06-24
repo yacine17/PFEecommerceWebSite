@@ -81,4 +81,5 @@ class CategorieTable extends Table
         $this->db->prepare("DELETE FROM categorie WHERE idcategorie = ?", array($categorie->getIdCategorie()));
     }
 
+
 }

@@ -14,6 +14,7 @@ class ProduitCommande
     private $idProduit;
     private $idcmd;
     private $qte;
+    private $Produit;
 
     /**
      * ProduitCommande constructor.
@@ -77,6 +78,22 @@ class ProduitCommande
     public function setQuantite($qte)
     {
         $this->qte = $qte;
+    }
+
+    /**
+     * @return Produit
+     */
+    public function getProduit()
+    {
+        return $this->Produit;
+    }
+
+    /**
+     * @param Produit $Produit
+     */
+    public function setProduit(Produit $Produit)
+    {
+        $this->Produit = $Produit;
     }
 
 

@@ -25,78 +25,91 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
                      * @var $produitsCommande \app\classes\ProduitCommande
                      */
                     $stock = $stockDb->findById($produitsCommande->getIdProduit());
+                    //mise a jour de stock
                     $qte = $stock->getQuantiteDisponible() - $produitsCommande->getQuantite();
                     $stock->setQuantiteDisponible($qte);
                     $stockDb->update($stock);
+                    $produitsCommande->getProduit()->setNombreDeVente(($produitsCommande->getProduit()->getNombreDeVente() + $produitsCommande->getQuantite() ));
+                    $prodDb = new \app\table\ProduitTable($db);
+                    $prodDb->update($produitsCommande->getProduit());
                 }
+                //établir la facture
+                $facture = new \app\classes\Facture(null, $commandeValidee->getNumCommande(), null, 0, null,
+                    date("Y-m-d"), \app\classes\Facture::NON_REGLEE, \app\classes\Facture::NON_LIVREE,
+                    $_SESSION['auth']['id']);
+                $facture->setCommande($commandeValidee);
+                $facture->calculerPrixTTC();
+                $factureDb = new \app\table\FactureTable($db);
+                $factureDb->create($facture);
                 $commandeValidee->setEtatValidation(\app\classes\Commande::APPROUVEE);
                 $commandeDb->update($commandeValidee);
-                header('location: ' . $_SERVER['PHP_SELF']);
+
             }
         }
     }
 }
-?>
-<div class="gestionCommande">
-    <div class="container">
-        <h1 class="text-center">Gestion des commandes</h1>
-        <form>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher une commande" id="rechercherCommande">
-                <span class="input-group-btn">
+if ($commandes) {
+    ?>
+    <div class="gestionCommande">
+        <div class="container">
+            <h1 class="text-center">Gestion des commandes</h1>
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher une commande"
+                           id="rechercherCommande">
+                    <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                 </span>
-            </div>
-        </form>
-        <table class="table">
-            <thead>
+                </div>
+            </form>
+            <table class="table tablesorter" id="tableDesCommandes">
+                <thead>
                 <tr>
                     <th>N° commande</th>
                     <th>Client</th>
                     <th>Date</th>
                     <th>Etat</th>
                     <th>Adresse livraison</th>
-                    <th></th>
                 </tr>
-            </thead>
-            <tbody>
-            <?php
-            foreach ($commandes as $commande)
-            {
-                /**
-                 * @var $commande \app\classes\Commande
-                 */
-                $personneDb = new \app\table\PersonneTable($db);
-                $personne = $personneDb->findByID($commande->getId());
-                $etat = '';
-                if ($commande->getEtatValidation() == \app\classes\Commande::EN_COURS_DE_TRAITEMNT)
-                    $etat = 'En cours de traitement';
-                elseif ($commande->getEtatValidation() == \app\classes\Commande::APPROUVEE)
-                    $etat = 'Approuvée';
-                elseif ($commande->getEtatValidation() == \app\classes\Commande::REFUSEE)
-                    $etat = 'Refusée';
+                </thead>
+                <tbody>
+                <?php
+                foreach ($commandes as $commande) {
+                    /**
+                     * @var $commande \app\classes\Commande
+                     */
+                    $personneDb = new \app\table\PersonneTable($db);
+                    $personne = $personneDb->findByID($commande->getId());
+                    $etat = '';
+                    if ($commande->getEtatValidation() == \app\classes\Commande::EN_COURS_DE_TRAITEMNT)
+                        $etat = 'En attente  de validation';
+                    elseif ($commande->getEtatValidation() == \app\classes\Commande::APPROUVEE)
+                        $etat = 'Approuvée';
+                    elseif ($commande->getEtatValidation() == \app\classes\Commande::REFUSEE)
+                        $etat = 'Refusée';
 
-                echo "<tr>
+                    echo "<tr data-toggle='modal' data-target='#detailCommande'
+                                    data-id='" . $commande->getNumCommande() . "' data-etat='" . $commande->getEtatValidation() . "'>
                             <td>" . $commande->getNumCommande() . "</td>
                             <td>" . $personne->getNom() . " " . $personne->getPrenom() . "</td>
                             <td>" . $commande->getDateCommande() . "</td>
                             <td>" . $etat . "</td>
                             <td>" . $commande->getAdresseLivraison() . "</td>
-                            <td>
-                                <button type='button' class='btn btn-warning detailCommande' data-toggle='modal' data-target='#detailCommande'
-                                    data-id='" . $commande->getNumCommande() . "'>
-                                Préparer
-                                </button>
-                            </td>
                         </tr>";
-            }
-            ?>
-            </tbody>
-        </table>
-        <!--Start Modal-->
-        <div class="modal fade" id="detailCommande" tabindex="-1" role="dialog">
+                }
+                ?>
+                </tbody>
+            </table>
+            <!--Start Modal-->
+            <div class="modal fade" id="detailCommande" tabindex="-1" role="dialog">
 
+            </div>
+            <!--End Modal-->
         </div>
-        <!--End Modal-->
     </div>
-</div>
+    <?php
+}
+else
+{
+    echo "<br><br><br><div class='container'><div class='alert alert-danger'>La liste des commande est vide</div></div>";
+}

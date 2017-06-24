@@ -15,7 +15,10 @@ class Commande
     private $id;
     private $date;
     private $adresselivraison;
+    private $numeroTelephone;
     private $etatvalidation;
+    private $produitCommandes = array();
+    private $client;
 
     //Pour l'etat de validation
     const EN_COURS_DE_TRAITEMNT  = 1;
@@ -28,9 +31,12 @@ class Commande
      * @param $id
      * @param $date
      * @param $adresselivraison
+     * @param $numeroTelephone
      * @param $etatvalidation
+     * @param $produitCommandes
      */
-    public function __construct($numcommande = null, $id = null, $date = null, $adresselivraison = null, $etatvalidation = null)
+    public function __construct($numcommande = null, $id = null, $date = null, $adresselivraison = null,
+                                $numeroTelephone = null, $etatvalidation = null, $produitCommandes = null)
     {
         if (isset($numcommande))
             $this->numcommande = $numcommande;
@@ -42,6 +48,26 @@ class Commande
             $this->adresselivraison = $adresselivraison;
         if (isset($etatvalidation))
             $this->etatvalidation = $etatvalidation;
+        if (isset($produitCommandes ))
+            $this->produitCommandes = $produitCommandes;
+        if (isset($numeroTelephone))
+            $this->numeroTelephone = $numeroTelephone;
+    }
+
+    /**
+     * @return null
+     */
+    public function getNumeroTelephone()
+    {
+        return $this->numeroTelephone;
+    }
+
+    /**
+     * @param null $numeroTelephone
+     */
+    public function setNumeroTelephone($numeroTelephone)
+    {
+        $this->numeroTelephone = $numeroTelephone;
     }
 
     /**
@@ -124,5 +150,53 @@ class Commande
         $this->etatvalidation = $etatvalidation;
     }
 
+    /**
+     * @return array
+     */
+    public function getProduitCommandes()
+    {
+        return $this->produitCommandes;
+    }
 
+    /**
+     * @param array $produitCommandes
+     */
+    public function setProduitCommandes($produitCommandes)
+    {
+        $this->produitCommandes = $produitCommandes;
+    }
+
+    public function ajouterProduitCommande(ProduitCommande $produitCommande)
+    {
+        $this->produitCommandes[] = $produitCommande;
+    }
+
+    /**
+     * @return Personne
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param Personne $client
+     */
+    public function setClient(Personne $client)
+    {
+        $this->client = $client;
+    }
+
+    public function PrixTTC()
+    {
+        $prix = 0;
+        foreach ($this->produitCommandes as $produit)
+        {
+            /**
+             * @var $produit ProduitCommande
+             */
+            $prix = $prix + $produit->getProduit()->getPrix() * $produit->getQuantite();
+        }
+        return $prix;
+    }
 }

@@ -4,7 +4,30 @@
  * User: Yacine
  * Date: 03/04/2017
  * Time: 22:14
- */?>
+ */
+$db = \app\Config::getInstance()->getDatabase();
+$factureDb = new \app\table\FactureTable($db);
+$factures = $factureDb->getAll();
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_GET['do']) && isset($_GET['id']) && !empty($_GET['do']) && !empty(['id']))
+    {
+        if ($_GET['do'] == 'valider')
+        {
+            $idFacture = $_GET['id'];
+            $facture = $factureDb->findById($idFacture);
+            $etatPaiement = $_POST['etatPaiement'];
+            $etatLivraison = $_POST['etatLivraison'];
+            $facture->setEtatPaiement($etatPaiement);
+            $facture->setEtatLivraison($etatLivraison);
+            $factureDb->update($facture);
+            header('location: ' . $_SERVER['PHP_SELF']);
+        }
+    }
+}
+if ($factures)
+{
+?>
 <div class="gestionFacture">
     <div class="container">
         <h1 class="text-center">Gestion des factures</h1>
@@ -16,7 +39,7 @@
                 </span>
             </div>
         </form>
-        <table class="table">
+        <table class="table tablesorter" id="tableDesFactures">
             <thead>
             <tr>
                 <th>N° facture</th>
@@ -25,149 +48,41 @@
                 <th>Date</th>
                 <th>Etat paiment</th>
                 <th>Etat livraison</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>23</td>
-                <td>Younes</td>
-                <td>15000.00 DA</td>
-                <td>03/04/2017</td>
-                <td>Réglée</td>
-                <td>Livrée</td>
-                <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#factureModal">
-                        <i class="fa fa-edit"></i>
-                        Modifer
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>Yacine</td>
-                <td>15000.00 DA</td>
-                <td>03/04/2017</td>
-                <td>Réglée</td>
-                <td>Livrée</td>
-                <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#factureModal">
-                        <i class="fa fa-edit"></i>
-                        Modifer
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>89</td>
-                <td>Hichem</td>
-                <td>15000.00 DA</td>
-                <td>03/04/2017</td>
-                <td>Réglée</td>
-                <td>Livrée</td>
-                <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#factureModal">
-                        <i class="fa fa-edit"></i>
-                        Modifer
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>69</td>
-                <td>Anes</td>
-                <td>15000.00 DA</td>
-                <td>03/04/2017</td>
-                <td>Réglée</td>
-                <td>Livrée</td>
-                <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#factureModal">
-                        <i class="fa fa-edit"></i>
-                        Modifer
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>Amine</td>
-                <td>15000.00 DA</td>
-                <td>03/04/2017</td>
-                <td>Réglée</td>
-                <td>Livrée</td>
-                <td>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#factureModal">
-                        <i class="fa fa-edit"></i>
-                        Modifer
-                    </button>
-                </td>
-            </tr>
+            <?php
+                foreach ($factures as $facture)
+                {
+            /**
+             * @var $facture \app\classes\Facture
+             */
+                    $etatPaiement = ($facture->getEtatPaiement() == \app\classes\Facture::REGLEE) ? 'Réglée' : 'Non réglée';
+                    $etatLivraison = ($facture->getEtatLivraison() == \app\classes\Facture::LIVREE) ? 'Livrée' : 'Non livrée';
+                    ?>
+                    <tr data-toggle="modal" data-target="#factureModal" data-id="<?= $facture->getNumeroFacture() ?>">
+                        <td><?= $facture->getNumeroFacture() ?></td>
+                        <td><?= strtoupper($facture->getCommande()->getClient()->getNom()) . " " . $facture->getCommande()->getClient()->getPrenom() ?></td>
+                        <td><?= $facture->getPrixTtc() ?>.00 DA</td>
+                        <td><?= $facture->getDate() ?></td>
+                        <td><?= $etatPaiement ?></td>
+                        <td><?= $etatLivraison ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
             </tbody>
         </table>
         <!--Start modal-->
         <div class="modal fade" id="factureModal" tabindex="-1" role="dialog" aria-labelledby="factureModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Facture n° 23</h4>
-                    </div>
-                    <form>
-                        <div class="modal-body">
-                            <table class="table">
-                                <tr>
-                                    <td>N° facture:</td>
-                                    <td>23</td>
-                                </tr>
-                                <tr>
-                                    <td>N° commande:</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>Prix sans taxes:</td>
-                                    <td>12500.00 DA</td>
-                                </tr>
-                                <tr>
-                                    <td>Taxe:</td>
-                                    <td>2500.00 DA</td>
-                                </tr>
-                                <tr>
-                                    <td>Prix TTC:</td>
-                                    <td>15000.00 DA</td>
-                                </tr>
-                                <tr>
-                                    <td>Date:</td>
-                                    <td>03/04/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>Etat paiement:</td>
-                                    <td>
-                                        <select name="etatPaiment" class="form-control">
-                                            <option value="1">Réglée</option>
-                                            <option value="2">Non Réglée</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Etat livraison:</td>
-                                    <td>
-                                        <select name="etatLivraison" class="form-control">
-                                            <option value="1">Livrée</option>
-                                            <option value="2">Non livrée</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Employé:</td>
-                                    <td>Mohammed</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
         </div>
         <!--End Modal-->
     </div>
 </div>
+<?php
+}//fin if ($factures)
+else
+{
+    echo "<br><br><br><div class='container'><div class='alert alert-danger'>La liste des factures est vide</div> </div>";
+}

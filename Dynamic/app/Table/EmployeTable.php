@@ -67,11 +67,10 @@ class EmployeTable extends PersonneTable
     {
         parent::create($employe);
         $param = array(
-            ':numemp' => $employe->getNumEmp(),
             ':id' => $employe->getId(),
             ':etatactive' => $employe->getEtatActivite()
         );
-        $this->db->prepare("INSERT INTO employe VALUES (:numemp, :id, :etatactive)", $param);
+        $this->db->prepare("INSERT INTO employe VALUES (:id, :etatactive)", $param);
     }
 
     /**
@@ -82,11 +81,11 @@ class EmployeTable extends PersonneTable
     {
         $param = array(
             ':etatactivite'   => $personne->getEtatActivite(),
-            ':numemp'      => $personne->getNumEmp()
+            ':id'      => $personne->getId()
         );
         $this->db->prepare("UPDATE employe SET
                                   etatactivite = :etatactivite
-                                  WHERE numemp = :numemp", $param);
+                                  WHERE id = :id", $param);
         parent::update($personne);
     }
 

@@ -17,7 +17,6 @@ class Personne extends \stdClass
     protected $id;
     protected $nom;
     protected $prenom;
-    protected $adresse;
     protected $email;
     protected $tel;
 
@@ -32,9 +31,8 @@ class Personne extends \stdClass
      */
     public function __construct($nom = null, $prenom = null, $adresse = null, $email = null, $tel = null, $id = null)
     {
-        if (!isset($id)){
-            $this->id = $this->newIdClient();
-        }
+        if (isset($id))
+            $this->id = $id;
         if (isset($nom))
             $this->nom = $nom;
         if (isset($prenom))
@@ -47,7 +45,7 @@ class Personne extends \stdClass
             $this->tel = $tel;
     }
 
-    private function newIdClient()
+    public function newIdClient()
     {
         $ptable = new PersonneTable(Config::getInstance()->getDatabase());
         $dernierId = $ptable->lastClientId();
@@ -76,7 +74,7 @@ class Personne extends \stdClass
      */
     public function getNom()
     {
-        return $this->nom;
+        return strtoupper($this->nom);
     }
 
     /**

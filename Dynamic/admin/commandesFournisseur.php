@@ -9,11 +9,13 @@ use app\classes\Authentification;
 session_start();
 require '..\app\Autoloader.php';
 app\Autoloader::register();
-if (Authentification::estConnecte() && Authentification::estEmploye())
+if (Authentification::estConnecte() && Authentification::estAdmin())
 {
+    \app\App::getInstance()->title = 'Gestion des commandes fournisseurs';
     require 'pages/templates/header.php';
     require 'pages/templates/navbar.php';
 
+    require 'pages/gestionCommandeFournisseur.php';
 
     require 'pages/templates/footer.php';
 }
